@@ -6,6 +6,8 @@ export declare class ScraperEngine {
     private checkpoint;
     constructor(options?: {
         delayMs?: number;
+        maxRetries?: number;
+        timeoutMs?: number;
         checkpointFile?: string;
     });
     registerAdapter(adapter: IScraperAdapter): void;

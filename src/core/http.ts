@@ -12,11 +12,13 @@ const USER_AGENTS = [
 export class HttpClient {
   private axiosInstance: AxiosInstance;
   private delayMs: number;
+  private maxRetries: number;
 
-  constructor(delayMs: number = 1000) {
+  constructor(delayMs: number = 1000, maxRetries: number = 0, timeoutMs: number = 6000) {
     this.delayMs = delayMs;
+    this.maxRetries = maxRetries;
     this.axiosInstance = axios.create({
-      timeout: 15000,
+      timeout: timeoutMs,
       headers: {
         'Accept-Language': 'en-US,en;q=0.9,ar;q=0.8',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
@@ -32,7 +34,7 @@ export class HttpClient {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  public async fetch(url: string, options: AxiosRequestConfig = {}, retries = 3): Promise<string | null> {
+  public async fetch(url: string, options: AxiosRequestConfig = {}, retries: number = this.maxRetries): Promise<string | null> {
     const isAllowed = await RobotsChecker.isAllowed(url);
     if (!isAllowed) {
       logger.warn(`Skipping URL disallowed by robots.txt: ${url}`);
@@ -42,7 +44,9 @@ export class HttpClient {
     let attempt = 0;
     while (attempt <= retries) {
       try {
-        await this.sleep(this.delayMs + Math.floor(Math.random() * 500)); // Rate limit delay with jitter
+        if (this.delayMs > 0) {
+          await this.sleep(this.delayMs + Math.floor(Math.random() * 200)); // Rate limit delay with jitter
+        }
 
         const userAgent = this.getRandomUserAgent();
         const response = await this.axiosInstance.get(url, {
@@ -57,15 +61,14 @@ export class HttpClient {
       } catch (err: any) {
         attempt++;
         const status = err.response?.status;
-        logger.warn(`[HTTP Fetch Attempt ${attempt}/${retries}] Failed ${url} - Status: ${status || err.code || err.message}`);
+        logger.warn(`[HTTP Fetch] Failed ${url} - Status/Error: ${status || err.code || err.message}`);
 
         if (attempt > retries) {
-          logger.error(`Max retries reached for ${url}. Giving up.`);
+          logger.warn(`Skipping ${url} immediately (max retries = ${retries}).`);
           return null;
         }
 
-        // Exponential backoff: 2s, 4s, 8s...
-        const backoffMs = Math.pow(2, attempt) * 1000 + Math.floor(Math.random() * 1000);
+        const backoffMs = Math.pow(2, attempt) * 1000;
         logger.info(`Retrying in ${backoffMs}ms...`);
         await this.sleep(backoffMs);
       }

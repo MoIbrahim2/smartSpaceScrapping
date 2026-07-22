@@ -19,7 +19,7 @@ class ScraperEngine {
     httpClient;
     checkpoint;
     constructor(options = {}) {
-        this.httpClient = new http_js_1.HttpClient(options.delayMs || 1000);
+        this.httpClient = new http_js_1.HttpClient(options.delayMs ?? 500, options.maxRetries ?? 0, options.timeoutMs ?? 6000);
         this.checkpoint = new checkpoint_js_1.CheckpointManager(options.checkpointFile || '.checkpoint.json');
         // Register standard adapters
         this.registerAdapter(new amazon_js_1.AmazonAdapter(this.httpClient));

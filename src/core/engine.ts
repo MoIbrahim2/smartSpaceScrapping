@@ -16,8 +16,12 @@ export class ScraperEngine {
   private httpClient: HttpClient;
   private checkpoint: CheckpointManager;
 
-  constructor(options: { delayMs?: number; checkpointFile?: string } = {}) {
-    this.httpClient = new HttpClient(options.delayMs || 1000);
+  constructor(options: { delayMs?: number; maxRetries?: number; timeoutMs?: number; checkpointFile?: string } = {}) {
+    this.httpClient = new HttpClient(
+      options.delayMs ?? 500,
+      options.maxRetries ?? 0,
+      options.timeoutMs ?? 6000
+    );
     this.checkpoint = new CheckpointManager(options.checkpointFile || '.checkpoint.json');
 
     // Register standard adapters
