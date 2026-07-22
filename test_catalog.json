@@ -1,0 +1,1222 @@
+[
+  {
+    "externalId": "14737059",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/exfoliating-scrub-gloves-multicolour/N14737059A/p/?o=f0bfe5b86d29086a",
+      "scrapedAt": "2026-07-22T10:00:30.975Z",
+      "lastUpdated": "2026-07-22T10:04:32.556Z"
+    },
+    "basic": {
+      "name": "Exfoliating Scrub Gloves Multicolour",
+      "brand": "Noon Home",
+      "description": "Exfoliating Scrub Gloves Multicolour",
+      "sku": "14737059"
+    },
+    "classification": {
+      "category": "Decorative Object",
+      "subcategory": "General Furnishing",
+      "roomTypes": [
+        "Decor",
+        "Living Room"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Decorative Object",
+        "Modern",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Modern Beige Wood decorative object by Noon Home ideal for Decor and Living Room. Exfoliating Scrub Gloves Multicolour. Exfoliating Scrub Gloves Multicolour",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Decor",
+        "Living Room"
+      ],
+      "keywords": [
+        "exfoliating",
+        "scrub",
+        "gloves",
+        "multicolour",
+        "noon",
+        "home",
+        "decorative",
+        "object",
+        "modern",
+        "beige",
+        "wood"
+      ]
+    }
+  },
+  {
+    "externalId": "53406921",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/3-in-1-interchangeable-grill-waffle-sandwich-maker-650-780-w-ts2130-b5-black/N53406921A/p/?o=c47d843d0ed60a3b",
+      "scrapedAt": "2026-07-22T10:03:14.749Z",
+      "lastUpdated": "2026-07-22T10:03:14.749Z"
+    },
+    "basic": {
+      "name": "3 In 1 Interchangeable Grill & Waffle& Sandwich Maker 650 - 780 W TS2130-B5 Black",
+      "brand": "Noon Home",
+      "description": "3 In 1 Interchangeable Grill & Waffle& Sandwich Maker 650 - 780 W TS2130-B5 Black",
+      "sku": "53406921"
+    },
+    "classification": {
+      "category": "Decorative Object",
+      "subcategory": "General Furnishing",
+      "roomTypes": [
+        "Decor",
+        "Living Room"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Black"
+      ],
+      "tags": [
+        "Decorative Object",
+        "Modern",
+        "Black"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Modern Black Wood decorative object by Noon Home ideal for Decor and Living Room. 3 In 1 Interchangeable Grill & Waffle& Sandwich Maker 650 - 780 W TS2130-B5 Black. 3 In 1 Interchangeable Grill & Waffle& Sandwich Maker 650 - 780 W TS2130-B5 Black",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Black"
+      ],
+      "roomCompatibility": [
+        "Decor",
+        "Living Room"
+      ],
+      "keywords": [
+        "interchangeable",
+        "grill",
+        "waffle",
+        "sandwich",
+        "maker",
+        "650",
+        "780",
+        "ts2130b5",
+        "black",
+        "noon",
+        "home",
+        "decorative",
+        "object",
+        "modern",
+        "wood"
+      ]
+    }
+  },
+  {
+    "externalId": "53179922",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/prestige-facial-tissues-500-sheets-pack-of-6/N53179922A/p/?o=ecf9a1a53acba3bb",
+      "scrapedAt": "2026-07-22T10:03:22.348Z",
+      "lastUpdated": "2026-07-22T10:03:22.348Z"
+    },
+    "basic": {
+      "name": "Prestige Facial Tissues 500 Sheets - Pack of 6",
+      "brand": "Noon Home",
+      "description": "Prestige Facial Tissues 500 Sheets - Pack of 6",
+      "sku": "53179922"
+    },
+    "classification": {
+      "category": "Decorative Object",
+      "subcategory": "General Furnishing",
+      "roomTypes": [
+        "Decor",
+        "Living Room"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Decorative Object",
+        "Modern",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Modern Beige Wood decorative object by Noon Home ideal for Decor and Living Room. Prestige Facial Tissues 500 Sheets - Pack of 6. Prestige Facial Tissues 500 Sheets - Pack of 6",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Decor",
+        "Living Room"
+      ],
+      "keywords": [
+        "prestige",
+        "facial",
+        "tissues",
+        "500",
+        "sheets",
+        "pack",
+        "noon",
+        "home",
+        "decorative",
+        "object",
+        "modern",
+        "beige",
+        "wood"
+      ]
+    }
+  },
+  {
+    "externalId": "51070256",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/rechargeable-led-light-vanity-cosmetic-mirror-pink-27cm/N51070256A/p/?o=bdf439f178f9c9ca",
+      "scrapedAt": "2026-07-22T10:03:26.353Z",
+      "lastUpdated": "2026-07-22T10:03:26.353Z"
+    },
+    "basic": {
+      "name": "Rechargeable LED Light Vanity Cosmetic Mirror Pink 27cm",
+      "brand": "Noon Home",
+      "description": "Rechargeable LED Light Vanity Cosmetic Mirror Pink 27cm",
+      "sku": "51070256"
+    },
+    "classification": {
+      "category": "Dresser",
+      "subcategory": "Storage",
+      "roomTypes": [
+        "Bedroom"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Pink"
+      ],
+      "tags": [
+        "Dresser",
+        "Modern",
+        "Pink"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Modern Pink Wood dresser by Noon Home ideal for Bedroom. Rechargeable LED Light Vanity Cosmetic Mirror Pink 27cm. Rechargeable LED Light Vanity Cosmetic Mirror Pink 27cm",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Pink"
+      ],
+      "roomCompatibility": [
+        "Bedroom"
+      ],
+      "keywords": [
+        "rechargeable",
+        "led",
+        "light",
+        "vanity",
+        "cosmetic",
+        "mirror",
+        "pink",
+        "27cm",
+        "noon",
+        "home",
+        "dresser",
+        "modern",
+        "wood"
+      ]
+    }
+  },
+  {
+    "externalId": "43384078",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/transparent-plastic-facial-tissue-box-with-bamboo-cover-clear-brown/N43384078A/p/?o=f6445216cbc4e6db",
+      "scrapedAt": "2026-07-22T10:03:28.509Z",
+      "lastUpdated": "2026-07-22T10:03:28.509Z"
+    },
+    "basic": {
+      "name": "Transparent Plastic Facial Tissue Box With Bamboo Cover Clear/Brown",
+      "brand": "Noon Home",
+      "description": "Transparent Plastic Facial Tissue Box With Bamboo Cover Clear/Brown",
+      "sku": "43384078"
+    },
+    "classification": {
+      "category": "Decorative Object",
+      "subcategory": "General Furnishing",
+      "roomTypes": [
+        "Decor",
+        "Living Room"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Plastic"
+      ],
+      "colors": [
+        "Brown"
+      ],
+      "tags": [
+        "Decorative Object",
+        "Modern",
+        "Brown"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Modern Brown Plastic decorative object by Noon Home ideal for Decor and Living Room. Transparent Plastic Facial Tissue Box With Bamboo Cover Clear/Brown. Transparent Plastic Facial Tissue Box With Bamboo Cover Clear/Brown",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Brown"
+      ],
+      "roomCompatibility": [
+        "Decor",
+        "Living Room"
+      ],
+      "keywords": [
+        "transparent",
+        "plastic",
+        "facial",
+        "tissue",
+        "box",
+        "bamboo",
+        "cover",
+        "clearbrown",
+        "noon",
+        "home",
+        "decorative",
+        "object",
+        "modern",
+        "brown"
+      ]
+    }
+  },
+  {
+    "externalId": "53179755",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/silence-force-stand-fan-with-remote-control-16-inch-3-speeds-vg413-black/N53179755A/p/?o=cba61323c98aa5fb",
+      "scrapedAt": "2026-07-22T10:06:14.246Z",
+      "lastUpdated": "2026-07-22T10:06:14.246Z"
+    },
+    "basic": {
+      "name": "Silence Force Stand Fan with Remote Control, 16 Inch, 3 Speeds, VG413 Black",
+      "brand": "Noon Home",
+      "description": "Silence Force Stand Fan with Remote Control, 16 Inch, 3 Speeds, VG413 Black",
+      "sku": "53179755"
+    },
+    "classification": {
+      "category": "Decorative Object",
+      "subcategory": "General Furnishing",
+      "roomTypes": [
+        "Decor",
+        "Living Room"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Black",
+        "Beige"
+      ],
+      "tags": [
+        "Decorative Object",
+        "Modern",
+        "Black",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Modern Black/Beige Wood decorative object by Noon Home ideal for Decor and Living Room. Silence Force Stand Fan with Remote Control, 16 Inch, 3 Speeds, VG413 Black. Silence Force Stand Fan with Remote Control, 16 Inch, 3 Speeds, VG413 Black",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Black",
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Decor",
+        "Living Room"
+      ],
+      "keywords": [
+        "silence",
+        "force",
+        "stand",
+        "fan",
+        "remote",
+        "control",
+        "inch",
+        "speeds",
+        "vg413",
+        "black",
+        "noon",
+        "home",
+        "decorative",
+        "object",
+        "modern"
+      ]
+    }
+  },
+  {
+    "externalId": "39699071",
+    "source": {
+      "marketplace": "Jumia Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.jumia.com.eg/ar/generic-office-desk-9040-39699071.html",
+      "scrapedAt": "2026-07-22T10:06:40.084Z",
+      "lastUpdated": "2026-07-22T10:06:40.084Z"
+    },
+    "basic": {
+      "name": "مكتب مكتب - 90*40",
+      "brand": "توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا",
+      "description": "مكتب مكتب - 90*40",
+      "sku": "39699071"
+    },
+    "classification": {
+      "category": "Desk",
+      "subcategory": "Office Desks",
+      "roomTypes": [
+        "Office"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Desk",
+        "Modern",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1200,
+      "originalPrice": 1200,
+      "discountPercentage": 0
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/17/099693/1.jpg?7056",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4,
+      "reviews": 5
+    },
+    "ai": {
+      "embeddingText": "Modern Beige Wood desk by توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا ideal for Office. مكتب مكتب - 90*40. مكتب مكتب - 90*40",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Office"
+      ],
+      "keywords": [
+        "مكتب",
+        "9040",
+        "توصيل",
+        "مجاني",
+        "للطلبات",
+        "الاكتر",
+        "500",
+        "جنيهاشتري",
+        "دلوقتي",
+        "وادفع",
+        "بعدين",
+        "بدون",
+        "فوائد",
+        "وبدون",
+        "مقدم"
+      ]
+    }
+  },
+  {
+    "externalId": "38494739",
+    "source": {
+      "marketplace": "Jumia Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.jumia.com.eg/ar/generic-side-table-versatile-and-stylish-design-38494739.html",
+      "scrapedAt": "2026-07-22T10:06:50.596Z",
+      "lastUpdated": "2026-07-22T10:06:50.596Z"
+    },
+    "basic": {
+      "name": "طاولة جانبية عصرية مصنوعة من الخشب بأبعاد 30*35*37 سم",
+      "brand": "توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا",
+      "description": "طاولة جانبية عصرية مصنوعة من الخشب بأبعاد 30*35*37 سم",
+      "sku": "38494739"
+    },
+    "classification": {
+      "category": "Side Table",
+      "subcategory": "Tables",
+      "roomTypes": [
+        "Living Room",
+        "Bedroom"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Natural Wood"
+      ],
+      "tags": [
+        "Side Table",
+        "Modern",
+        "Natural Wood"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1200,
+      "originalPrice": 1200,
+      "discountPercentage": 0
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/749483/1.jpg?4574",
+        "isPrimary": true
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/749483/2.jpg?4574",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/749483/3.jpg?4574",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/93/749483/4.jpg?4574",
+        "isPrimary": false
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4,
+      "reviews": 5
+    },
+    "ai": {
+      "embeddingText": "Modern Natural Wood Wood side table by توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا ideal for Living Room and Bedroom. طاولة جانبية عصرية مصنوعة من الخشب بأبعاد 30*35*37 سم. طاولة جانبية عصرية مصنوعة من الخشب بأبعاد 30*35*37 سم",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Natural Wood"
+      ],
+      "roomCompatibility": [
+        "Living Room",
+        "Bedroom"
+      ],
+      "keywords": [
+        "طاولة",
+        "جانبية",
+        "عصرية",
+        "مصنوعة",
+        "الخشب",
+        "بأبعاد",
+        "303537",
+        "توصيل",
+        "مجاني",
+        "للطلبات",
+        "الاكتر",
+        "500",
+        "جنيهاشتري",
+        "دلوقتي",
+        "وادفع"
+      ]
+    }
+  },
+  {
+    "externalId": "134102081",
+    "source": {
+      "marketplace": "Jumia Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.jumia.com.eg/ar/generic-led-mirror-clock-digital-alarm-clock-projector-with-timetemperaturedate-display-large-mirror-screen-3-brightness-levels-snooze-function-for-home-and-office-134102081.html",
+      "scrapedAt": "2026-07-22T10:06:55.187Z",
+      "lastUpdated": "2026-07-22T10:06:55.187Z"
+    },
+    "basic": {
+      "name": "ساعة مراية ليد، جهاز عرض ساعة منبه رقمي مع عرض الوقت/ درجة الحرارة/ التاريخ، شاشة مراية كبيرة، سطوع بـ3 مستويات، وظيفة الغفوة للمنزل والمكتب",
+      "brand": "توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا",
+      "description": "ساعة مراية ليد، جهاز عرض ساعة منبه رقمي مع عرض الوقت/ درجة الحرارة/ التاريخ، شاشة مراية كبيرة، سطوع بـ3 مستويات، وظيفة الغفوة للمنزل والمكتب",
+      "sku": "134102081"
+    },
+    "classification": {
+      "category": "Mirror",
+      "subcategory": "Wall Decor",
+      "roomTypes": [
+        "Bathroom",
+        "Bedroom",
+        "Decor",
+        "Office"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Mirror",
+        "Modern",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1200,
+      "originalPrice": 1200,
+      "discountPercentage": 0
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/0201431/1.jpg?3415",
+        "isPrimary": true
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/0201431/2.jpg?3415",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/0201431/3.jpg?3415",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/0201431/4.jpg?3415",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/18/0201431/5.jpg?3415",
+        "isPrimary": false
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4,
+      "reviews": 5
+    },
+    "ai": {
+      "embeddingText": "Modern Beige Wood mirror by توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا ideal for Bathroom and Bedroom and Decor and Office. ساعة مراية ليد، جهاز عرض ساعة منبه رقمي مع عرض الوقت/ درجة الحرارة/ التاريخ، شاشة مراية كبيرة، سطوع بـ3 مستويات، وظيفة الغفوة للمنزل والمكتب. ساعة مراية ليد، جهاز عرض ساعة منبه رقمي مع عرض الوقت/ درجة الحرارة/ التاريخ، شاشة مراية كبيرة، سطوع بـ3 مستويات، وظيفة الغفوة للمنزل والمكتب",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Bathroom",
+        "Bedroom",
+        "Decor",
+        "Office"
+      ],
+      "keywords": [
+        "ساعة",
+        "مراية",
+        "ليد،",
+        "جهاز",
+        "عرض",
+        "منبه",
+        "رقمي",
+        "الوقت",
+        "درجة",
+        "الحرارة",
+        "التاريخ،",
+        "شاشة",
+        "كبيرة،",
+        "سطوع",
+        "بـ3"
+      ]
+    }
+  },
+  {
+    "externalId": "mpg824458",
+    "source": {
+      "marketplace": "Jumia Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.jumia.com.eg/ar/led-desk-lamp-rechargeable-desk-lamp-3-lighting-modes-generic-mpg824458.html",
+      "scrapedAt": "2026-07-22T10:06:57.774Z",
+      "lastUpdated": "2026-07-22T10:06:57.774Z"
+    },
+    "basic": {
+      "name": "مصباح مكتبي ليد ، مصباح مكتبي قابل لإعادة الشحن - 3 أوضاع إضاءة",
+      "brand": "توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا",
+      "description": "مصباح مكتبي ليد ، مصباح مكتبي قابل لإعادة الشحن - 3 أوضاع إضاءة",
+      "sku": "mpg824458"
+    },
+    "classification": {
+      "category": "Lamp",
+      "subcategory": "Lighting",
+      "roomTypes": [
+        "Living Room",
+        "Bedroom",
+        "Office"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Lamp",
+        "Modern",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1200,
+      "originalPrice": 1200,
+      "discountPercentage": 0
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/83/668012/1.jpg?9507",
+        "isPrimary": true
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/83/668012/2.jpg?9507",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/83/668012/3.jpg?9507",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/83/668012/4.jpg?9507",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/83/668012/5.jpg?9507",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/83/668012/6.jpg?9507",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/83/668012/7.jpg?9507",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/83/668012/8.jpg?9507",
+        "isPrimary": false
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4,
+      "reviews": 5
+    },
+    "ai": {
+      "embeddingText": "Modern Beige Wood lamp by توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا ideal for Living Room and Bedroom and Office. مصباح مكتبي ليد ، مصباح مكتبي قابل لإعادة الشحن - 3 أوضاع إضاءة. مصباح مكتبي ليد ، مصباح مكتبي قابل لإعادة الشحن - 3 أوضاع إضاءة",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Living Room",
+        "Bedroom",
+        "Office"
+      ],
+      "keywords": [
+        "مصباح",
+        "مكتبي",
+        "ليد",
+        "قابل",
+        "لإعادة",
+        "الشحن",
+        "أوضاع",
+        "إضاءة",
+        "توصيل",
+        "مجاني",
+        "للطلبات",
+        "الاكتر",
+        "500",
+        "جنيهاشتري",
+        "دلوقتي"
+      ]
+    }
+  },
+  {
+    "externalId": "77327212",
+    "source": {
+      "marketplace": "Jumia Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.jumia.com.eg/ar/line-sleep-flat-bed-sheet-set-move-77327212.html",
+      "scrapedAt": "2026-07-22T10:07:06.507Z",
+      "lastUpdated": "2026-07-22T10:07:06.507Z"
+    },
+    "basic": {
+      "name": "Line Sleep طقم ملاية سرير   - موف",
+      "brand": "توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا",
+      "description": "Line Sleep طقم ملاية سرير   - موف",
+      "sku": "77327212"
+    },
+    "classification": {
+      "category": "Bed",
+      "subcategory": "Beds",
+      "roomTypes": [
+        "Bedroom"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Bed",
+        "Modern",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1200,
+      "originalPrice": 1200,
+      "discountPercentage": 0
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/21/272377/1.jpg?8149",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4,
+      "reviews": 5
+    },
+    "ai": {
+      "embeddingText": "Modern Beige Wood bed by توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا ideal for Bedroom. Line Sleep طقم ملاية سرير   - موف. Line Sleep طقم ملاية سرير   - موف",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Bedroom"
+      ],
+      "keywords": [
+        "line",
+        "sleep",
+        "طقم",
+        "ملاية",
+        "سرير",
+        "موف",
+        "توصيل",
+        "مجاني",
+        "للطلبات",
+        "الاكتر",
+        "500",
+        "جنيهاشتري",
+        "دلوقتي",
+        "وادفع",
+        "بعدين"
+      ]
+    }
+  },
+  {
+    "externalId": "27263708",
+    "source": {
+      "marketplace": "Jumia Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.jumia.com.eg/ar/generic-non-slip-bed-sheet-clips-10-pieces-27263708.html",
+      "scrapedAt": "2026-07-22T10:07:09.766Z",
+      "lastUpdated": "2026-07-22T10:07:09.766Z"
+    },
+    "basic": {
+      "name": "مانع انزلاق ملاية السرير - 10 قطع",
+      "brand": "توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا",
+      "description": "مانع انزلاق ملاية السرير - 10 قطع",
+      "sku": "27263708"
+    },
+    "classification": {
+      "category": "Bed",
+      "subcategory": "Beds",
+      "roomTypes": [
+        "Bedroom"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Bed",
+        "Modern",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1200,
+      "originalPrice": 1200,
+      "discountPercentage": 0
+    },
+    "dimensions": {
+      "width": null,
+      "height": null,
+      "depth": null,
+      "weight": null,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/80/736272/1.jpg?5514",
+        "isPrimary": true
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/80/736272/2.jpg?5514",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/80/736272/3.jpg?5514",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/80/736272/4.jpg?5514",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/80/736272/5.jpg?5514",
+        "isPrimary": false
+      },
+      {
+        "url": "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/80/736272/6.jpg?5514",
+        "isPrimary": false
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4,
+      "reviews": 5
+    },
+    "ai": {
+      "embeddingText": "Modern Beige Wood bed by توصيل مجاني للطلبات الاكتر من 500 جنيه.اشتري دلوقتي وادفع بعدين.. بدون فوائد وبدون مقدم وبدون مصاريف اداريه حتى 3 شهرًا ideal for Bedroom. مانع انزلاق ملاية السرير - 10 قطع. مانع انزلاق ملاية السرير - 10 قطع",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Bedroom"
+      ],
+      "keywords": [
+        "مانع",
+        "انزلاق",
+        "ملاية",
+        "السرير",
+        "قطع",
+        "توصيل",
+        "مجاني",
+        "للطلبات",
+        "الاكتر",
+        "500",
+        "جنيهاشتري",
+        "دلوقتي",
+        "وادفع",
+        "بعدين",
+        "بدون"
+      ]
+    }
+  }
+]
