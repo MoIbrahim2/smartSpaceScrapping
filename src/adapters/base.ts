@@ -5,6 +5,7 @@ import { normalizeStyles } from '../normalizers/style.js';
 import { normalizeColors } from '../normalizers/color.js';
 import { normalizeMaterials } from '../normalizers/material.js';
 import { inferRoomTypes } from '../normalizers/room.js';
+import { extractDimensions } from '../normalizers/dimensions.js';
 import { enrichProductAI } from '../normalizers/aiEnrichment.js';
 import { HttpClient } from '../core/http.js';
 import { logger } from '../core/logger.js';
@@ -37,7 +38,19 @@ export abstract class BaseAdapter implements IScraperAdapter {
     const materials = normalizeMaterials(combinedText);
     const roomTypes = inferRoomTypes(categoryMapping.category, combinedText);
 
-    // Step 3: AI Enrichment
+    // Step 3: Dimensions Extractor (with Category Fallback Engine)
+    const extractedDims = extractDimensions(
+      raw.specifications || {},
+      rawName,
+      rawDesc,
+      categoryMapping.category
+    );
+    const finalWidth = raw.width ?? extractedDims.width;
+    const finalHeight = raw.height ?? extractedDims.height;
+    const finalDepth = raw.depth ?? extractedDims.depth;
+    const finalWeight = raw.weight ?? extractedDims.weight;
+
+    // Step 4: AI Enrichment
     const aiData = enrichProductAI(
       rawName,
       rawDesc,
@@ -49,7 +62,7 @@ export abstract class BaseAdapter implements IScraperAdapter {
       roomTypes
     );
 
-    // Step 4: Images format
+    // Step 5: Images format
     const formattedImages = raw.images.map((imgUrl, index) => ({
       url: imgUrl,
       isPrimary: index === 0,
@@ -61,7 +74,7 @@ export abstract class BaseAdapter implements IScraperAdapter {
       });
     }
 
-    // Step 5: Pricing calculations
+    // Step 6: Pricing calculations
     const curPrice = Math.max(0, raw.currentPrice || 0);
     const origPrice = Math.max(curPrice, raw.originalPrice || curPrice);
     const discount = origPrice > curPrice ? Math.round(((origPrice - curPrice) / origPrice) * 100) : 0;
@@ -99,10 +112,10 @@ export abstract class BaseAdapter implements IScraperAdapter {
         discountPercentage: discount,
       },
       dimensions: {
-        width: raw.width ?? null,
-        height: raw.height ?? null,
-        depth: raw.depth ?? null,
-        weight: raw.weight ?? null,
+        width: finalWidth,
+        height: finalHeight,
+        depth: finalDepth,
+        weight: finalWeight,
         unit: 'cm',
       },
       images: formattedImages,

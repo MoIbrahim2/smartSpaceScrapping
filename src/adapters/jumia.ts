@@ -13,6 +13,8 @@ export class JumiaAdapter extends BaseAdapter {
       { name: 'Home & Office Furniture', url: `${this.baseUrl}/ar/home-office-furniture/`, targetRoom: 'Living Room' },
       { name: 'Home Decor', url: `${this.baseUrl}/ar/home-decor/`, targetRoom: 'Decor' },
       { name: 'Bedding & Bedroom', url: `${this.baseUrl}/ar/bedding/`, targetRoom: 'Bedroom' },
+      { name: 'Lighting & Lamps', url: `${this.baseUrl}/ar/home-lighting/`, targetRoom: 'Decor' },
+      { name: 'Outdoor & Garden', url: `${this.baseUrl}/ar/patio-lawn-garden/`, targetRoom: 'Balcony' },
     ];
   }
 
@@ -38,7 +40,7 @@ export class JumiaAdapter extends BaseAdapter {
       }
     });
 
-    const hasNextPage = $('a[aria-label="الصفحة التالية"], a[aria-label="Next Page"]').length > 0;
+    const hasNextPage = $('a[aria-label="الصفحة التالية"], a[aria-label="Next Page"]').length > 0 && page < 20;
 
     return {
       productUrls,
@@ -69,10 +71,29 @@ export class JumiaAdapter extends BaseAdapter {
     const brand = $('.-fs14 .-pvxs a').text().trim() || 'Jumia Home';
     const description = $('#markup').text().trim() || title;
 
+    const specifications: Record<string, string> = {};
+
+    // Parse Jumia specific spec items (<li class="-pvxs"><span class="-b">الحجم (طولx عرضx ارتفاع سم)</span>: 120*190 CM</li>)
+    $('.-pvs .list.-ndash li, li.-pvxs, #markup li').each((_, el) => {
+      const text = $(el).text().replace(/\s+/g, ' ').trim();
+      const label = $(el).find('span.-b').text().trim();
+      if (label) {
+        const val = text.replace(label, '').replace(/^[:\s]+/, '').trim();
+        specifications[label] = val;
+      } else {
+        const parts = text.split(':');
+        if (parts.length >= 2) {
+          specifications[parts[0].trim()] = parts.slice(1).join(':').trim();
+        } else {
+          specifications[`spec_${_}`] = text;
+        }
+      }
+    });
+
     const images: string[] = [];
     $('#imgs img, .-fw.-m.-auto img').each((_, el) => {
       const src = $(el).attr('data-src') || $(el).attr('src');
-      if (src && src.startsWith('http')) images.push(src);
+      if (src && src.startsWith('http') && !images.includes(src)) images.push(src);
     });
 
     return {
@@ -90,6 +111,7 @@ export class JumiaAdapter extends BaseAdapter {
       inStock: true,
       ratingAverage: 4.0,
       ratingReviews: 5,
+      specifications,
     };
   }
 }

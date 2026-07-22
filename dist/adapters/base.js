@@ -7,6 +7,7 @@ const style_js_1 = require("../normalizers/style.js");
 const color_js_1 = require("../normalizers/color.js");
 const material_js_1 = require("../normalizers/material.js");
 const room_js_1 = require("../normalizers/room.js");
+const dimensions_js_1 = require("../normalizers/dimensions.js");
 const aiEnrichment_js_1 = require("../normalizers/aiEnrichment.js");
 const logger_js_1 = require("../core/logger.js");
 class BaseAdapter {
@@ -26,9 +27,15 @@ class BaseAdapter {
         const colors = (0, color_js_1.normalizeColors)(combinedText);
         const materials = (0, material_js_1.normalizeMaterials)(combinedText);
         const roomTypes = (0, room_js_1.inferRoomTypes)(categoryMapping.category, combinedText);
-        // Step 3: AI Enrichment
+        // Step 3: Dimensions Extractor (with Category Fallback Engine)
+        const extractedDims = (0, dimensions_js_1.extractDimensions)(raw.specifications || {}, rawName, rawDesc, categoryMapping.category);
+        const finalWidth = raw.width ?? extractedDims.width;
+        const finalHeight = raw.height ?? extractedDims.height;
+        const finalDepth = raw.depth ?? extractedDims.depth;
+        const finalWeight = raw.weight ?? extractedDims.weight;
+        // Step 4: AI Enrichment
         const aiData = (0, aiEnrichment_js_1.enrichProductAI)(rawName, rawDesc, raw.brand || this.name, categoryMapping.category, styles, colors, materials, roomTypes);
-        // Step 4: Images format
+        // Step 5: Images format
         const formattedImages = raw.images.map((imgUrl, index) => ({
             url: imgUrl,
             isPrimary: index === 0,
@@ -39,7 +46,7 @@ class BaseAdapter {
                 isPrimary: true,
             });
         }
-        // Step 5: Pricing calculations
+        // Step 6: Pricing calculations
         const curPrice = Math.max(0, raw.currentPrice || 0);
         const origPrice = Math.max(curPrice, raw.originalPrice || curPrice);
         const discount = origPrice > curPrice ? Math.round(((origPrice - curPrice) / origPrice) * 100) : 0;
@@ -75,10 +82,10 @@ class BaseAdapter {
                 discountPercentage: discount,
             },
             dimensions: {
-                width: raw.width ?? null,
-                height: raw.height ?? null,
-                depth: raw.depth ?? null,
-                weight: raw.weight ?? null,
+                width: finalWidth,
+                height: finalHeight,
+                depth: finalDepth,
+                weight: finalWeight,
                 unit: 'cm',
             },
             images: formattedImages,

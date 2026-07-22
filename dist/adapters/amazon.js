@@ -43,11 +43,15 @@ class AmazonAdapter extends base_js_1.BaseAdapter {
     baseUrl = 'https://www.amazon.eg';
     async getCategorySeeds() {
         return [
-            { name: 'Living Room Furniture', url: `${this.baseUrl}/s?k=living+room+furniture`, targetRoom: 'Living Room' },
-            { name: 'Sofas & Couches', url: `${this.baseUrl}/s?k=sofa+couch`, targetRoom: 'Living Room' },
+            { name: 'Sofas & Living Room', url: `${this.baseUrl}/s?k=sofa+couch+living+room`, targetRoom: 'Living Room' },
+            { name: 'Coffee & Side Tables', url: `${this.baseUrl}/s?k=coffee+table+side+table`, targetRoom: 'Living Room' },
+            { name: 'TV Units & Media Consoles', url: `${this.baseUrl}/s?k=tv+unit+tv+stand`, targetRoom: 'Living Room' },
             { name: 'Beds & Mattresses', url: `${this.baseUrl}/s?k=bed+frame+mattress`, targetRoom: 'Bedroom' },
-            { name: 'Office Furniture', url: `${this.baseUrl}/s?k=office+desk+chair`, targetRoom: 'Office' },
-            { name: 'Home Decor', url: `${this.baseUrl}/s?k=home+decor+wall+art+vase`, targetRoom: 'Decor' },
+            { name: 'Wardrobes & Dressers', url: `${this.baseUrl}/s?k=wardrobe+dresser`, targetRoom: 'Bedroom' },
+            { name: 'Dining Tables & Chairs', url: `${this.baseUrl}/s?k=dining+table+chairs`, targetRoom: 'Dining Room' },
+            { name: 'Office Desks & Chairs', url: `${this.baseUrl}/s?k=office+desk+chair`, targetRoom: 'Office' },
+            { name: 'Home Decor & Lighting', url: `${this.baseUrl}/s?k=home+decor+wall+art+lamp`, targetRoom: 'Decor' },
+            { name: 'Outdoor & Balcony Furniture', url: `${this.baseUrl}/s?k=outdoor+furniture+patio`, targetRoom: 'Balcony' },
         ];
     }
     async scrapeCategoryPage(seed, page) {
@@ -67,7 +71,7 @@ class AmazonAdapter extends base_js_1.BaseAdapter {
                 productUrls.push(fullUrl);
             }
         });
-        const hasNextPage = $('.s-pagination-next').length > 0 && !$('.s-pagination-next').hasClass('s-pagination-disabled');
+        const hasNextPage = $('.s-pagination-next').length > 0 && !$('.s-pagination-next').hasClass('s-pagination-disabled') && page < 20;
         return {
             productUrls,
             hasNextPage,
@@ -92,19 +96,53 @@ class AmazonAdapter extends base_js_1.BaseAdapter {
         const strikePrice = $('.a-text-price .a-offscreen').first().text().replace(/[^0-9.]/g, '');
         const originalPrice = strikePrice ? parseFloat(strikePrice) : currentPrice;
         // Brand
-        const brand = $('#bylineInfo').text().replace(/^Brand:\s*/i, '').trim() || 'Amazon Brand';
+        const brand = $('#bylineInfo').text().replace(/^Brand:\s*/i, '').replace(/^الماركة:\s*/i, '').trim() || 'Amazon Furnishings';
         // Description
         const description = $('#feature-bullets').text().replace(/\s+/g, ' ').trim() || title;
+        const specifications = {};
+        // 1. Amazon Product Overview table (<span class="a-size-base po-break-word">70العمق x 165العرض x 75الارتفاع سم </span>)
+        $('.po-break-word, .a-size-base.po-break-word').each((_, el) => {
+            const text = $(el).text().replace(/\s+/g, ' ').trim();
+            if (text.includes('العمق') || text.includes('العرض') || text.includes('الارتفاع') || text.includes('cm') || text.includes('سم')) {
+                specifications[`po_dim_${_}`] = text;
+            }
+        });
+        // 2. Tech Spec tables (#productDetails_techSpec_section_1 tr, #technicalSpecifications_section_1 tr)
+        $('#productDetails_techSpec_section_1 tr, #technicalSpecifications_section_1 tr').each((_, el) => {
+            const key = $(el).find('th').text().trim();
+            const val = $(el).find('td').text().trim();
+            if (key && val)
+                specifications[key] = val;
+        });
+        // 3. Detail Bullet Lists (#detailBullets_feature_div li)
+        $('#detailBullets_feature_div li').each((_, el) => {
+            const text = $(el).text().replace(/\s+/g, ' ').trim();
+            const parts = text.split(':');
+            if (parts.length >= 2) {
+                specifications[parts[0].trim()] = parts.slice(1).join(':').trim();
+            }
+        });
         // Images
         const images = [];
-        $('#imgTagWrapperId img, #landingImage').each((_, el) => {
+        $('#imgTagWrapperId img, #landingImage, #altImages img').each((_, el) => {
+            const dynImg = $(el).attr('data-a-dynamic-image');
+            if (dynImg) {
+                try {
+                    const parsed = JSON.parse(dynImg);
+                    Object.keys(parsed).forEach((k) => {
+                        if (k.startsWith('http') && !images.includes(k))
+                            images.push(k);
+                    });
+                }
+                catch (e) {
+                    // fallback
+                }
+            }
             const src = $(el).attr('src') || $(el).attr('data-old-hires');
-            if (src && src.startsWith('http'))
+            if (src && src.startsWith('http') && !images.includes(src)) {
                 images.push(src);
+            }
         });
-        if (images.length === 0) {
-            images.push('https://images.amazon.com/images/P/placeholder.jpg');
-        }
         return {
             externalId,
             marketplace: this.name,
@@ -116,11 +154,12 @@ class AmazonAdapter extends base_js_1.BaseAdapter {
             currentPrice,
             originalPrice,
             currency: 'EGP',
-            images,
+            images: images.length > 0 ? images : ['https://images.amazon.com/images/P/placeholder.jpg'],
             inStock: true,
             deliveryAvailable: true,
             ratingAverage: 4.2,
             ratingReviews: 35,
+            specifications,
         };
     }
 }

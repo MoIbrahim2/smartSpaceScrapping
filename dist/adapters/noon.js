@@ -47,6 +47,8 @@ class NoonAdapter extends base_js_1.BaseAdapter {
             { name: 'Bedroom Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/bedroom-furniture/`, targetRoom: 'Bedroom' },
             { name: 'Home Decor', url: `${this.baseUrl}/home-and-kitchen/home-decor/`, targetRoom: 'Decor' },
             { name: 'Office Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/office-furniture/`, targetRoom: 'Office' },
+            { name: 'Dining Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/dining-furniture/`, targetRoom: 'Dining Room' },
+            { name: 'Patio & Outdoor', url: `${this.baseUrl}/home-and-kitchen/patio-lawn-and-garden/`, targetRoom: 'Balcony' },
         ];
     }
     async scrapeCategoryPage(seed, page) {
@@ -84,7 +86,7 @@ class NoonAdapter extends base_js_1.BaseAdapter {
                 }
             }
         });
-        const hasNextPage = productUrls.length > 0 && page < 5;
+        const hasNextPage = productUrls.length > 0 && page < 20;
         return {
             productUrls,
             hasNextPage,
@@ -97,28 +99,52 @@ class NoonAdapter extends base_js_1.BaseAdapter {
         if (!html)
             return null;
         const $ = cheerio.load(html);
-        // Extract hydration state if available
+        const specifications = {};
+        // 1. Parse Spec Tables (td[class*="_specName_"] / td[class*="_specValue_"])
+        $('tr').each((_, el) => {
+            const keyTd = $(el).find('td[class*="_specName_"], td:nth-child(1), .specKey');
+            const valTd = $(el).find('td[class*="_specValue_"], td:nth-child(2), .specValue');
+            if (keyTd.length && valTd.length) {
+                const k = keyTd.text().trim();
+                const v = valTd.text().trim();
+                if (k && v)
+                    specifications[k] = v;
+            }
+        });
+        // 2. Parse Product Overview description text (div[class*="_overviewDesc_"] p)
+        const overviewDesc = $('div[class*="_overviewDesc_"] p, div[class*="_overviewDescriptionWrapper_"]').text().replace(/\s+/g, ' ').trim();
+        // 3. Extract hydration state if available
         const nextDataScript = $('#__NEXT_DATA__').html();
         if (nextDataScript) {
             try {
                 const json = JSON.parse(nextDataScript);
                 const skuData = json?.props?.pageProps?.product || json?.props?.pageProps?.initialData?.product;
                 if (skuData) {
+                    if (Array.isArray(skuData.specifications)) {
+                        skuData.specifications.forEach((s) => {
+                            if (s.name && s.value)
+                                specifications[s.name] = s.value;
+                        });
+                    }
+                    else if (typeof skuData.specifications === 'object') {
+                        Object.assign(specifications, skuData.specifications);
+                    }
                     return {
                         externalId: skuData.sku || `noon-${Date.now()}`,
                         marketplace: this.name,
                         productUrl: url,
                         name: skuData.name || 'Noon Furniture Product',
-                        brand: skuData.brand || 'Noon',
-                        description: skuData.description || skuData.name,
+                        brand: skuData.brand || 'Noon Home',
+                        description: (skuData.description || '') + ' ' + overviewDesc,
                         sku: skuData.sku || '',
                         currentPrice: skuData.price || 2000,
                         originalPrice: skuData.was_price || skuData.price || 2000,
                         currency: 'EGP',
-                        images: skuData.images ? skuData.images.map((i) => `https://f.nooncdn.com/p/${i}`) : ['https://f.nooncdn.com/placeholder.jpg'],
+                        images: skuData.images ? skuData.images.map((i) => (i.startsWith('http') ? i : `https://f.nooncdn.com/p/${i}`)) : ['https://f.nooncdn.com/placeholder.jpg'],
                         inStock: skuData.is_in_stock ?? true,
                         ratingAverage: skuData.rating?.average || 4.5,
                         ratingReviews: skuData.rating?.count || 12,
+                        specifications,
                     };
                 }
             }
@@ -140,7 +166,7 @@ class NoonAdapter extends base_js_1.BaseAdapter {
             productUrl: url,
             name: title,
             brand: 'Noon Home',
-            description: title,
+            description: title + ' ' + overviewDesc,
             sku: externalId,
             currentPrice,
             originalPrice: currentPrice * 1.15,
@@ -149,6 +175,7 @@ class NoonAdapter extends base_js_1.BaseAdapter {
             inStock: true,
             ratingAverage: 4.1,
             ratingReviews: 8,
+            specifications,
         };
     }
 }

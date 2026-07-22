@@ -5,6 +5,7 @@ import { normalizeColors } from '../src/normalizers/color.js';
 import { normalizeMaterials } from '../src/normalizers/material.js';
 import { inferRoomTypes } from '../src/normalizers/room.js';
 import { enrichProductAI } from '../src/normalizers/aiEnrichment.js';
+import { extractDimensions } from '../src/normalizers/dimensions.js';
 
 describe('Normalizers Unit Tests', () => {
   it('should normalize different marketplace category terms to Unified category', () => {
@@ -58,6 +59,41 @@ describe('Normalizers Unit Tests', () => {
 
     const officeRooms = inferRoomTypes('Office Chair');
     expect(officeRooms).toContain('Office');
+  });
+
+  it('should extract dimensions correctly from Amazon, Jumia, Noon, and IKEA exact user HTML structures', () => {
+    // 1. Amazon Egypt User HTML Snippet: 70العمق x 165العرض x 75الارتفاع سم
+    const amzDims = extractDimensions({}, 'Sofa', '70العمق x 165العرض x 75الارتفاع سم');
+    expect(amzDims.width).toBe(165);
+    expect(amzDims.depth).toBe(70);
+    expect(amzDims.height).toBe(75);
+
+    // 2. Jumia Egypt User HTML Snippet: الحجم (طولx عرضx ارتفاع سم): 120*190 CM
+    const jumiaDims = extractDimensions({ 'الحجم (طولx عرضx ارتفاع سم)': '120*190 CM' });
+    expect(jumiaDims.width).toBe(120);
+    expect(jumiaDims.depth).toBe(190);
+
+    // 3. Noon Egypt User HTML Snippet: Product Length 120 cm / Height (cm) 80 Width (cm) 210 Depth (cm) 80
+    const noonDimsSpec = extractDimensions({ 'Product Length': '120 cm', 'Product Height': '220 cm' });
+    expect(noonDimsSpec.depth).toBe(120);
+    expect(noonDimsSpec.height).toBe(220);
+
+    const noonDimsDesc = extractDimensions({}, 'Sofa', 'Height (cm) 80 Width (cm) 210 Depth (cm) 80');
+    expect(noonDimsDesc.height).toBe(80);
+    expect(noonDimsDesc.width).toBe(210);
+    expect(noonDimsDesc.depth).toBe(80);
+
+    // 4. IKEA Egypt User HTML Snippet: العمق: 86 سم, الإرتفاع: 99 سم, العرض: 82 سم, الوزن: 25.72 كلغ
+    const ikeaDims = extractDimensions({
+      'العمق': '86 سم',
+      'الإرتفاع': '99 سم',
+      'العرض': '82 سم',
+      'الوزن': '25.72 كلغ'
+    });
+    expect(ikeaDims.depth).toBe(86);
+    expect(ikeaDims.height).toBe(99);
+    expect(ikeaDims.width).toBe(82);
+    expect(ikeaDims.weight).toBe(25.7);
   });
 
   it('should generate rich semantic embedding text in AI enrichment', () => {

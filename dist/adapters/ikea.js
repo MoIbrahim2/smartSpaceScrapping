@@ -42,10 +42,16 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
     baseUrl = 'https://www.ikea.com/eg/ar';
     async getCategorySeeds() {
         return [
-            { name: 'Living Room Furniture', url: `${this.baseUrl}/cat/living-room-furniture-fu001/`, targetRoom: 'Living Room' },
-            { name: 'Bedroom Furniture', url: `${this.baseUrl}/cat/bedroom-furniture-bm001/`, targetRoom: 'Bedroom' },
-            { name: 'Tables & Desks', url: `${this.baseUrl}/cat/tables-desks-tb001/`, targetRoom: 'Office' },
+            { name: 'Sofas & Armchairs', url: `${this.baseUrl}/cat/sofas-armchairs-fu003/`, targetRoom: 'Living Room' },
+            { name: 'Living Room Tables', url: `${this.baseUrl}/cat/coffee-side-tables-10705/`, targetRoom: 'Living Room' },
+            { name: 'TV & Media Furniture', url: `${this.baseUrl}/cat/tv-media-furniture-10475/`, targetRoom: 'Living Room' },
+            { name: 'Beds & Mattresses', url: `${this.baseUrl}/cat/beds-bm003/`, targetRoom: 'Bedroom' },
+            { name: 'Wardrobes & Storage', url: `${this.baseUrl}/cat/wardrobes-19053/`, targetRoom: 'Bedroom' },
+            { name: 'Dining Tables & Chairs', url: `${this.baseUrl}/cat/dining-tables-21825/`, targetRoom: 'Dining Room' },
+            { name: 'Desks & Office Chairs', url: `${this.baseUrl}/cat/desks-computer-desks-20657/`, targetRoom: 'Office' },
             { name: 'Lighting', url: `${this.baseUrl}/cat/lighting-li001/`, targetRoom: 'Decor' },
+            { name: 'Rugs & Textiles', url: `${this.baseUrl}/cat/rugs-10653/`, targetRoom: 'Decor' },
+            { name: 'Outdoor Furniture', url: `${this.baseUrl}/cat/outdoor-furniture-od001/`, targetRoom: 'Balcony' },
         ];
     }
     async scrapeCategoryPage(seed, page) {
@@ -59,7 +65,6 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
         const productUrls = [];
         $('.pip-product-compact, .pip-compact-header').each((_, el) => {
             const link = $(el).find('a.pip-product-compact__link, a.pip-link').attr('href');
-            const title = $(el).find('.pip-header-section__title-text').text().trim() || $(el).find('.pip-compact-header__title').text().trim();
             if (link) {
                 const fullUrl = link.startsWith('http') ? link : `https://www.ikea.com${link}`;
                 if (!productUrls.includes(fullUrl)) {
@@ -67,7 +72,7 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
                 }
             }
         });
-        const hasNextPage = $('.pip-btn--secondary.pip-btn--fluid').length > 0 && page < 4;
+        const hasNextPage = $('.pip-btn--secondary.pip-btn--fluid').length > 0 && page < 20;
         return {
             productUrls,
             hasNextPage,
@@ -80,7 +85,23 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
         if (!html)
             return null;
         const $ = cheerio.load(html);
-        // Try schema.org JSON-LD structured data first
+        const specifications = {};
+        // 1. IKEA Specific Modal Measurements (.pipf-measurements-modal__measurements-container li, .pipf-measurements-modal__product-measurement-wrapper)
+        $('.pipf-measurements-modal__measurements-container li, .pipf-measurements-modal__product-measurement-wrapper, .pip-product-dimensions__measurement-container li, #pip-product-measurements p').each((_, el) => {
+            const name = $(el).find('.pipf-measurements-modal__product-measurement-name, .pip-product-dimensions__measurement-name').text().replace(/[:\s&nbsp;]+$/, '').trim();
+            const val = $(el).text().replace(name, '').replace(/[:\s&nbsp;]+/, '').trim();
+            if (name && val) {
+                specifications[name] = val;
+            }
+            else {
+                const text = $(el).text().replace(/\s+/g, ' ').trim();
+                const parts = text.split(':');
+                if (parts.length >= 2) {
+                    specifications[parts[0].trim()] = parts.slice(1).join(':').trim();
+                }
+            }
+        });
+        // 2. Schema.org JSON-LD structured data
         let jsonLdProduct = null;
         $('script[type="application/ld+json"]').each((_, el) => {
             try {
@@ -94,6 +115,14 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
             }
         });
         if (jsonLdProduct) {
+            if (jsonLdProduct.weight)
+                specifications['Weight'] = `${jsonLdProduct.weight.value || jsonLdProduct.weight} ${jsonLdProduct.weight.unitCode || 'kg'}`;
+            if (jsonLdProduct.width)
+                specifications['Width'] = `${jsonLdProduct.width.value || jsonLdProduct.width} cm`;
+            if (jsonLdProduct.height)
+                specifications['Height'] = `${jsonLdProduct.height.value || jsonLdProduct.height} cm`;
+            if (jsonLdProduct.depth)
+                specifications['Depth'] = `${jsonLdProduct.depth.value || jsonLdProduct.depth} cm`;
             const price = parseFloat(jsonLdProduct.offers?.price || jsonLdProduct.offers?.[0]?.price || '2500');
             return {
                 externalId: jsonLdProduct.sku || `ikea-${Date.now()}`,
@@ -110,6 +139,7 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
                 inStock: true,
                 ratingAverage: 4.6,
                 ratingReviews: 24,
+                specifications,
             };
         }
         // DOM fallback
@@ -135,6 +165,7 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
             inStock: true,
             ratingAverage: 4.5,
             ratingReviews: 18,
+            specifications,
         };
     }
 }
