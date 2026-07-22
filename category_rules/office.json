@@ -1,0 +1,88 @@
+{
+  "roomType": "Office",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "category": "Office Desk", "role": "CORE", "priority": 1, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 25, "minPercentage": 18, "maxPercentage": 35 },
+      "sizeRules": [
+        { "roomArea": { "min": 6, "max": 10 }, "recommendedDimensions": { "width": { "min": 100, "max": 120 }, "depth": { "min": 55, "max": 65 }, "height": { "min": 72, "max": 76 } } },
+        { "roomArea": { "min": 10, "max": 16 }, "recommendedDimensions": { "width": { "min": 120, "max": 160 }, "depth": { "min": 60, "max": 75 }, "height": { "min": 72, "max": 76 } } },
+        { "roomArea": { "min": 16, "max": 25 }, "recommendedDimensions": { "width": { "min": 150, "max": 200 }, "depth": { "min": 65, "max": 80 }, "height": { "min": 72, "max": 76 } } }
+      ],
+      "placement": { "preferredPosition": "FACING_DOOR_NEAR_WINDOW", "minimumClearance": 70, "naturalLightAccess": true, "cableManagementAccess": true },
+      "constraints": { "standingDesk": "ALLOWED", "lShapeDesk": "ALLOWED", "cableManagement": "PREFERRED", "maxRoomCoverage": 18 },
+      "productSearch": { "preferredStyles": ["Modern","Minimal","Industrial","Scandinavian","Executive"], "preferredMaterials": ["Wood","MDF","Metal","Glass"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Office Chair", "role": "CORE", "priority": 2, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 25, "minPercentage": 18, "maxPercentage": 35 },
+      "sizeRules": [
+        { "roomArea": { "min": 6, "max": 25 }, "recommendedDimensions": { "width": { "min": 60, "max": 75 }, "depth": { "min": 60, "max": 72 }, "seatHeight": { "min": 42, "max": 52 } } }
+      ],
+      "placement": { "preferredPosition": "AT_DESK", "minimumClearanceBehind": 75, "rollSpace": 80 },
+      "constraints": { "ergonomic": "REQUIRED", "heightAdjustable": "REQUIRED", "lumbarSupport": "PREFERRED", "armrests": "PREFERRED", "maxTiltAngle": 135 },
+      "productSearch": { "preferredStyles": ["Ergonomic","Modern","Executive","Mesh"], "preferredMaterials": ["Mesh","Leather","Fabric","Faux Leather"] },
+      "promptInfluence": { "budget": "HIGH", "size": "LOW", "style": "MEDIUM", "color": "MEDIUM" }
+    },
+    {
+      "category": "Bookshelf", "role": "SECONDARY", "priority": 3, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 15, "minPercentage": 8, "maxPercentage": 20 },
+      "sizeRules": [
+        { "roomArea": { "min": 6, "max": 12 }, "recommendedDimensions": { "width": { "min": 60, "max": 100 }, "depth": { "min": 25, "max": 35 }, "height": { "min": 150, "max": 200 } } },
+        { "roomArea": { "min": 12, "max": 25 }, "recommendedDimensions": { "width": { "min": 100, "max": 200 }, "depth": { "min": 28, "max": 38 }, "height": { "min": 180, "max": 240 } } }
+      ],
+      "placement": { "preferredWall": "BEHIND_DESK_OR_SIDE_WALL", "minimumClearance": 10, "wallAnchoring": "RECOMMENDED" },
+      "constraints": { "adjustableShelves": "PREFERRED", "closedStorage": "OPTIONAL", "maxRoomCoverage": 10 },
+      "productSearch": { "preferredStyles": ["Modern","Industrial","Scandinavian","Classic","Executive"], "preferredMaterials": ["Wood","MDF","Metal","Walnut"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Filing Cabinet", "role": "SECONDARY", "priority": 4, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 10, "minPercentage": 5, "maxPercentage": 15 },
+      "sizeRules": [
+        { "roomArea": { "min": 6, "max": 25 }, "recommendedDimensions": { "width": { "min": 40, "max": 50 }, "depth": { "min": 50, "max": 62 }, "height": { "min": 60, "max": 130 } } }
+      ],
+      "placement": { "preferredPosition": "UNDER_DESK_OR_BESIDE_DESK", "minimumClearance": 50, "drawerOpenSpace": 55 },
+      "constraints": { "lockable": "PREFERRED", "maxQuantity": 2, "rollersForUnderDesk": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Industrial","Minimal"], "preferredMaterials": ["Metal","Wood","MDF"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "LOW", "color": "LOW" }
+    },
+    {
+      "category": "Desk Lamp", "role": "SECONDARY", "priority": 5, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 8, "minPercentage": 4, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 6, "max": 25 }, "recommendedDimensions": { "baseWidth": { "min": 15, "max": 25 }, "height": { "min": 40, "max": 60 }, "armReach": { "min": 30, "max": 50 } } }
+      ],
+      "placement": { "preferredPosition": "ON_DESK_OPPOSITE_TO_WRITING_HAND", "avoidGlareOnScreen": true },
+      "constraints": { "adjustable": "PREFERRED", "ledPreferred": true, "dimmable": "PREFERRED", "colorTemperature": "ADJUSTABLE_PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Industrial","Minimal","Architect"], "preferredMaterials": ["Metal","Aluminum","Wood"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "MEDIUM", "color": "MEDIUM" }
+    },
+    {
+      "category": "Rug", "role": "OPTIONAL", "priority": 6, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 10, "minPercentage": 5, "maxPercentage": 15 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 14 }, "recommendedDimensions": { "width": { "min": 120, "max": 160 }, "length": { "min": 170, "max": 220 } } },
+        { "roomArea": { "min": 14, "max": 25 }, "recommendedDimensions": { "width": { "min": 160, "max": 230 }, "length": { "min": 230, "max": 300 } } }
+      ],
+      "placement": { "preferredPosition": "UNDER_DESK_AND_CHAIR", "chairFriendlySurface": true },
+      "constraints": { "lowPile": "PREFERRED", "chairMatAlternative": "ALLOWED", "nonSlip": "REQUIRED" },
+      "productSearch": { "preferredStyles": ["Modern","Minimal","Scandinavian","Geometric"], "preferredMaterials": ["Wool","Polypropylene","Cotton"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "MEDIUM", "style": "MEDIUM", "color": "MEDIUM" }
+    },
+    {
+      "category": "Whiteboard", "role": "OPTIONAL", "priority": 7, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 7, "minPercentage": 3, "maxPercentage": 10 },
+      "sizeRules": [
+        { "roomArea": { "min": 6, "max": 14 }, "recommendedDimensions": { "width": { "min": 60, "max": 90 }, "height": { "min": 40, "max": 60 } } },
+        { "roomArea": { "min": 14, "max": 25 }, "recommendedDimensions": { "width": { "min": 90, "max": 150 }, "height": { "min": 60, "max": 100 } } }
+      ],
+      "placement": { "preferredPosition": "VISIBLE_WALL_FROM_DESK", "centerHeight": 145, "avoidDirectSunlight": true },
+      "constraints": { "magnetic": "PREFERRED", "glassBoard": "ALLOWED", "markerTray": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Minimal","Glass"], "preferredMaterials": ["Melamine","Glass","Porcelain Steel"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "LOW", "color": "LOW" }
+    }
+  ]
+}

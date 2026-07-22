@@ -1,0 +1,101 @@
+{
+  "roomType": "Game Room",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "category": "Gaming Desk", "role": "CORE", "priority": 1, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 20, "minPercentage": 14, "maxPercentage": 28 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 16 }, "recommendedDimensions": { "width": { "min": 110, "max": 140 }, "depth": { "min": 60, "max": 70 }, "height": { "min": 72, "max": 78 } } },
+        { "roomArea": { "min": 16, "max": 25 }, "recommendedDimensions": { "width": { "min": 140, "max": 180 }, "depth": { "min": 65, "max": 80 }, "height": { "min": 72, "max": 78 } } },
+        { "roomArea": { "min": 25, "max": 40 }, "recommendedDimensions": { "width": { "min": 160, "max": 220 }, "depth": { "min": 70, "max": 85 }, "height": { "min": 72, "max": 80 } } }
+      ],
+      "placement": { "preferredPosition": "FACING_WALL_NOT_WINDOW", "minimumClearance": 70, "avoidGlareFromWindow": true, "cableManagementAccess": true },
+      "constraints": { "cableManagement": "REQUIRED", "mousepadSurface": "OPTIONAL", "monitorMount": "OPTIONAL", "maxRoomCoverage": 12 },
+      "productSearch": { "preferredStyles": ["Gaming","Modern","Industrial","Carbon Fiber"], "preferredMaterials": ["MDF","Carbon Fiber Surface","Metal Frame","Wood"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Gaming Chair", "role": "CORE", "priority": 2, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 20, "minPercentage": 14, "maxPercentage": 28 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 40 }, "recommendedDimensions": { "width": { "min": 65, "max": 80 }, "depth": { "min": 65, "max": 75 }, "seatHeight": { "min": 42, "max": 52 }, "backrestHeight": { "min": 80, "max": 95 } } }
+      ],
+      "placement": { "preferredPosition": "AT_GAMING_DESK", "minimumClearanceBehind": 75, "rollSpace": 80 },
+      "constraints": { "ergonomic": "REQUIRED", "heightAdjustable": "REQUIRED", "lumbarSupport": "REQUIRED", "headrest": "PREFERRED", "reclineAngle": { "min": 90, "max": 165 } },
+      "productSearch": { "preferredStyles": ["Gaming","Racing","Ergonomic","Esports"], "preferredMaterials": ["PU Leather","Mesh","Fabric","Faux Leather"] },
+      "promptInfluence": { "budget": "HIGH", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "TV Unit", "role": "CORE", "priority": 3, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 15, "minPercentage": 10, "maxPercentage": 20 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 18 }, "recommendedDimensions": { "width": { "min": 120, "max": 160 }, "depth": { "min": 35, "max": 45 }, "height": { "min": 40, "max": 55 } } },
+        { "roomArea": { "min": 18, "max": 40 }, "recommendedDimensions": { "width": { "min": 160, "max": 240 }, "depth": { "min": 40, "max": 50 }, "height": { "min": 40, "max": 60 } } }
+      ],
+      "placement": { "preferredWall": "WALL_VISIBLE_FROM_SOFA", "minimumViewingDistance": 200, "cableManagement": true },
+      "constraints": { "consoleStorage": "PREFERRED", "ventilation": "REQUIRED", "cableManagement": "REQUIRED", "maxRoomCoverage": 8 },
+      "productSearch": { "preferredStyles": ["Modern","Gaming","Industrial","Minimal"], "preferredMaterials": ["Wood","MDF","Metal","Glass"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Sofa", "role": "SECONDARY", "priority": 4, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 15, "minPercentage": 8, "maxPercentage": 22 },
+      "sizeRules": [
+        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 140, "max": 190 }, "depth": { "min": 80, "max": 95 } } },
+        { "roomArea": { "min": 18, "max": 28 }, "recommendedDimensions": { "width": { "min": 180, "max": 240 }, "depth": { "min": 85, "max": 100 } } },
+        { "roomArea": { "min": 28, "max": 40 }, "recommendedDimensions": { "width": { "min": 220, "max": 300 }, "depth": { "min": 90, "max": 110 } } }
+      ],
+      "placement": { "preferredPosition": "FACING_TV_WALL", "minimumClearance": 45, "minimumWalkway": 75 },
+      "constraints": { "beanBagAlternative": "ALLOWED", "recliner": "PREFERRED", "maxRoomCoverage": 20 },
+      "productSearch": { "preferredStyles": ["Modern","Gaming","Recliner","Contemporary"], "preferredMaterials": ["Fabric","Leather","Faux Leather"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "MEDIUM", "color": "MEDIUM" }
+    },
+    {
+      "category": "Storage Unit", "role": "SECONDARY", "priority": 5, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 8, "minPercentage": 4, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 20 }, "recommendedDimensions": { "width": { "min": 60, "max": 100 }, "depth": { "min": 30, "max": 45 }, "height": { "min": 80, "max": 150 } } },
+        { "roomArea": { "min": 20, "max": 40 }, "recommendedDimensions": { "width": { "min": 80, "max": 160 }, "depth": { "min": 35, "max": 50 }, "height": { "min": 100, "max": 180 } } }
+      ],
+      "placement": { "preferredPosition": "NEAR_GAMING_DESK_OR_TV", "wallAnchoring": "RECOMMENDED" },
+      "constraints": { "gameStorage": "PREFERRED", "controllerHolders": "OPTIONAL", "displayShelves": "PREFERRED", "maxRoomCoverage": 8 },
+      "productSearch": { "preferredStyles": ["Modern","Gaming","Industrial","Cube"], "preferredMaterials": ["Wood","MDF","Metal"] },
+      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "MEDIUM", "color": "LOW" }
+    },
+    {
+      "category": "LED Lighting", "role": "SECONDARY", "priority": 6, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 8, "minPercentage": 4, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 40 }, "recommendedDimensions": { "note": "LED strips, RGB panels, ambient backlighting" } }
+      ],
+      "placement": { "preferredPosition": "BEHIND_DESK_BEHIND_TV_CEILING", "ambientCoverage": true, "deskBacklight": true },
+      "constraints": { "rgbCapable": "PREFERRED", "smartControl": "PREFERRED", "appControlled": "OPTIONAL", "syncWithGaming": "OPTIONAL" },
+      "productSearch": { "preferredStyles": ["Gaming RGB","Ambient","Neon","Modern"], "preferredMaterials": ["LED Strip","Nanoleaf Panel","Light Bar","Neon Flex"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Rug", "role": "OPTIONAL", "priority": 7, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 7, "minPercentage": 3, "maxPercentage": 10 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 20 }, "recommendedDimensions": { "width": { "min": 140, "max": 200 }, "length": { "min": 200, "max": 280 } } },
+        { "roomArea": { "min": 20, "max": 40 }, "recommendedDimensions": { "width": { "min": 200, "max": 300 }, "length": { "min": 280, "max": 380 } } }
+      ],
+      "placement": { "preferredPosition": "UNDER_SEATING_AREA_OR_DESK", "chairFriendly": true },
+      "constraints": { "lowPile": "PREFERRED", "stainResistant": "PREFERRED", "nonSlip": "REQUIRED" },
+      "productSearch": { "preferredStyles": ["Modern","Gaming","Geometric","Dark Theme"], "preferredMaterials": ["Polypropylene","Nylon","Low Pile Carpet"] },
+      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "MEDIUM", "color": "HIGH" }
+    },
+    {
+      "category": "Sound System Stand", "role": "OPTIONAL", "priority": 8, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 7, "minPercentage": 3, "maxPercentage": 10 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 40 }, "recommendedDimensions": { "width": { "min": 25, "max": 35 }, "depth": { "min": 25, "max": 35 }, "height": { "min": 60, "max": 110 } } }
+      ],
+      "placement": { "preferredPosition": "FLANKING_TV_OR_BEHIND_SEATING", "stereoSpacing": true, "earLevel": true },
+      "constraints": { "cableManagement": "REQUIRED", "vibrationDamping": "PREFERRED", "maxQuantity": 4 },
+      "productSearch": { "preferredStyles": ["Modern","Industrial","Minimal","Gaming"], "preferredMaterials": ["Metal","Wood","MDF"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "MEDIUM", "color": "LOW" }
+    }
+  ]
+}

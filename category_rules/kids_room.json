@@ -1,0 +1,116 @@
+{
+  "roomType": "Kids Room",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "category": "Kids Bed", "role": "CORE", "priority": 1, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 25, "minPercentage": 18, "maxPercentage": 35 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 12 }, "recommendedDimensions": { "width": { "min": 90, "max": 100 }, "length": { "min": 180, "max": 190 }, "note": "Single Bed" } },
+        { "roomArea": { "min": 12, "max": 16 }, "recommendedDimensions": { "width": { "min": 100, "max": 120 }, "length": { "min": 190, "max": 200 }, "note": "Single or Bunk Bed" } },
+        { "roomArea": { "min": 16, "max": 22 }, "recommendedDimensions": { "width": { "min": 120, "max": 140 }, "length": { "min": 190, "max": 200 }, "note": "Single/Double or Bunk" } },
+        { "roomArea": { "min": 22, "max": 35 }, "recommendedDimensions": { "width": { "min": 120, "max": 160 }, "length": { "min": 190, "max": 210 }, "note": "Double or Two Singles" } }
+      ],
+      "placement": { "preferredWall": "WALL_AWAY_FROM_WINDOW", "headboardAgainstWall": true, "minimumClearance": 60, "guardrails": "REQUIRED_FOR_UNDER_6" },
+      "constraints": { "bunkBed": "ALLOWED", "storageDrawers": "PREFERRED", "roundedEdges": "PREFERRED", "maxRoomCoverage": 30, "safetyStandards": "REQUIRED" },
+      "productSearch": { "preferredStyles": ["Modern","Playful","Scandinavian","Colorful"], "preferredMaterials": ["Wood","MDF"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "MEDIUM", "color": "HIGH" }
+    },
+    {
+      "category": "Kids Wardrobe", "role": "CORE", "priority": 2, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 20, "minPercentage": 15, "maxPercentage": 28 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 12 }, "recommendedDimensions": { "width": { "min": 80, "max": 120 }, "depth": { "min": 50, "max": 55 }, "height": { "min": 160, "max": 180 } } },
+        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 120, "max": 160 }, "depth": { "min": 50, "max": 58 }, "height": { "min": 180, "max": 200 } } },
+        { "roomArea": { "min": 18, "max": 35 }, "recommendedDimensions": { "width": { "min": 150, "max": 200 }, "depth": { "min": 55, "max": 60 }, "height": { "min": 190, "max": 220 } } }
+      ],
+      "placement": { "preferredWall": "WALL_ADJACENT_TO_DOOR", "minimumClearance": 70, "childReachableHeight": 120 },
+      "constraints": { "antiTipAnchoring": "REQUIRED", "softCloseHinges": "PREFERRED", "roundedEdges": "PREFERRED", "maxRoomCoverage": 15 },
+      "productSearch": { "preferredStyles": ["Modern","Playful","Scandinavian"], "preferredMaterials": ["Wood","MDF","Laminate"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "MEDIUM", "color": "MEDIUM" }
+    },
+    {
+      "category": "Study Desk", "role": "CORE", "priority": 3, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 15, "minPercentage": 10, "maxPercentage": 20 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 12 }, "recommendedDimensions": { "width": { "min": 80, "max": 100 }, "depth": { "min": 50, "max": 60 } } },
+        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 100, "max": 120 }, "depth": { "min": 55, "max": 65 } } },
+        { "roomArea": { "min": 18, "max": 35 }, "recommendedDimensions": { "width": { "min": 110, "max": 140 }, "depth": { "min": 55, "max": 70 } } }
+      ],
+      "placement": { "preferredPosition": "NEAR_WINDOW_FOR_NATURAL_LIGHT", "minimumClearance": 60, "facingWall": true },
+      "constraints": { "heightAdjustable": "PREFERRED", "cableManagement": "OPTIONAL", "roundedEdges": "PREFERRED", "maxRoomCoverage": 8 },
+      "productSearch": { "preferredStyles": ["Modern","Playful","Scandinavian","Minimal"], "preferredMaterials": ["Wood","MDF","Laminate"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "MEDIUM", "color": "HIGH" }
+    },
+    {
+      "category": "Study Chair", "role": "CORE", "priority": 4, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 10, "minPercentage": 6, "maxPercentage": 14 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 35 }, "recommendedDimensions": { "width": { "min": 45, "max": 55 }, "depth": { "min": 45, "max": 55 }, "seatHeight": { "min": 35, "max": 50 } } }
+      ],
+      "placement": { "preferredPosition": "AT_DESK", "minimumClearance": 60 },
+      "constraints": { "heightAdjustable": "REQUIRED", "ergonomic": "PREFERRED", "wheelLocks": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Ergonomic","Playful"], "preferredMaterials": ["Mesh","Fabric","Plastic"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "LOW", "style": "LOW", "color": "HIGH" }
+    },
+    {
+      "category": "Bookshelf", "role": "SECONDARY", "priority": 5, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 8, "minPercentage": 4, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 14 }, "recommendedDimensions": { "width": { "min": 60, "max": 80 }, "depth": { "min": 25, "max": 30 }, "height": { "min": 100, "max": 140 } } },
+        { "roomArea": { "min": 14, "max": 35 }, "recommendedDimensions": { "width": { "min": 80, "max": 120 }, "depth": { "min": 25, "max": 35 }, "height": { "min": 120, "max": 160 } } }
+      ],
+      "placement": { "preferredPosition": "NEAR_DESK", "wallAnchoring": "REQUIRED" },
+      "constraints": { "antiTipAnchoring": "REQUIRED", "reachableHeight": 140, "maxRoomCoverage": 5 },
+      "productSearch": { "preferredStyles": ["Modern","Playful","Scandinavian"], "preferredMaterials": ["Wood","MDF"] },
+      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "MEDIUM", "color": "MEDIUM" }
+    },
+    {
+      "category": "Rug", "role": "SECONDARY", "priority": 6, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 7, "minPercentage": 4, "maxPercentage": 10 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 14 }, "recommendedDimensions": { "width": { "min": 100, "max": 150 }, "length": { "min": 150, "max": 200 } } },
+        { "roomArea": { "min": 14, "max": 22 }, "recommendedDimensions": { "width": { "min": 150, "max": 200 }, "length": { "min": 200, "max": 250 } } },
+        { "roomArea": { "min": 22, "max": 35 }, "recommendedDimensions": { "width": { "min": 200, "max": 250 }, "length": { "min": 250, "max": 300 } } }
+      ],
+      "placement": { "preferredPosition": "PLAY_AREA_CENTER", "nonSlip": "REQUIRED" },
+      "constraints": { "washable": "PREFERRED", "nonToxic": "REQUIRED", "softPile": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Playful","Colorful","Modern","Educational"], "preferredMaterials": ["Cotton","Polypropylene","Polyester"] },
+      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Storage Unit", "role": "SECONDARY", "priority": 7, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 8, "minPercentage": 4, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 14 }, "recommendedDimensions": { "width": { "min": 60, "max": 80 }, "depth": { "min": 30, "max": 40 }, "height": { "min": 60, "max": 100 } } },
+        { "roomArea": { "min": 14, "max": 35 }, "recommendedDimensions": { "width": { "min": 80, "max": 120 }, "depth": { "min": 35, "max": 45 }, "height": { "min": 80, "max": 120 } } }
+      ],
+      "placement": { "preferredPosition": "ALONG_WALL", "childReachable": true, "wallAnchoring": "REQUIRED" },
+      "constraints": { "binsOrCubbies": "PREFERRED", "labelFriendly": "PREFERRED", "roundedEdges": "PREFERRED", "antiTip": "REQUIRED" },
+      "productSearch": { "preferredStyles": ["Modern","Playful","Scandinavian","Colorful"], "preferredMaterials": ["Wood","MDF","Fabric Bins"] },
+      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "MEDIUM", "color": "HIGH" }
+    },
+    {
+      "category": "Wall Decor", "role": "OPTIONAL", "priority": 8, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 4, "minPercentage": 2, "maxPercentage": 7 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 35 }, "recommendedDimensions": { "width": { "min": 30, "max": 80 }, "height": { "min": 30, "max": 80 } } }
+      ],
+      "placement": { "preferredPosition": "EYE_LEVEL_FOR_CHILD", "centerHeight": 120, "secureMount": "REQUIRED" },
+      "constraints": { "shatterproof": "REQUIRED", "lightWeight": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Playful","Educational","Cartoon","Nature"], "preferredMaterials": ["Canvas","Vinyl Sticker","Foam Board"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Night Light", "role": "OPTIONAL", "priority": 9, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 3, "minPercentage": 1, "maxPercentage": 5 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 35 }, "recommendedDimensions": { "width": { "min": 10, "max": 20 }, "height": { "min": 15, "max": 30 } } }
+      ],
+      "placement": { "preferredPosition": "ON_NIGHTSTAND_OR_WALL_OUTLET", "awayFromBedLinens": true },
+      "constraints": { "ledOnly": "REQUIRED", "coolToTouch": "REQUIRED", "dimmable": "PREFERRED", "autoTimer": "OPTIONAL" },
+      "productSearch": { "preferredStyles": ["Playful","Animal Shape","Star Projector","Minimal"], "preferredMaterials": ["Silicone","ABS Plastic"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "MEDIUM", "color": "HIGH" }
+    }
+  ]
+}

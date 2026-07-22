@@ -1,0 +1,78 @@
+{
+  "roomType": "Balcony",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "category": "Outdoor Seating", "role": "CORE", "priority": 1, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 30, "minPercentage": 22, "maxPercentage": 40 },
+      "sizeRules": [
+        { "roomArea": { "min": 2, "max": 4 }, "recommendedDimensions": { "width": { "min": 50, "max": 70 }, "depth": { "min": 55, "max": 65 }, "note": "Single chairs or compact loveseat" } },
+        { "roomArea": { "min": 4, "max": 7 }, "recommendedDimensions": { "width": { "min": 110, "max": 150 }, "depth": { "min": 65, "max": 80 }, "note": "Loveseat or 2 chairs" } },
+        { "roomArea": { "min": 7, "max": 12 }, "recommendedDimensions": { "width": { "min": 150, "max": 220 }, "depth": { "min": 70, "max": 90 }, "note": "Outdoor sofa or sectional" } }
+      ],
+      "placement": { "preferredPosition": "AGAINST_WALL_FACING_VIEW", "minimumClearance": 40, "minimumWalkway": 60 },
+      "constraints": { "weatherResistant": "REQUIRED", "uvResistant": "REQUIRED", "lightweight": "PREFERRED", "foldable": "OPTIONAL", "maxRoomCoverage": 35 },
+      "productSearch": { "preferredStyles": ["Modern","Bohemian","Scandinavian","Tropical","Rattan"], "preferredMaterials": ["Rattan","Aluminum","Teak","PE Wicker","Polywood"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Outdoor Table", "role": "CORE", "priority": 2, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 20, "minPercentage": 12, "maxPercentage": 28 },
+      "sizeRules": [
+        { "roomArea": { "min": 2, "max": 4 }, "recommendedDimensions": { "width": { "min": 40, "max": 55 }, "depth": { "min": 40, "max": 55 }, "height": { "min": 45, "max": 55 } } },
+        { "roomArea": { "min": 4, "max": 7 }, "recommendedDimensions": { "width": { "min": 55, "max": 80 }, "depth": { "min": 55, "max": 80 }, "height": { "min": 45, "max": 72 } } },
+        { "roomArea": { "min": 7, "max": 12 }, "recommendedDimensions": { "width": { "min": 70, "max": 110 }, "depth": { "min": 70, "max": 110 }, "height": { "min": 45, "max": 75 } } }
+      ],
+      "placement": { "preferredPosition": "CENTER_OF_SEATING_AREA", "minimumClearance": 30 },
+      "constraints": { "weatherResistant": "REQUIRED", "uvResistant": "REQUIRED", "foldable": "OPTIONAL", "maxRoomCoverage": 10 },
+      "productSearch": { "preferredStyles": ["Modern","Bohemian","Scandinavian","Tropical"], "preferredMaterials": ["Teak","Aluminum","Glass Top","PE Wicker","Mosaic"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Planter", "role": "SECONDARY", "priority": 3, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 15, "minPercentage": 8, "maxPercentage": 22 },
+      "sizeRules": [
+        { "roomArea": { "min": 2, "max": 5 }, "recommendedDimensions": { "diameter": { "min": 15, "max": 30 }, "height": { "min": 15, "max": 40 }, "note": "2-4 small to medium pots" } },
+        { "roomArea": { "min": 5, "max": 12 }, "recommendedDimensions": { "diameter": { "min": 20, "max": 50 }, "height": { "min": 20, "max": 80 }, "note": "Mix of sizes, include tall planter" } }
+      ],
+      "placement": { "preferredPosition": "CORNERS_AND_RAILING", "drainageRequired": true, "sunlightConsideration": true },
+      "constraints": { "drainageHoles": "REQUIRED", "weatherResistant": "REQUIRED", "maxQuantity": 8, "weightConsideration": "IMPORTANT" },
+      "productSearch": { "preferredStyles": ["Modern","Bohemian","Ceramic","Terracotta","Minimal"], "preferredMaterials": ["Ceramic","Fiberglass","Terracotta","Concrete","Plastic"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Outdoor Lighting", "role": "SECONDARY", "priority": 4, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 15, "minPercentage": 8, "maxPercentage": 20 },
+      "sizeRules": [
+        { "roomArea": { "min": 2, "max": 12 }, "recommendedDimensions": { "note": "String lights, lanterns, solar stake lights, wall sconces" } }
+      ],
+      "placement": { "preferredPosition": "OVERHEAD_STRING_OR_WALL_MOUNTED", "minimumHeight": 200, "evenDistribution": true },
+      "constraints": { "weatherproof": "REQUIRED", "solarPowered": "PREFERRED", "ipRating": "IP44_MINIMUM", "ledOnly": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Bohemian","Modern","Fairy Lights","Industrial","Lantern"], "preferredMaterials": ["Metal","Rattan","Glass","LED String"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Outdoor Rug", "role": "OPTIONAL", "priority": 5, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 10, "minPercentage": 5, "maxPercentage": 15 },
+      "sizeRules": [
+        { "roomArea": { "min": 3, "max": 6 }, "recommendedDimensions": { "width": { "min": 80, "max": 120 }, "length": { "min": 120, "max": 160 } } },
+        { "roomArea": { "min": 6, "max": 12 }, "recommendedDimensions": { "width": { "min": 120, "max": 180 }, "length": { "min": 170, "max": 240 } } }
+      ],
+      "placement": { "preferredPosition": "UNDER_SEATING_AREA", "nonSlip": "REQUIRED" },
+      "constraints": { "weatherResistant": "REQUIRED", "moldResistant": "REQUIRED", "uvResistant": "REQUIRED", "easyClean": "REQUIRED" },
+      "productSearch": { "preferredStyles": ["Modern","Bohemian","Geometric","Tropical"], "preferredMaterials": ["Polypropylene","Recycled Plastic","Jute"] },
+      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Swing", "role": "OPTIONAL", "priority": 6, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 10, "minPercentage": 0, "maxPercentage": 18 },
+      "sizeRules": [
+        { "roomArea": { "min": 4, "max": 12 }, "recommendedDimensions": { "width": { "min": 80, "max": 120 }, "depth": { "min": 65, "max": 85 }, "hangingHeight": { "min": 40, "max": 60 } } }
+      ],
+      "placement": { "preferredPosition": "CORNER_WITH_CEILING_ANCHOR", "minimumClearance": 60, "swingRadius": 50, "ceilingAnchor": "REQUIRED" },
+      "constraints": { "maxWeight": 150, "ceilingSupport": "REQUIRED", "weatherResistant": "REQUIRED", "maxRoomCoverage": 15 },
+      "productSearch": { "preferredStyles": ["Bohemian","Macrame","Rattan","Modern","Egg Chair"], "preferredMaterials": ["Rattan","Macrame","PE Wicker","Metal Frame"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "MEDIUM", "style": "HIGH", "color": "MEDIUM" }
+    }
+  ]
+}

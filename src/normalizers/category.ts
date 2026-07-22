@@ -4,124 +4,268 @@ export interface CategoryMapping {
   defaultRoom: string;
 }
 
+/**
+ * Strict category taxonomy derived directly from /category_rules/*.json:
+ * - living_room.json (Sofa, Coffee Table, TV Unit, Curtains, Side Table, Rug, Floor Lamp, Bookshelf, Wall Art, Armchair)
+ * - bedroom.json (Bed, Wardrobe, Nightstand, Dresser, Curtains, Rug, Table Lamp, Mirror, Bedroom Armchair)
+ * - balcony.json (Outdoor Seating, Outdoor Table, Planter, Outdoor Lighting, Outdoor Rug, Swing)
+ * - bathroom.json (Vanity Unit, Shower Enclosure, Toilet, Mirror Cabinet, Shelving, Towel Rack, Accessories Set, Bathroom Lighting)
+ * - dining_room.json (Dining Table, Dining Chairs, Buffet Sideboard, Chandelier, Rug, Curtains, Wall Art)
+ * - game_room.json (Gaming Desk, Gaming Chair, TV Unit, Sofa, Storage Unit, LED Lighting, Rug, Sound System Stand)
+ * - kids_room.json (Kids Bed, Kids Wardrobe, Study Desk, Study Chair, Bookshelf, Rug, Storage Unit, Wall Decor, Night Light)
+ * - kitchen.json (Kitchen Cabinet Set, Countertop, Kitchen Island, Storage Rack, Bar Stool, Kitchen Lighting, Wall Shelf)
+ * - office.json (Office Desk, Office Chair, Bookshelf, Filing Cabinet, Desk Lamp, Rug, Whiteboard)
+ */
 const CATEGORY_MAP: Array<{
   keywords: string[];
   mapping: CategoryMapping;
 }> = [
-  // Sofas / Couches
+  // Specific Chair Types (Evaluated first to prevent 'desk' overlap on 'office chair')
   {
-    keywords: ['sofa', 'couch', 'loveseat', 'recliner', 'كنبة', 'كspace', 'انتريه', 'صالون', 'فوتيه', 'اريكة', 'أريكة'],
-    mapping: { category: 'Sofa', subcategory: 'Living Room Seating', defaultRoom: 'Living Room' },
+    keywords: ['gaming chair', 'racing chair', 'كرسي جيمنج', 'كرسي ألعاب'],
+    mapping: { category: 'Gaming Chair', subcategory: 'Gaming Seating', defaultRoom: 'Game Room' },
   },
-  // Coffee Tables
   {
-    keywords: ['coffee table', 'center table', 'ترابيزة قهوة', 'طاولة قهوة', 'ترابيزة انترية', 'طاولة وسط'],
+    keywords: ['study chair', 'kids chair', 'كرسي مذاكرة', 'كرسي دراسة'],
+    mapping: { category: 'Study Chair', subcategory: 'Kids Seating', defaultRoom: 'Kids Room' },
+  },
+  {
+    keywords: ['office chair', 'desk chair', 'executive chair', 'كرسي مكتب', 'كرسي عمل'],
+    mapping: { category: 'Office Chair', subcategory: 'Office Seating', defaultRoom: 'Office' },
+  },
+  {
+    keywords: ['dining chair', 'kitchen chair', 'كرسي سفرة', 'كرسي طعام'],
+    mapping: { category: 'Dining Chairs', subcategory: 'Dining Seating', defaultRoom: 'Dining Room' },
+  },
+  {
+    keywords: ['bar stool', 'counter stool', 'كرسي بار', 'كرسي كاونتر'],
+    mapping: { category: 'Bar Stool', subcategory: 'Bar & Counter Seating', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['outdoor seating', 'outdoor chair', 'patio chair', 'rattan chair', 'كرسي حدائق', 'كرسي راتان', 'طقم حدائق'],
+    mapping: { category: 'Outdoor Seating', subcategory: 'Outdoor Seating', defaultRoom: 'Balcony' },
+  },
+  {
+    keywords: ['bedroom armchair', 'bedroom chair', 'reading chair', 'كرسي غرفة نوم'],
+    mapping: { category: 'Bedroom Armchair', subcategory: 'Bedroom Seating', defaultRoom: 'Bedroom' },
+  },
+  {
+    keywords: ['armchair', 'accent chair', 'فوتيه', 'كرسي انتريه', 'كرسي استرخاء'],
+    mapping: { category: 'Armchair', subcategory: 'Seating', defaultRoom: 'Living Room' },
+  },
+  {
+    keywords: ['sofa', 'couch', 'loveseat', 'recliner', 'كنبة', 'كspace', 'انتريه', 'صالون', 'اريكة', 'أريكة'],
+    mapping: { category: 'Sofa', subcategory: 'Seating', defaultRoom: 'Living Room' },
+  },
+
+  // Tables & Desks
+  {
+    keywords: ['coffee table', 'center table', 'ترابيزة قهوة', 'طاولة قهوة', 'طاولة وسط', 'ترابيزة انترية'],
     mapping: { category: 'Coffee Table', subcategory: 'Tables', defaultRoom: 'Living Room' },
   },
-  // TV Units
-  {
-    keywords: ['tv unit', 'tv stand', 'tv cabinet', 'media console', 'طاولة تلفزيون', 'وحدة تلفزيون', 'طاولة شاشة'],
-    mapping: { category: 'TV Unit', subcategory: 'Media Furniture', defaultRoom: 'Living Room' },
-  },
-  // Side Tables
   {
     keywords: ['side table', 'end table', 'accent table', 'طاولة جانبية', 'ترابيزة جانبية'],
     mapping: { category: 'Side Table', subcategory: 'Tables', defaultRoom: 'Living Room' },
   },
-  // Rugs
   {
-    keywords: ['rug', 'carpet', 'mat', 'runner rug', 'سجادة', 'سجاد', 'مشاية'],
-    mapping: { category: 'Rug', subcategory: 'Floor Coverings', defaultRoom: 'Living Room' },
+    keywords: ['dining table', 'kitchen table', 'ترابيزة سفرة', 'طاولة طعام', 'سفرة'],
+    mapping: { category: 'Dining Table', subcategory: 'Dining Tables', defaultRoom: 'Dining Room' },
   },
-  // Curtains
   {
-    keywords: ['curtain', 'drapes', 'drape', 'blind', 'ستارة', 'ستائر'],
-    mapping: { category: 'Curtain', subcategory: 'Window Treatment', defaultRoom: 'Living Room' },
+    keywords: ['outdoor table', 'patio table', 'balcony table', 'طاولة حدائق', 'طاولة راتان'],
+    mapping: { category: 'Outdoor Table', subcategory: 'Outdoor Tables', defaultRoom: 'Balcony' },
   },
-  // Lamps & Lighting
   {
-    keywords: ['lamp', 'pendant', 'chandelier', 'floor lamp', 'table lamp', 'lighting', 'مصباح', 'نجفة', 'اباجورة', 'أباجورة', 'إضاءة'],
-    mapping: { category: 'Lamp', subcategory: 'Lighting', defaultRoom: 'Living Room' },
+    keywords: ['gaming desk', 'طاولة جيمنج', 'مكتب جيمنج'],
+    mapping: { category: 'Gaming Desk', subcategory: 'Desks', defaultRoom: 'Game Room' },
   },
-  // Wall Art / Paintings
   {
-    keywords: ['wall art', 'painting', 'canvas', 'poster', 'frame', 'لوحة', 'تابلوه', 'برقاع', 'لوحات جدارية'],
-    mapping: { category: 'Wall Art', subcategory: 'Decor', defaultRoom: 'Decor' },
+    keywords: ['study desk', 'kids desk', 'مكتب مذاكرة', 'مكتب اطفال'],
+    mapping: { category: 'Study Desk', subcategory: 'Desks', defaultRoom: 'Kids Room' },
   },
-  // Plants & Vases
   {
-    keywords: ['plant', 'planter', 'artificial plant', 'flower pot', 'vase', 'نبات', 'مزهرية', 'فازة', 'زهور'],
-    mapping: { category: 'Plant', subcategory: 'Botanical Decor', defaultRoom: 'Decor' },
+    keywords: ['desk', 'writing desk', 'office desk', 'computer desk', 'مكتب', 'طاولة مكتب', 'مكتب عمل'],
+    mapping: { category: 'Office Desk', subcategory: 'Desks', defaultRoom: 'Office' },
   },
-  // Beds
+
+  // Beds & Bedroom Furniture
+  {
+    keywords: ['kids bed', 'bunk bed', 'سرير اطفال', 'سرير دورين'],
+    mapping: { category: 'Kids Bed', subcategory: 'Beds', defaultRoom: 'Kids Room' },
+  },
   {
     keywords: ['bed', 'headboard', 'bed frame', 'سرير', 'سرير نوم', 'ظهر سرير'],
     mapping: { category: 'Bed', subcategory: 'Beds', defaultRoom: 'Bedroom' },
   },
-  // Mattresses
   {
-    keywords: ['mattress', 'مرتبة', 'مرتبة نوم', 'مفارش'],
-    mapping: { category: 'Mattress', subcategory: 'Bedding', defaultRoom: 'Bedroom' },
+    keywords: ['kids wardrobe', 'دولاب اطفال'],
+    mapping: { category: 'Kids Wardrobe', subcategory: 'Storage', defaultRoom: 'Kids Room' },
   },
-  // Nightstands
-  {
-    keywords: ['nightstand', 'bedside table', 'bedside', 'كومودينو', 'كومود', 'طاولة سرير'],
-    mapping: { category: 'Nightstand', subcategory: 'Bedroom Tables', defaultRoom: 'Bedroom' },
-  },
-  // Dressers & Vanity
-  {
-    keywords: ['dresser', 'vanity', 'chest of drawers', 'تسريحة', 'وحدة ادراج', 'شفونيرة'],
-    mapping: { category: 'Dresser', subcategory: 'Storage', defaultRoom: 'Bedroom' },
-  },
-  // Wardrobes & Closets
   {
     keywords: ['wardrobe', 'closet', 'armoire', 'دولاب', 'خزانة ملابس'],
     mapping: { category: 'Wardrobe', subcategory: 'Storage', defaultRoom: 'Bedroom' },
   },
-  // Mirrors
   {
-    keywords: ['mirror', 'wall mirror', 'full length mirror', 'مرآة', 'مراية'],
-    mapping: { category: 'Mirror', subcategory: 'Wall Decor', defaultRoom: 'Decor' },
+    keywords: ['nightstand', 'bedside table', 'bedside', 'كومودينو', 'كومود', 'طاولة سرير'],
+    mapping: { category: 'Nightstand', subcategory: 'Bedroom Tables', defaultRoom: 'Bedroom' },
   },
-  // Dining Tables
   {
-    keywords: ['dining table', 'kitchen table', 'ترابيزة سفرة', 'طاولة طعام', 'سفرة'],
-    mapping: { category: 'Dining Table', subcategory: 'Dining Furniture', defaultRoom: 'Kitchen' },
+    keywords: ['dresser', 'vanity dresser', 'chest of drawers', 'تسريحة', 'شفونيرة', 'وحدة ادراج'],
+    mapping: { category: 'Dresser', subcategory: 'Storage', defaultRoom: 'Bedroom' },
   },
-  // Dining Chairs / Bar Stools
+
+  // Media & Storage
   {
-    keywords: ['dining chair', 'kitchen chair', 'bar stool', 'stool', 'كرسي سفرة', 'كرسي طعام', 'كرسي بار'],
-    mapping: { category: 'Dining Chair', subcategory: 'Dining Furniture', defaultRoom: 'Kitchen' },
+    keywords: ['tv unit', 'tv stand', 'tv cabinet', 'media console', 'طاولة تلفزيون', 'وحدة تلفزيون', 'طاولة شاشة'],
+    mapping: { category: 'TV Unit', subcategory: 'Media Furniture', defaultRoom: 'Living Room' },
   },
-  // Cabinets & Buffets
   {
-    keywords: ['cabinet', 'buffet', 'sideboard', 'cupboard', 'بوفيه', 'نيش', 'خزانة', 'دولاب مطبخ'],
-    mapping: { category: 'Cabinet', subcategory: 'Storage', defaultRoom: 'Kitchen' },
+    keywords: ['buffet', 'sideboard', 'credenza', 'بوفيه', 'نيش'],
+    mapping: { category: 'Buffet Sideboard', subcategory: 'Dining Storage', defaultRoom: 'Dining Room' },
   },
-  // Kitchen Islands
   {
-    keywords: ['kitchen island', 'trolley', 'cart', 'جزيرة مطبخ', 'عربة مطبخ'],
-    mapping: { category: 'Kitchen Island', subcategory: 'Kitchen Storage', defaultRoom: 'Kitchen' },
+    keywords: ['bookshelf', 'bookcase', 'مكتبة', 'مكتبة كتب', 'خزانة كتب'],
+    mapping: { category: 'Bookshelf', subcategory: 'Storage', defaultRoom: 'Office' },
   },
-  // Office Chairs
   {
-    keywords: ['office chair', 'desk chair', 'executive chair', 'gaming chair', 'كرسي مكتب', 'كرسي دراسة'],
-    mapping: { category: 'Office Chair', subcategory: 'Office Seating', defaultRoom: 'Office' },
+    keywords: ['filing cabinet', 'خزانة ملفات', 'وحدة أدراج مكتب'],
+    mapping: { category: 'Filing Cabinet', subcategory: 'Office Storage', defaultRoom: 'Office' },
   },
-  // Desks
   {
-    keywords: ['desk', 'writing desk', 'office desk', 'computer desk', 'مكتب', 'طاولة مكتب', 'مكتب دراسة'],
-    mapping: { category: 'Desk', subcategory: 'Office Desks', defaultRoom: 'Office' },
+    keywords: ['storage rack', 'kitchen rack', 'منظم مطبخ', 'صفاية'],
+    mapping: { category: 'Storage Rack', subcategory: 'Kitchen Storage', defaultRoom: 'Kitchen' },
   },
-  // Bookcases / Shelves
   {
-    keywords: ['bookcase', 'bookshelf', 'shelf', 'shelving', 'مكتبة', 'ارفف', 'أرفف', 'وحدة رفوف'],
-    mapping: { category: 'Bookcase', subcategory: 'Shelving & Storage', defaultRoom: 'Office' },
+    keywords: ['storage unit', 'storage cabinet', 'وحدة تخزين', 'منظم'],
+    mapping: { category: 'Storage Unit', subcategory: 'Storage', defaultRoom: 'Living Room' },
   },
-  // Decorative Objects / Clocks
+
+  // Kitchen & Bathroom Specialty
   {
-    keywords: ['clock', 'wall clock', 'sculpture', 'figurine', 'decorative object', 'ساعة جدارية', 'ساعة حائط', 'ديكور', 'تحفة'],
-    mapping: { category: 'Decorative Object', subcategory: 'Accent Decor', defaultRoom: 'Decor' },
+    keywords: ['kitchen cabinet', 'kitchen set', 'مطابخ', 'وحدة مطبخ', 'دولاب مطبخ'],
+    mapping: { category: 'Kitchen Cabinet Set', subcategory: 'Kitchen Cabinets', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['countertop', 'kitchen top', 'رخامة مطبخ', 'قرصة مطبخ'],
+    mapping: { category: 'Countertop', subcategory: 'Kitchen Surfaces', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['kitchen island', 'جزيرة مطبخ'],
+    mapping: { category: 'Kitchen Island', subcategory: 'Kitchen Islands', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['vanity unit', 'bathroom vanity', 'sink cabinet', 'وحدة حوض', 'كابينة حوض', 'حوض حمام'],
+    mapping: { category: 'Vanity Unit', subcategory: 'Bathroom Fixtures', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['shower enclosure', 'shower door', 'shower cabin', 'كبينة شاور', 'كابينة دش'],
+    mapping: { category: 'Shower Enclosure', subcategory: 'Bathroom Fixtures', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['toilet', 'water closet', 'wc', 'قاعدة حمام', 'تواليت', 'كومبينيشن'],
+    mapping: { category: 'Toilet', subcategory: 'Bathroom Fixtures', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['mirror cabinet', 'خزانة مراية', 'مراية حمام'],
+    mapping: { category: 'Mirror Cabinet', subcategory: 'Bathroom Storage', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['shelving', 'bathroom shelf', 'ارفف حمام', 'رفوف حمام'],
+    mapping: { category: 'Shelving', subcategory: 'Bathroom Storage', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['towel rack', 'towel rail', 'towel bar', 'فواطة', 'حامل فوط'],
+    mapping: { category: 'Towel Rack', subcategory: 'Bathroom Accessories', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['accessories set', 'bathroom accessories', 'soap dispenser', 'طقم حمام', 'صبانة'],
+    mapping: { category: 'Accessories Set', subcategory: 'Bathroom Accessories', defaultRoom: 'Bathroom' },
+  },
+
+  // Soft Furnishings & Window Treatments
+  {
+    keywords: ['curtain', 'drapes', 'drape', 'blind', 'ستارة', 'ستائر'],
+    mapping: { category: 'Curtains', subcategory: 'Window Treatments', defaultRoom: 'Living Room' },
+  },
+  {
+    keywords: ['outdoor rug', 'patio rug', 'سجاد حدائق'],
+    mapping: { category: 'Outdoor Rug', subcategory: 'Rugs', defaultRoom: 'Balcony' },
+  },
+  {
+    keywords: ['rug', 'carpet', 'runner rug', 'سجادة', 'سجاد', 'مشاية'],
+    mapping: { category: 'Rug', subcategory: 'Rugs', defaultRoom: 'Living Room' },
+  },
+
+  // Lighting
+  {
+    keywords: ['floor lamp', 'مصباح أرضي', 'اباجورة ارضية'],
+    mapping: { category: 'Floor Lamp', subcategory: 'Lighting', defaultRoom: 'Living Room' },
+  },
+  {
+    keywords: ['table lamp', 'bedside lamp', 'مصباح طاولة'],
+    mapping: { category: 'Table Lamp', subcategory: 'Lighting', defaultRoom: 'Bedroom' },
+  },
+  {
+    keywords: ['desk lamp', 'study lamp', 'أباجورة مكتب', 'مصباح مكتب'],
+    mapping: { category: 'Desk Lamp', subcategory: 'Lighting', defaultRoom: 'Office' },
+  },
+  {
+    keywords: ['outdoor lighting', 'string light', 'solar light', 'إضاءة حدائق', 'حبل اضاءة'],
+    mapping: { category: 'Outdoor Lighting', subcategory: 'Lighting', defaultRoom: 'Balcony' },
+  },
+  {
+    keywords: ['bathroom lighting', 'bathroom light', 'إضاءة حمام'],
+    mapping: { category: 'Bathroom Lighting', subcategory: 'Lighting', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['kitchen lighting', 'kitchen light', 'إضاءة مطبخ'],
+    mapping: { category: 'Kitchen Lighting', subcategory: 'Lighting', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['led lighting', 'led strip', 'rgb light', 'شريط ليد'],
+    mapping: { category: 'LED Lighting', subcategory: 'Lighting', defaultRoom: 'Game Room' },
+  },
+  {
+    keywords: ['chandelier', 'نجفة', 'ثريا'],
+    mapping: { category: 'Chandelier', subcategory: 'Lighting', defaultRoom: 'Dining Room' },
+  },
+  {
+    keywords: ['night light', 'سهارية', 'مصباح ليلي'],
+    mapping: { category: 'Night Light', subcategory: 'Lighting', defaultRoom: 'Kids Room' },
+  },
+
+  // Decor, Balcony & Accessories
+  {
+    keywords: ['wall art', 'painting', 'canvas', 'poster', 'لوحة', 'تابلوه', 'لوحات جدارية'],
+    mapping: { category: 'Wall Art', subcategory: 'Decor', defaultRoom: 'Living Room' },
+  },
+  {
+    keywords: ['wall decor', 'ديكور حائط'],
+    mapping: { category: 'Wall Decor', subcategory: 'Decor', defaultRoom: 'Kids Room' },
+  },
+  {
+    keywords: ['mirror', 'full length mirror', 'wall mirror', 'مرآة', 'مراية'],
+    mapping: { category: 'Mirror', subcategory: 'Decor', defaultRoom: 'Bedroom' },
+  },
+  {
+    keywords: ['planter', 'flower pot', 'plant pot', 'اصيص زرع', 'نبات'],
+    mapping: { category: 'Planter', subcategory: 'Botanical Decor', defaultRoom: 'Balcony' },
+  },
+  {
+    keywords: ['swing', 'egg chair', 'hanging chair', 'مرجيحة', 'أرجوحة'],
+    mapping: { category: 'Swing', subcategory: 'Outdoor Seating', defaultRoom: 'Balcony' },
+  },
+  {
+    keywords: ['sound system stand', 'speaker stand', 'حامل سماعات'],
+    mapping: { category: 'Sound System Stand', subcategory: 'Audio Accessories', defaultRoom: 'Game Room' },
+  },
+  {
+    keywords: ['wall shelf', 'kitchen shelf', 'رف جداري'],
+    mapping: { category: 'Wall Shelf', subcategory: 'Shelving', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['whiteboard', 'marker board', 'سبورة', 'سبورة بيضاء'],
+    mapping: { category: 'Whiteboard', subcategory: 'Office Accessories', defaultRoom: 'Office' },
   },
 ];
 
@@ -130,9 +274,9 @@ const EXCLUDED_KEYWORDS = [
   'perfume', 'makeup', 'toy', 'game', 'groceries', 'food', 'snack', 'watch', 'jewel',
   'waffle', 'sandwich', 'fryer', 'kettle', 'blender', 'mixer', 'fan', 'heater', 'scrub',
   'tissue', 'glove', 'soap', 'cleaner', 'vacuum', 'cooker', 'microwave', 'refrigerator',
-  'fridge', 'iron', 'toaster', 'juicer', 'processor', 'clip', 'clips',
+  'fridge', 'iron', 'toaster', 'juicer', 'processor', 'clip', 'clips', 'sheets', 'sheet', 'pillow',
   'موبايل', 'هاتف', 'قميص', 'فستان', 'حذاء', 'عطر', 'لعبة', 'طعام', 'ساعة يد', 'خلاط',
-  'قلاية', 'مروحة', 'مناديل', 'صابون', 'منظف', 'مكواة', 'ميكروويف', 'موقد', 'ثلاجة'
+  'قلاية', 'مروحة', 'مناديل', 'صابون', 'منظف', 'مكواة', 'ميكروويف', 'موقد', 'ثلاجة', 'ملاية', 'ملاءة'
 ];
 
 export function isFurnishingProduct(name: string, rawCategory: string = ''): boolean {
@@ -163,9 +307,10 @@ export function normalizeCategory(rawName: string, rawCategory: string = ''): Ca
     }
   }
 
+  // Strict fallback matching rules
   return {
-    category: 'Decorative Object',
-    subcategory: 'General Furnishing',
-    defaultRoom: 'Decor',
+    category: 'Storage Unit',
+    subcategory: 'Storage',
+    defaultRoom: 'Living Room',
   };
 }

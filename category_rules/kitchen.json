@@ -1,0 +1,86 @@
+{
+  "roomType": "Kitchen",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "category": "Kitchen Cabinet Set", "role": "CORE", "priority": 1, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 40, "minPercentage": 30, "maxPercentage": 55 },
+      "sizeRules": [
+        { "roomArea": { "min": 4, "max": 8 }, "recommendedDimensions": { "totalLinearMeters": { "min": 2.4, "max": 3.6 }, "upperCabinetHeight": { "min": 60, "max": 72 }, "lowerCabinetHeight": { "min": 85, "max": 90 }, "depth": { "min": 55, "max": 60 } } },
+        { "roomArea": { "min": 8, "max": 12 }, "recommendedDimensions": { "totalLinearMeters": { "min": 3.6, "max": 5.4 }, "upperCabinetHeight": { "min": 60, "max": 72 }, "lowerCabinetHeight": { "min": 85, "max": 90 }, "depth": { "min": 55, "max": 60 } } },
+        { "roomArea": { "min": 12, "max": 20 }, "recommendedDimensions": { "totalLinearMeters": { "min": 5.0, "max": 8.0 }, "upperCabinetHeight": { "min": 60, "max": 90 }, "lowerCabinetHeight": { "min": 85, "max": 92 }, "depth": { "min": 58, "max": 65 } } }
+      ],
+      "placement": { "preferredLayout": ["L_SHAPE","U_SHAPE","GALLEY","SINGLE_WALL"], "workTriangle": true, "minimumClearance": 90, "avoidBlockingDoors": true },
+      "constraints": { "softClose": "PREFERRED", "waterResistant": "REQUIRED", "maxRoomCoverage": 45 },
+      "productSearch": { "preferredStyles": ["Modern","Contemporary","Classic","Industrial"], "preferredMaterials": ["Wood","MDF","Laminate","PVC","Acrylic"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Countertop", "role": "CORE", "priority": 2, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 20, "minPercentage": 12, "maxPercentage": 28 },
+      "sizeRules": [
+        { "roomArea": { "min": 4, "max": 20 }, "recommendedDimensions": { "depth": { "min": 58, "max": 65 }, "thickness": { "min": 2, "max": 5 }, "note": "Width matches cabinet linear meters" } }
+      ],
+      "placement": { "preferredPosition": "ON_TOP_OF_LOWER_CABINETS", "backsplashHeight": { "min": 40, "max": 60 } },
+      "constraints": { "heatResistant": "REQUIRED", "stainResistant": "PREFERRED", "waterproof": "REQUIRED" },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Industrial","Luxury"], "preferredMaterials": ["Granite","Quartz","Marble","Solid Surface","Corian"] },
+      "promptInfluence": { "budget": "HIGH", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Kitchen Island", "role": "OPTIONAL", "priority": 3, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 12, "minPercentage": 0, "maxPercentage": 20 },
+      "sizeRules": [
+        { "roomArea": { "min": 12, "max": 16 }, "recommendedDimensions": { "width": { "min": 90, "max": 120 }, "depth": { "min": 60, "max": 80 }, "height": { "min": 85, "max": 92 } } },
+        { "roomArea": { "min": 16, "max": 25 }, "recommendedDimensions": { "width": { "min": 120, "max": 180 }, "depth": { "min": 70, "max": 100 }, "height": { "min": 85, "max": 95 } } }
+      ],
+      "placement": { "preferredPosition": "CENTER_OF_KITCHEN", "minimumClearance": 100, "minimumWalkway": 105 },
+      "constraints": { "minimumRoomArea": 12, "storage": "PREFERRED", "seating": "OPTIONAL", "maxRoomCoverage": 15 },
+      "productSearch": { "preferredStyles": ["Modern","Contemporary","Industrial"], "preferredMaterials": ["Wood","Granite Top","Quartz Top","Stainless Steel"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Storage Rack", "role": "SECONDARY", "priority": 4, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 8, "minPercentage": 4, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 4, "max": 20 }, "recommendedDimensions": { "width": { "min": 50, "max": 90 }, "depth": { "min": 30, "max": 45 }, "height": { "min": 80, "max": 180 } } }
+      ],
+      "placement": { "preferredPosition": "NEAR_COOKING_AREA", "wallMounted": "PREFERRED" },
+      "constraints": { "rustResistant": "REQUIRED", "easyClean": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Industrial","Minimal"], "preferredMaterials": ["Stainless Steel","Metal","Wood"] },
+      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "MEDIUM", "color": "LOW" }
+    },
+    {
+      "category": "Bar Stool", "role": "OPTIONAL", "priority": 5, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 8, "minPercentage": 3, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 20 }, "recommendedDimensions": { "width": { "min": 38, "max": 48 }, "depth": { "min": 38, "max": 48 }, "seatHeight": { "min": 62, "max": 78 } } }
+      ],
+      "placement": { "preferredPosition": "AT_ISLAND_OR_COUNTER", "spacingBetweenStools": 15 },
+      "constraints": { "maxQuantity": 4, "footrest": "PREFERRED", "stackable": "OPTIONAL" },
+      "productSearch": { "preferredStyles": ["Modern","Industrial","Scandinavian","Contemporary"], "preferredMaterials": ["Metal","Wood","Upholstered"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Kitchen Lighting", "role": "SECONDARY", "priority": 6, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 7, "minPercentage": 4, "maxPercentage": 10 },
+      "sizeRules": [
+        { "roomArea": { "min": 4, "max": 20 }, "recommendedDimensions": { "note": "Size varies by type: pendant, under-cabinet, recessed" } }
+      ],
+      "placement": { "preferredPosition": "ABOVE_ISLAND_AND_UNDER_CABINETS", "pendantHeight": { "min": 70, "max": 85 } },
+      "constraints": { "waterproofRating": "IP44_MINIMUM", "taskLighting": "REQUIRED" },
+      "productSearch": { "preferredStyles": ["Modern","Industrial","Minimal","Contemporary"], "preferredMaterials": ["Metal","Glass","Aluminum"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Wall Shelf", "role": "OPTIONAL", "priority": 7, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 5, "minPercentage": 2, "maxPercentage": 8 },
+      "sizeRules": [
+        { "roomArea": { "min": 4, "max": 20 }, "recommendedDimensions": { "width": { "min": 40, "max": 90 }, "depth": { "min": 15, "max": 25 }, "height": { "min": 2, "max": 4 } } }
+      ],
+      "placement": { "preferredPosition": "ABOVE_COUNTER_OPEN_WALL", "minimumHeightFromCounter": 45 },
+      "constraints": { "maxQuantity": 4, "weightCapacity": "5KG_PER_SHELF", "moistureResistant": "REQUIRED" },
+      "productSearch": { "preferredStyles": ["Modern","Industrial","Scandinavian","Rustic"], "preferredMaterials": ["Wood","Metal Bracket","Stainless Steel"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "MEDIUM", "color": "LOW" }
+    }
+  ]
+}

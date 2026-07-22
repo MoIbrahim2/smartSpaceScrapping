@@ -1,0 +1,114 @@
+{
+  "roomType": "Bedroom",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "category": "Bed", "role": "CORE", "priority": 1, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 35, "minPercentage": 28, "maxPercentage": 45 },
+      "sizeRules": [
+        { "roomArea": { "min": 9, "max": 12 }, "recommendedDimensions": { "width": { "min": 120, "max": 140 }, "length": { "min": 190, "max": 200 }, "note": "Single or Small Double" } },
+        { "roomArea": { "min": 12, "max": 16 }, "recommendedDimensions": { "width": { "min": 140, "max": 160 }, "length": { "min": 200, "max": 210 }, "note": "Double" } },
+        { "roomArea": { "min": 16, "max": 22 }, "recommendedDimensions": { "width": { "min": 160, "max": 180 }, "length": { "min": 200, "max": 210 }, "note": "Queen" } },
+        { "roomArea": { "min": 22, "max": 40 }, "recommendedDimensions": { "width": { "min": 180, "max": 200 }, "length": { "min": 200, "max": 220 }, "note": "King" } }
+      ],
+      "placement": { "preferredWall": "WALL_OPPOSITE_DOOR", "headboardAgainstWall": true, "minimumClearance": 60, "accessBothSides": true, "avoidUnderWindow": true },
+      "constraints": { "storageDrawers": "OPTIONAL", "upholstered": "OPTIONAL", "maxRoomCoverage": 40 },
+      "productSearch": { "preferredStyles": ["Modern","Contemporary","Scandinavian","Classic"], "preferredMaterials": ["Wood","Upholstered","Metal"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Wardrobe", "role": "CORE", "priority": 2, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 25, "minPercentage": 18, "maxPercentage": 32 },
+      "sizeRules": [
+        { "roomArea": { "min": 9, "max": 12 }, "recommendedDimensions": { "width": { "min": 100, "max": 150 }, "depth": { "min": 55, "max": 60 }, "height": { "min": 200, "max": 230 } } },
+        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 150, "max": 200 }, "depth": { "min": 55, "max": 65 }, "height": { "min": 210, "max": 240 } } },
+        { "roomArea": { "min": 18, "max": 25 }, "recommendedDimensions": { "width": { "min": 200, "max": 260 }, "depth": { "min": 58, "max": 65 }, "height": { "min": 220, "max": 250 } } },
+        { "roomArea": { "min": 25, "max": 40 }, "recommendedDimensions": { "width": { "min": 250, "max": 350 }, "depth": { "min": 60, "max": 70 }, "height": { "min": 230, "max": 260 } } }
+      ],
+      "placement": { "preferredWall": "WALL_ADJACENT_TO_DOOR", "minimumClearance": 70, "doorOpeningSpace": 90, "avoidBlockingWindows": true },
+      "constraints": { "slidingDoors": "ALLOWED", "hingedDoors": "ALLOWED", "builtIn": "ALLOWED", "maxRoomCoverage": 20 },
+      "productSearch": { "preferredStyles": ["Modern","Contemporary","Minimal","Classic"], "preferredMaterials": ["Wood","MDF","Laminate"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Nightstand", "role": "CORE", "priority": 3, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 8, "minPercentage": 4, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 9, "max": 40 }, "recommendedDimensions": { "width": { "min": 40, "max": 55 }, "depth": { "min": 35, "max": 45 }, "height": { "min": 50, "max": 65 } } }
+      ],
+      "placement": { "preferredPosition": "BESIDE_BED_BOTH_SIDES", "matchBedHeight": true, "minimumClearance": 5 },
+      "constraints": { "maxQuantity": 2, "drawers": "PREFERRED", "maxRoomCoverage": 3 },
+      "productSearch": { "preferredStyles": ["Modern","Scandinavian","Contemporary"], "preferredMaterials": ["Wood","MDF","Metal"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Dresser", "role": "SECONDARY", "priority": 4, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 10, "minPercentage": 6, "maxPercentage": 15 },
+      "sizeRules": [
+        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 80, "max": 120 }, "depth": { "min": 40, "max": 50 }, "height": { "min": 75, "max": 90 } } },
+        { "roomArea": { "min": 18, "max": 40 }, "recommendedDimensions": { "width": { "min": 120, "max": 160 }, "depth": { "min": 45, "max": 55 }, "height": { "min": 80, "max": 95 } } }
+      ],
+      "placement": { "preferredWall": "ANY_FREE_WALL", "minimumClearance": 70, "avoidBlockingDoors": true },
+      "constraints": { "drawers": "REQUIRED", "mirrorAttachment": "OPTIONAL", "maxRoomCoverage": 6 },
+      "productSearch": { "preferredStyles": ["Modern","Contemporary","Classic","Scandinavian"], "preferredMaterials": ["Wood","MDF"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "MEDIUM", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Curtains", "role": "SECONDARY", "priority": 5, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 7, "minPercentage": 4, "maxPercentage": 10 },
+      "sizeRules": [
+        { "roomArea": { "min": 9, "max": 40 }, "recommendedDimensions": { "widthMultiplier": 1.5, "note": "Width = window width × 1.5, blackout preferred for bedrooms" } }
+      ],
+      "placement": { "preferredPosition": "WINDOW_FRAME", "ceilingMountPreferred": true },
+      "constraints": { "blackout": "PREFERRED", "sheer": "OPTIONAL" },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Minimal","Luxury"], "preferredMaterials": ["Velvet","Linen","Blackout Fabric"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Rug", "role": "SECONDARY", "priority": 6, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 5, "minPercentage": 3, "maxPercentage": 8 },
+      "sizeRules": [
+        { "roomArea": { "min": 9, "max": 14 }, "recommendedDimensions": { "width": { "min": 120, "max": 160 }, "length": { "min": 180, "max": 230 } } },
+        { "roomArea": { "min": 14, "max": 22 }, "recommendedDimensions": { "width": { "min": 160, "max": 200 }, "length": { "min": 230, "max": 280 } } },
+        { "roomArea": { "min": 22, "max": 40 }, "recommendedDimensions": { "width": { "min": 200, "max": 280 }, "length": { "min": 280, "max": 350 } } }
+      ],
+      "placement": { "preferredPosition": "UNDER_BED_EXTENDING_OUT", "extendBeyondBed": 60 },
+      "constraints": { "shape": ["Rectangular"], "softPile": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Bohemian","Scandinavian"], "preferredMaterials": ["Wool","Cotton","Polypropylene"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "MEDIUM", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Table Lamp", "role": "SECONDARY", "priority": 7, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 4, "minPercentage": 2, "maxPercentage": 7 },
+      "sizeRules": [
+        { "roomArea": { "min": 9, "max": 40 }, "recommendedDimensions": { "baseWidth": { "min": 15, "max": 30 }, "height": { "min": 40, "max": 65 } } }
+      ],
+      "placement": { "preferredPosition": "ON_NIGHTSTAND", "matchNightstandWidth": true },
+      "constraints": { "requiresPower": true, "maxQuantity": 2, "dimmable": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Scandinavian","Art Deco","Minimal"], "preferredMaterials": ["Ceramic","Metal","Glass","Fabric Shade"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "MEDIUM", "color": "MEDIUM" }
+    },
+    {
+      "category": "Mirror", "role": "OPTIONAL", "priority": 8, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 3, "minPercentage": 1, "maxPercentage": 6 },
+      "sizeRules": [
+        { "roomArea": { "min": 9, "max": 40 }, "recommendedDimensions": { "width": { "min": 50, "max": 80 }, "height": { "min": 150, "max": 180 } } }
+      ],
+      "placement": { "preferredPosition": "ON_WALL_OR_ABOVE_DRESSER", "avoidFacingBed": true },
+      "constraints": { "fullLength": "OPTIONAL", "wallMounted": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Minimal"], "preferredMaterials": ["Glass","Metal Frame","Wood Frame"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "MEDIUM", "color": "LOW" }
+    },
+    {
+      "category": "Bedroom Armchair", "role": "OPTIONAL", "priority": 9, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 3, "minPercentage": 0, "maxPercentage": 8 },
+      "sizeRules": [
+        { "roomArea": { "min": 16, "max": 40 }, "recommendedDimensions": { "width": { "min": 65, "max": 80 }, "depth": { "min": 70, "max": 85 } } }
+      ],
+      "placement": { "preferredPosition": "CORNER_NEAR_WINDOW", "minimumClearance": 45 },
+      "constraints": { "maxQuantity": 1, "maxRoomCoverage": 5 },
+      "productSearch": { "preferredStyles": ["Modern","Scandinavian","Mid-Century"], "preferredMaterials": ["Fabric","Velvet","Leather"] },
+      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "HIGH", "color": "HIGH" }
+    }
+  ]
+}

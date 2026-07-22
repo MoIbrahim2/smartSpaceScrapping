@@ -1,0 +1,91 @@
+{
+  "roomType": "Dining Room",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "category": "Dining Table", "role": "CORE", "priority": 1, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 30, "minPercentage": 22, "maxPercentage": 40 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 12 }, "seatingCapacity": { "min": 4, "max": 4 }, "recommendedDimensions": { "width": { "min": 80, "max": 90 }, "length": { "min": 120, "max": 140 } } },
+        { "roomArea": { "min": 12, "max": 18 }, "seatingCapacity": { "min": 4, "max": 6 }, "recommendedDimensions": { "width": { "min": 90, "max": 100 }, "length": { "min": 150, "max": 180 } } },
+        { "roomArea": { "min": 18, "max": 25 }, "seatingCapacity": { "min": 6, "max": 8 }, "recommendedDimensions": { "width": { "min": 95, "max": 110 }, "length": { "min": 180, "max": 220 } } },
+        { "roomArea": { "min": 25, "max": 40 }, "seatingCapacity": { "min": 8, "max": 12 }, "recommendedDimensions": { "width": { "min": 100, "max": 120 }, "length": { "min": 220, "max": 300 } } }
+      ],
+      "placement": { "preferredPosition": "CENTER_OF_ROOM", "minimumClearance": 75, "minimumWalkway": 90, "underChandelier": true },
+      "constraints": { "shape": ["Rectangular","Round","Oval"], "extendable": "OPTIONAL", "maxRoomCoverage": 25 },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Contemporary","Scandinavian","Luxury"], "preferredMaterials": ["Wood","Marble","Glass","MDF"] },
+      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Dining Chairs", "role": "CORE", "priority": 2, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 25, "minPercentage": 18, "maxPercentage": 32 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 40 }, "recommendedDimensions": { "width": { "min": 43, "max": 55 }, "depth": { "min": 45, "max": 55 }, "seatHeight": { "min": 43, "max": 48 } } }
+      ],
+      "placement": { "preferredPosition": "AROUND_TABLE", "spacingBetweenChairs": 10, "pullOutClearance": 55 },
+      "constraints": { "matchTable": "PREFERRED", "armchairEnds": "OPTIONAL", "stackable": "OPTIONAL" },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Contemporary","Scandinavian","Upholstered"], "preferredMaterials": ["Wood","Upholstered","Metal","Plastic"] },
+      "promptInfluence": { "budget": "HIGH", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Buffet Sideboard", "role": "SECONDARY", "priority": 3, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 15, "minPercentage": 8, "maxPercentage": 22 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 16 }, "recommendedDimensions": { "width": { "min": 100, "max": 140 }, "depth": { "min": 38, "max": 48 }, "height": { "min": 80, "max": 90 } } },
+        { "roomArea": { "min": 16, "max": 25 }, "recommendedDimensions": { "width": { "min": 140, "max": 180 }, "depth": { "min": 40, "max": 50 }, "height": { "min": 82, "max": 92 } } },
+        { "roomArea": { "min": 25, "max": 40 }, "recommendedDimensions": { "width": { "min": 180, "max": 240 }, "depth": { "min": 42, "max": 55 }, "height": { "min": 85, "max": 95 } } }
+      ],
+      "placement": { "preferredWall": "LONGEST_FREE_WALL", "minimumClearance": 60, "servingHeight": true },
+      "constraints": { "storage": "REQUIRED", "displaySurface": "PREFERRED", "maxRoomCoverage": 10 },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Contemporary","Art Deco"], "preferredMaterials": ["Wood","MDF","Walnut","Oak"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "HIGH", "color": "MEDIUM" }
+    },
+    {
+      "category": "Chandelier", "role": "SECONDARY", "priority": 4, "defaultIncluded": true,
+      "budget": { "defaultPercentage": 10, "minPercentage": 5, "maxPercentage": 15 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 14 }, "recommendedDimensions": { "diameter": { "min": 45, "max": 60 }, "hangingHeight": { "min": 75, "max": 85 } } },
+        { "roomArea": { "min": 14, "max": 22 }, "recommendedDimensions": { "diameter": { "min": 60, "max": 80 }, "hangingHeight": { "min": 75, "max": 90 } } },
+        { "roomArea": { "min": 22, "max": 40 }, "recommendedDimensions": { "diameter": { "min": 75, "max": 110 }, "hangingHeight": { "min": 80, "max": 95 } } }
+      ],
+      "placement": { "preferredPosition": "CENTER_ABOVE_TABLE", "minimumClearanceAboveTable": 75, "centeredOnTable": true },
+      "constraints": { "dimmable": "PREFERRED", "requiresElectrician": true },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Art Deco","Contemporary","Luxury"], "preferredMaterials": ["Crystal","Metal","Glass","Brass","Gold"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "MEDIUM", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Rug", "role": "OPTIONAL", "priority": 5, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 8, "minPercentage": 4, "maxPercentage": 12 },
+      "sizeRules": [
+        { "roomArea": { "min": 10, "max": 18 }, "recommendedDimensions": { "width": { "min": 200, "max": 250 }, "length": { "min": 280, "max": 300 }, "note": "Extend 60cm beyond chairs" } },
+        { "roomArea": { "min": 18, "max": 40 }, "recommendedDimensions": { "width": { "min": 250, "max": 350 }, "length": { "min": 300, "max": 400 }, "note": "Extend 60cm beyond chairs" } }
+      ],
+      "placement": { "preferredPosition": "UNDER_TABLE_AND_CHAIRS", "extendBeyondChairs": 60 },
+      "constraints": { "flatWeave": "PREFERRED", "stainResistant": "PREFERRED", "easyClean": "PREFERRED" },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Traditional","Minimal"], "preferredMaterials": ["Wool","Polypropylene","Cotton","Jute"] },
+      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Curtains", "role": "OPTIONAL", "priority": 6, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 7, "minPercentage": 4, "maxPercentage": 10 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 40 }, "recommendedDimensions": { "widthMultiplier": 1.5 } }
+      ],
+      "placement": { "preferredPosition": "WINDOW_FRAME", "ceilingMountPreferred": true },
+      "constraints": { "sheer": "OPTIONAL", "blackout": "NOT_TYPICAL" },
+      "productSearch": { "preferredStyles": ["Modern","Classic","Luxury","Elegant"], "preferredMaterials": ["Linen","Silk","Velvet","Cotton"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    },
+    {
+      "category": "Wall Art", "role": "OPTIONAL", "priority": 7, "defaultIncluded": false,
+      "budget": { "defaultPercentage": 5, "minPercentage": 2, "maxPercentage": 8 },
+      "sizeRules": [
+        { "roomArea": { "min": 8, "max": 40 }, "recommendedDimensions": { "width": { "min": 60, "max": 150 }, "height": { "min": 50, "max": 100 } } }
+      ],
+      "placement": { "preferredPosition": "ABOVE_SIDEBOARD_OR_FOCAL_WALL", "centerHeight": 155 },
+      "constraints": { "maxQuantity": 3, "galleryWall": "ALLOWED" },
+      "productSearch": { "preferredStyles": ["Abstract","Classic","Modern","Still Life"], "preferredMaterials": ["Canvas","Framed Print","Metal"] },
+      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+    }
+  ]
+}
