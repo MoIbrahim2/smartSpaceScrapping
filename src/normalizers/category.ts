@@ -271,21 +271,70 @@ const CATEGORY_MAP: Array<{
 
 const EXCLUDED_KEYWORDS = [
   'phone', 'mobile', 'laptop', 'shirt', 'dress', 'shoes', 'pants', 't-shirt', 'shampoo',
-  'perfume', 'makeup', 'toy', 'game', 'groceries', 'food', 'snack', 'watch', 'jewel',
-  'waffle', 'sandwich', 'fryer', 'kettle', 'blender', 'mixer', 'fan', 'heater', 'scrub',
-  'tissue', 'glove', 'soap', 'cleaner', 'vacuum', 'cooker', 'microwave', 'refrigerator',
-  'fridge', 'iron', 'toaster', 'juicer', 'processor', 'clip', 'clips', 'sheets', 'sheet', 'pillow',
+  'perfume', 'makeup', 'groceries', 'snack', 'jewel',
+  'waffle', 'sandwich', 'fryer', 'blender', 'mixer', 'scrub',
+  'glove', 'vacuum', 'cooker', 'microwave', 'refrigerator',
+  'fridge', 'toaster', 'juicer', 'processor',
   'موبايل', 'هاتف', 'قميص', 'فستان', 'حذاء', 'عطر', 'لعبة', 'طعام', 'ساعة يد', 'خلاط',
-  'قلاية', 'مروحة', 'مناديل', 'صابون', 'منظف', 'مكواة', 'ميكروويف', 'موقد', 'ثلاجة', 'ملاية', 'ملاءة'
+  'قلاية', 'صابون', 'منظف', 'ميكروويف', 'موقد', 'ثلاجة'
+];
+
+/**
+ * Category seed names that indicate the page is already a furniture/home listing.
+ * When a product comes from one of these categories, we trust the source and
+ * accept it as long as it doesn't match an exclusion keyword.
+ */
+const TRUSTED_CATEGORY_KEYWORDS = [
+  'furniture', 'decor', 'lighting', 'bedding', 'bedroom', 'living room',
+  'dining', 'office', 'outdoor', 'patio', 'garden', 'balcony', 'storage',
+  'lamp', 'rug', 'curtain', 'mirror', 'shelf', 'shelving', 'art',
+  'أثاث', 'ديكور', 'اضاءة', 'مفروشات', 'غرف', 'مكتب',
+];
+
+/** Broad keywords that indicate a product is home/furniture-related */
+const BROAD_FURNITURE_KEYWORDS = [
+  // English broad terms
+  'table', 'chair', 'shelf', 'rack', 'cabinet', 'drawer', 'mattress',
+  'topper', 'pillow', 'cushion', 'blanket', 'comforter', 'duvet',
+  'lamp', 'light', 'clock', 'frame', 'vase', 'candle', 'organizer',
+  'hanger', 'hook', 'basket', 'bin', 'box', 'stand', 'bench',
+  'stool', 'ottoman', 'pouf', 'bean bag', 'cover', 'protector',
+  'shade', 'valance', 'rod', 'holder', 'dispenser', 'tray',
+  'mat', 'pad', 'sheet', 'set', 'decor', 'decoration', 'ornament',
+  'figurine', 'sculpture', 'photo frame', 'picture', 'tapestry',
+  'hammock', 'parasol', 'umbrella', 'gazebo', 'pergola',
+  'fan', 'heater', 'humidifier',
+  // Arabic broad terms
+  'طاولة', 'كرسي', 'رف', 'خزانة', 'درج', 'مرتبة', 'مخدة', 'بطانية',
+  'لحاف', 'مصباح', 'اضاءة', 'ساعة', 'برواز', 'مزهرية', 'شمعة',
+  'علاقة', 'سلة', 'صندوق', 'حامل', 'مقعد', 'سجادة', 'غطاء',
+  'ستارة', 'مراية', 'لوحة', 'تابلوه', 'أباجورة', 'نجفة',
+  'كنبة', 'سرير', 'دولاب', 'مكتب', 'سفرة', 'تسريحة', 'كومودينو',
+  'فوتيه', 'بوفيه', 'نيش', 'وحدة', 'ركنة', 'انتريه', 'راتان',
+  'خشب', 'قطيفة', 'جلد', 'قماش',
 ];
 
 export function isFurnishingProduct(name: string, rawCategory: string = ''): boolean {
   const combined = `${name} ${rawCategory}`.toLowerCase();
+
+  // Hard exclusions – definitely not furniture
   for (const ex of EXCLUDED_KEYWORDS) {
     if (combined.includes(ex)) {
       return false;
     }
   }
+
+  // If the product comes from a trusted furniture category page, accept it
+  if (rawCategory) {
+    const catLower = rawCategory.toLowerCase();
+    for (const trusted of TRUSTED_CATEGORY_KEYWORDS) {
+      if (catLower.includes(trusted)) {
+        return true;
+      }
+    }
+  }
+
+  // Check against the strict category map
   for (const item of CATEGORY_MAP) {
     for (const kw of item.keywords) {
       if (combined.includes(kw.toLowerCase())) {
@@ -293,6 +342,14 @@ export function isFurnishingProduct(name: string, rawCategory: string = ''): boo
       }
     }
   }
+
+  // Check against broad furniture keywords
+  for (const bkw of BROAD_FURNITURE_KEYWORDS) {
+    if (combined.includes(bkw.toLowerCase())) {
+      return true;
+    }
+  }
+
   return false;
 }
 

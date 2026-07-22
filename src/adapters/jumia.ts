@@ -11,10 +11,15 @@ export class JumiaAdapter extends BaseAdapter {
   async getCategorySeeds(): Promise<CategorySeed[]> {
     return [
       { name: 'Home & Office Furniture', url: `${this.baseUrl}/ar/home-office-furniture/`, targetRoom: 'Living Room' },
+      { name: 'Living Room Furniture', url: `${this.baseUrl}/ar/living-room-furniture/`, targetRoom: 'Living Room' },
+      { name: 'Bedroom Furniture', url: `${this.baseUrl}/ar/bedroom-furniture/`, targetRoom: 'Bedroom' },
+      { name: 'Dining Room Furniture', url: `${this.baseUrl}/ar/dining-room-furniture/`, targetRoom: 'Dining Room' },
       { name: 'Home Decor', url: `${this.baseUrl}/ar/home-decor/`, targetRoom: 'Decor' },
       { name: 'Bedding & Bedroom', url: `${this.baseUrl}/ar/bedding/`, targetRoom: 'Bedroom' },
       { name: 'Lighting & Lamps', url: `${this.baseUrl}/ar/home-lighting/`, targetRoom: 'Decor' },
+      { name: 'Storage & Organization', url: `${this.baseUrl}/ar/home-storage-organization/`, targetRoom: 'Office' },
       { name: 'Outdoor & Garden', url: `${this.baseUrl}/ar/patio-lawn-garden/`, targetRoom: 'Balcony' },
+      { name: 'Wall Art & Mirrors', url: `${this.baseUrl}/ar/wall-art-decor/`, targetRoom: 'Decor' },
     ];
   }
 
@@ -36,11 +41,13 @@ export class JumiaAdapter extends BaseAdapter {
 
       if (link && isFurnishingProduct(title, seed.name)) {
         const fullUrl = link.startsWith('http') ? link : `${this.baseUrl}${link}`;
-        productUrls.push(fullUrl);
+        if (!productUrls.includes(fullUrl)) {
+          productUrls.push(fullUrl);
+        }
       }
     });
 
-    const hasNextPage = $('a[aria-label="الصفحة التالية"], a[aria-label="Next Page"]').length > 0 && page < 20;
+    const hasNextPage = productUrls.length > 0 && page < 50;
 
     return {
       productUrls,
@@ -73,7 +80,6 @@ export class JumiaAdapter extends BaseAdapter {
 
     const specifications: Record<string, string> = {};
 
-    // Parse Jumia specific spec items (<li class="-pvxs"><span class="-b">الحجم (طولx عرضx ارتفاع سم)</span>: 120*190 CM</li>)
     $('.-pvs .list.-ndash li, li.-pvxs, #markup li').each((_, el) => {
       const text = $(el).text().replace(/\s+/g, ' ').trim();
       const label = $(el).find('span.-b').text().trim();

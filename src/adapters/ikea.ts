@@ -20,6 +20,8 @@ export class IkeaAdapter extends BaseAdapter {
       { name: 'Lighting', url: `${this.baseUrl}/cat/lighting-li001/`, targetRoom: 'Decor' },
       { name: 'Rugs & Textiles', url: `${this.baseUrl}/cat/rugs-10653/`, targetRoom: 'Decor' },
       { name: 'Outdoor Furniture', url: `${this.baseUrl}/cat/outdoor-furniture-od001/`, targetRoom: 'Balcony' },
+      { name: 'Bookcases & Shelving', url: `${this.baseUrl}/cat/bookcases-shelving-units-st002/`, targetRoom: 'Office' },
+      { name: 'Chest of Drawers', url: `${this.baseUrl}/cat/chest-of-drawers-drawer-units-10451/`, targetRoom: 'Bedroom' },
     ];
   }
 
@@ -34,18 +36,21 @@ export class IkeaAdapter extends BaseAdapter {
 
     const $ = cheerio.load(html);
     const productUrls: string[] = [];
+    const seen = new Set<string>();
 
-    $('.pip-product-compact, .pip-compact-header').each((_, el) => {
-      const link = $(el).find('a.pip-product-compact__link, a.pip-link').attr('href');
-      if (link) {
-        const fullUrl = link.startsWith('http') ? link : `https://www.ikea.com${link}`;
-        if (!productUrls.includes(fullUrl)) {
+    // Use broad product link selector – IKEA Egypt renders /p/ links for all products
+    $('a[href*="/p/"]').each((_, el) => {
+      const href = $(el).attr('href');
+      if (href) {
+        const fullUrl = href.startsWith('http') ? href : `https://www.ikea.com${href}`;
+        if (!seen.has(fullUrl)) {
+          seen.add(fullUrl);
           productUrls.push(fullUrl);
         }
       }
     });
 
-    const hasNextPage = $('.pip-btn--secondary.pip-btn--fluid').length > 0 && page < 20;
+    const hasNextPage = productUrls.length > 0 && page < 50;
 
     return {
       productUrls,
@@ -63,7 +68,6 @@ export class IkeaAdapter extends BaseAdapter {
     const $ = cheerio.load(html);
     const specifications: Record<string, string> = {};
 
-    // 1. IKEA Specific Modal Measurements (.pipf-measurements-modal__measurements-container li, .pipf-measurements-modal__product-measurement-wrapper)
     $('.pipf-measurements-modal__measurements-container li, .pipf-measurements-modal__product-measurement-wrapper, .pip-product-dimensions__measurement-container li, #pip-product-measurements p').each((_, el) => {
       const name = $(el).find('.pipf-measurements-modal__product-measurement-name, .pip-product-dimensions__measurement-name').text().replace(/[:\s&nbsp;]+$/, '').trim();
       const val = $(el).text().replace(name, '').replace(/[:\s&nbsp;]+/, '').trim();
@@ -78,7 +82,6 @@ export class IkeaAdapter extends BaseAdapter {
       }
     });
 
-    // 2. Schema.org JSON-LD structured data
     let jsonLdProduct: any = null;
     $('script[type="application/ld+json"]').each((_, el) => {
       try {
@@ -117,7 +120,6 @@ export class IkeaAdapter extends BaseAdapter {
       };
     }
 
-    // DOM fallback
     const title = $('.pip-header-section__title-text').text().trim() || $('h1').text().trim();
     if (!title) return null;
 
