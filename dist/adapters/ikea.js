@@ -66,7 +66,6 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
         const $ = cheerio.load(html);
         const productUrls = [];
         const seen = new Set();
-        // Use broad product link selector – IKEA Egypt renders /p/ links for all products
         $('a[href*="/p/"]').each((_, el) => {
             const href = $(el).attr('href');
             if (href) {
@@ -126,6 +125,19 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
                 specifications['Height'] = `${jsonLdProduct.height.value || jsonLdProduct.height} cm`;
             if (jsonLdProduct.depth)
                 specifications['Depth'] = `${jsonLdProduct.depth.value || jsonLdProduct.depth} cm`;
+            const extractedImages = [];
+            const rawImgs = Array.isArray(jsonLdProduct.image) ? jsonLdProduct.image : [jsonLdProduct.image];
+            for (const img of rawImgs) {
+                if (typeof img === 'string' && img.startsWith('http')) {
+                    extractedImages.push(img);
+                }
+                else if (img && typeof img === 'object') {
+                    const urlStr = img.contentUrl || img.url || img.src;
+                    if (typeof urlStr === 'string' && urlStr.startsWith('http')) {
+                        extractedImages.push(urlStr);
+                    }
+                }
+            }
             const price = parseFloat(jsonLdProduct.offers?.price || jsonLdProduct.offers?.[0]?.price || '2500');
             return {
                 externalId: jsonLdProduct.sku || `ikea-${Date.now()}`,
@@ -138,7 +150,7 @@ class IkeaAdapter extends base_js_1.BaseAdapter {
                 currentPrice: price,
                 originalPrice: price,
                 currency: 'EGP',
-                images: Array.isArray(jsonLdProduct.image) ? jsonLdProduct.image : [jsonLdProduct.image || 'https://www.ikea.com/placeholder.jpg'],
+                images: extractedImages.length > 0 ? extractedImages : ['https://www.ikea.com/placeholder.jpg'],
                 inStock: true,
                 ratingAverage: 4.6,
                 ratingReviews: 24,

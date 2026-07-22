@@ -14,14 +14,22 @@ export class HttpClient {
   private delayMs: number;
   private maxRetries: number;
 
-  constructor(delayMs: number = 1000, maxRetries: number = 0, timeoutMs: number = 6000) {
+  constructor(delayMs: number = 300, maxRetries: number = 1, timeoutMs: number = 15000) {
     this.delayMs = delayMs;
     this.maxRetries = maxRetries;
     this.axiosInstance = axios.create({
       timeout: timeoutMs,
       headers: {
-        'Accept-Language': 'en-US,en;q=0.9,ar;q=0.8',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': 'ar,en-US;q=0.9,en;q=0.8',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'sec-ch-ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"macOS"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
       },
     });
   }
@@ -41,11 +49,14 @@ export class HttpClient {
       return null;
     }
 
+    // Guarantee at least 1 retry for transient 403/503 anti-bot WAF blocks
+    const effectiveRetries = Math.max(1, retries);
     let attempt = 0;
-    while (attempt <= retries) {
+
+    while (attempt <= effectiveRetries) {
       try {
         if (this.delayMs > 0) {
-          await this.sleep(this.delayMs + Math.floor(Math.random() * 200)); // Rate limit delay with jitter
+          await this.sleep(this.delayMs + Math.floor(Math.random() * 200));
         }
 
         const userAgent = this.getRandomUserAgent();
@@ -63,13 +74,13 @@ export class HttpClient {
         const status = err.response?.status;
         logger.warn(`[HTTP Fetch] Failed ${url} - Status/Error: ${status || err.code || err.message}`);
 
-        if (attempt > retries) {
-          logger.warn(`Skipping ${url} immediately (max retries = ${retries}).`);
+        if (attempt > effectiveRetries) {
+          logger.warn(`Skipping ${url} immediately.`);
           return null;
         }
 
-        const backoffMs = Math.pow(2, attempt) * 1000;
-        logger.info(`Retrying in ${backoffMs}ms...`);
+        const backoffMs = Math.pow(2, attempt) * 800;
+        logger.info(`Retrying request to ${url} in ${backoffMs}ms...`);
         await this.sleep(backoffMs);
       }
     }

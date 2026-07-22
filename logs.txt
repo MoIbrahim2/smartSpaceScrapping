@@ -1,0 +1,53 @@
+[2026-07-22 16:06:08.451 +0300] INFO: === Executing Scraper Adapter: IKEA Egypt ===                                                                                 [0/1957]
+[2026-07-22 16:06:08.452 +0300] INFO: Scraping category seed: Sofas & Armchairs (https://www.ikea.com/eg/ar/cat/sofas-armchairs-fu003/)
+[2026-07-22 16:06:08.452 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/sofas-armchairs-fu003/?page=1
+[2026-07-22 16:06:08.513 +0300] WARN: Could not fetch robots.txt for https://www.ikea.com: Request failed with status code 403. Defaulting to ALLOW.
+[2026-07-22 16:06:08.927 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/sofas-armchairs-fu003/?page=1 - Status/Error: 403
+[2026-07-22 16:06:08.927 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/sofas-armchairs-fu003/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:08.927 +0300] INFO: Scraping category seed: Living Room Tables (https://www.ikea.com/eg/ar/cat/coffee-side-tables-10705/)
+[2026-07-22 16:06:08.927 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/coffee-side-tables-10705/?page=1
+[2026-07-22 16:06:09.295 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/coffee-side-tables-10705/?page=1 - Status/Error: 403
+[2026-07-22 16:06:09.296 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/coffee-side-tables-10705/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:09.296 +0300] INFO: Scraping category seed: TV & Media Furniture (https://www.ikea.com/eg/ar/cat/tv-media-furniture-10475/)
+[2026-07-22 16:06:09.296 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/tv-media-furniture-10475/?page=1
+[2026-07-22 16:06:09.735 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/tv-media-furniture-10475/?page=1 - Status/Error: 403
+[2026-07-22 16:06:09.735 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/tv-media-furniture-10475/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:09.735 +0300] INFO: Scraping category seed: Beds & Mattresses (https://www.ikea.com/eg/ar/cat/beds-bm003/)
+[2026-07-22 16:06:09.735 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/beds-bm003/?page=1
+[2026-07-22 16:06:10.104 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/beds-bm003/?page=1 - Status/Error: 403
+[2026-07-22 16:06:10.104 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/beds-bm003/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:10.104 +0300] INFO: Scraping category seed: Wardrobes & Storage (https://www.ikea.com/eg/ar/cat/wardrobes-19053/)
+[2026-07-22 16:06:10.104 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/wardrobes-19053/?page=1
+[2026-07-22 16:06:10.501 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/wardrobes-19053/?page=1 - Status/Error: 403
+[2026-07-22 16:06:10.502 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/wardrobes-19053/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:10.502 +0300] INFO: Scraping category seed: Dining Tables & Chairs (https://www.ikea.com/eg/ar/cat/dining-tables-21825/)
+[2026-07-22 16:06:10.502 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/dining-tables-21825/?page=1
+[2026-07-22 16:06:10.936 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/dining-tables-21825/?page=1 - Status/Error: 403
+[2026-07-22 16:06:10.936 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/dining-tables-21825/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:10.936 +0300] INFO: Scraping category seed: Desks & Office Chairs (https://www.ikea.com/eg/ar/cat/desks-computer-desks-20657/)
+[2026-07-22 16:06:10.936 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/desks-computer-desks-20657/?page=1
+[2026-07-22 16:06:11.339 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/desks-computer-desks-20657/?page=1 - Status/Error: 403
+[2026-07-22 16:06:11.339 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/desks-computer-desks-20657/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:11.339 +0300] INFO: Scraping category seed: Lighting (https://www.ikea.com/eg/ar/cat/lighting-li001/)
+[2026-07-22 16:06:11.339 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/lighting-li001/?page=1
+[2026-07-22 16:06:11.760 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/lighting-li001/?page=1 - Status/Error: 403
+[2026-07-22 16:06:11.760 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/lighting-li001/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:11.760 +0300] INFO: Scraping category seed: Rugs & Textiles (https://www.ikea.com/eg/ar/cat/rugs-10653/)
+[2026-07-22 16:06:11.760 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/rugs-10653/?page=1
+[2026-07-22 16:06:12.224 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/rugs-10653/?page=1 - Status/Error: 403
+[2026-07-22 16:06:12.224 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/rugs-10653/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:12.224 +0300] INFO: Scraping category seed: Outdoor Furniture (https://www.ikea.com/eg/ar/cat/outdoor-furniture-od001/)
+[2026-07-22 16:06:12.224 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/outdoor-furniture-od001/?page=1
+[2026-07-22 16:06:12.627 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/outdoor-furniture-od001/?page=1 - Status/Error: 403
+[2026-07-22 16:06:12.627 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/outdoor-furniture-od001/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:12.627 +0300] INFO: Scraping category seed: Bookcases & Shelving (https://www.ikea.com/eg/ar/cat/bookcases-shelving-units-st002/)
+[2026-07-22 16:06:12.627 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/bookcases-shelving-units-st002/?page=1
+[2026-07-22 16:06:13.007 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/bookcases-shelving-units-st002/?page=1 - Status/Error: 403
+[2026-07-22 16:06:13.007 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/bookcases-shelving-units-st002/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:13.007 +0300] INFO: Scraping category seed: Chest of Drawers (https://www.ikea.com/eg/ar/cat/chest-of-drawers-drawer-units-10451/)
+[2026-07-22 16:06:13.007 +0300] INFO: [IkeaAdapter] Scraping category page 1: https://www.ikea.com/eg/ar/cat/chest-of-drawers-drawer-units-10451/?page=1
+[2026-07-22 16:06:13.438 +0300] WARN: [HTTP Fetch] Failed https://www.ikea.com/eg/ar/cat/chest-of-drawers-drawer-units-10451/?page=1 - Status/Error: 403
+[2026-07-22 16:06:13.438 +0300] WARN: Skipping https://www.ikea.com/eg/ar/cat/chest-of-drawers-drawer-units-10451/?page=1 immediately (max retries = 0).
+[2026-07-22 16:06:13.453 +0300] INFO: Deduplicating 257 collected products...
+[2026-07-22 16:06:13.469 +0300] INFO: Saved final unified product catalog (222 unique products) to /root/smartSpaceScrapping/full_catalog.json
+[2026-07-22 16:06:13.469 +0300] INFO: Done! Total unified products catalog size: 222

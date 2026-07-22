@@ -9,7 +9,7 @@ const axios_1 = __importDefault(require("axios"));
 const logger_js_1 = require("./logger.js");
 class RobotsChecker {
     static cache = new Map();
-    static DEFAULT_USER_AGENT = 'SmartSpaceAIBot/1.0 (+https://smartspaceai.com/bot)';
+    static DEFAULT_USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36';
     static async isAllowed(url, userAgent = this.DEFAULT_USER_AGENT) {
         try {
             const parsedUrl = new URL(url);
@@ -19,7 +19,10 @@ class RobotsChecker {
                 try {
                     const resp = await axios_1.default.get(robotsUrl, {
                         timeout: 5000,
-                        headers: { 'User-Agent': userAgent },
+                        headers: {
+                            'User-Agent': userAgent,
+                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                        },
                     });
                     const parser = (0, robots_parser_1.default)(robotsUrl, resp.data);
                     this.cache.set(origin, parser);

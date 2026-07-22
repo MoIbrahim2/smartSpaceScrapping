@@ -9,74 +9,73 @@ export class NoonAdapter extends BaseAdapter {
   readonly baseUrl = 'https://www.noon.com/egypt-en';
 
   async getCategorySeeds(): Promise<CategorySeed[]> {
-    // Use Noon's internal catalog API which returns JSON reliably (avoids HTML timeouts)
-    const apiBase = 'https://www.noon.com/_svc/catalog/api/v3/u';
     return [
-      { name: 'Living Room Furniture', url: `${apiBase}/home-and-kitchen/furniture/living-room-furniture/`, targetRoom: 'Living Room' },
-      { name: 'Bedroom Furniture', url: `${apiBase}/home-and-kitchen/furniture/bedroom-furniture/`, targetRoom: 'Bedroom' },
-      { name: 'Office Furniture', url: `${apiBase}/home-and-kitchen/furniture/office-furniture/`, targetRoom: 'Office' },
-      { name: 'Dining Furniture', url: `${apiBase}/home-and-kitchen/furniture/dining-furniture/`, targetRoom: 'Dining Room' },
-      { name: 'Home Decor', url: `${apiBase}/home-and-kitchen/home-decor/`, targetRoom: 'Decor' },
-      { name: 'Patio & Outdoor', url: `${apiBase}/home-and-kitchen/patio-lawn-and-garden/`, targetRoom: 'Balcony' },
-      { name: 'Storage & Organisation', url: `${apiBase}/home-and-kitchen/storage-and-organisation/`, targetRoom: 'Office' },
-      { name: 'Bedding', url: `${apiBase}/home-and-kitchen/bedding-16171/`, targetRoom: 'Bedroom' },
-      { name: 'Home Lighting', url: `${apiBase}/home-and-kitchen/home-lighting/`, targetRoom: 'Decor' },
-      { name: 'Bath', url: `${apiBase}/home-and-kitchen/bath-16182/`, targetRoom: 'Bathroom' },
+      { name: 'Living Room Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/living-room-furniture/`, targetRoom: 'Living Room' },
+      { name: 'Bedroom Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/bedroom-furniture/`, targetRoom: 'Bedroom' },
+      { name: 'Office Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/office-furniture/`, targetRoom: 'Office' },
+      { name: 'Dining Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/dining-furniture/`, targetRoom: 'Dining Room' },
+      { name: 'Home Decor', url: `${this.baseUrl}/home-and-kitchen/home-decor/`, targetRoom: 'Decor' },
+      { name: 'Patio & Outdoor', url: `${this.baseUrl}/home-and-kitchen/patio-lawn-and-garden/`, targetRoom: 'Balcony' },
+      { name: 'Storage & Organisation', url: `${this.baseUrl}/home-and-kitchen/storage-and-organisation/`, targetRoom: 'Office' },
+      { name: 'Bedding', url: `${this.baseUrl}/home-and-kitchen/bedding-16171/`, targetRoom: 'Bedroom' },
+      { name: 'Home Lighting', url: `${this.baseUrl}/home-and-kitchen/home-lighting/`, targetRoom: 'Decor' },
+      { name: 'Bath', url: `${this.baseUrl}/home-and-kitchen/bath-16182/`, targetRoom: 'Bathroom' },
     ];
   }
 
   async scrapeCategoryPage(seed: CategorySeed, page: number): Promise<ScrapePageResult> {
-    // Noon catalog API returns up to 50 items per page as JSON
-    const apiUrl = `${seed.url}?limit=50&page=${page}`;
-    logger.info(`[NoonAdapter] Fetching catalog API page ${page}: ${apiUrl}`);
-    const response = await this.httpClient.fetch(apiUrl);
+    const pageUrl = `${seed.url}?page=${page}`;
+    logger.info(`[NoonAdapter] Scraping category page ${page}: ${pageUrl}`);
+    const html = await this.httpClient.fetch(pageUrl);
 
-    if (!response) {
+    if (!html) {
       return { productUrls: [], hasNextPage: false };
     }
 
+    const $ = cheerio.load(html);
     const productUrls: string[] = [];
 
-    try {
-      const data = JSON.parse(response);
-      const hits = data.hits || [];
-
-      for (const item of hits) {
-        const sku = item.sku;
-        const name = item.name || item.name_en || '';
-        if (sku && isFurnishingProduct(name, seed.name)) {
-          productUrls.push(`https://www.noon.com/egypt-en/p/${sku}`);
-        }
-      }
-
-      const nbPages = data.nbPages || 0;
-      const hasNextPage = page < nbPages && page < 50;
-
-      return {
-        productUrls,
-        hasNextPage,
-        nextPageUrl: hasNextPage ? `${seed.url}?limit=50&page=${page + 1}` : undefined,
-      };
-    } catch (e) {
-      logger.debug(`[NoonAdapter] Failed parsing catalog API JSON for page ${page}`);
-
-      // Fallback: try parsing as HTML
-      const $ = cheerio.load(response);
-      $('a[href*="/p/"]').each((_, el) => {
-        const href = $(el).attr('href');
-        if (href) {
-          const fullUrl = href.startsWith('http') ? href : `https://www.noon.com${href}`;
-          if (!productUrls.includes(fullUrl)) {
-            productUrls.push(fullUrl);
+    // 1. Parse Next.js embedded hydration state script
+    const nextDataScript = $('#__NEXT_DATA__').html();
+    if (nextDataScript) {
+      try {
+        const jsonData = JSON.parse(nextDataScript);
+        const grid = jsonData?.props?.pageProps?.catalog?.grid || jsonData?.props?.pageProps?.initialData?.catalog?.grid || [];
+        for (const item of grid) {
+          const itemUrl = item.url;
+          const name = item.name || item.name_en || '';
+          if (itemUrl && isFurnishingProduct(name, seed.name)) {
+            const fullUrl = itemUrl.startsWith('http')
+              ? itemUrl
+              : `https://www.noon.com/egypt-en/${itemUrl.replace(/^\//, '')}`;
+            if (!productUrls.includes(fullUrl)) {
+              productUrls.push(fullUrl);
+            }
           }
         }
-      });
-
-      return {
-        productUrls,
-        hasNextPage: productUrls.length > 0 && page < 50,
-      };
+      } catch (e) {
+        logger.debug('[NoonAdapter] Failed parsing __NEXT_DATA__ JSON');
+      }
     }
+
+    // 2. DOM fallback links selector
+    $('a[href*="/p/"], a[href*="/N"]').each((_, el) => {
+      const href = $(el).attr('href');
+      if (href && (href.includes('/p/') || href.includes('/N'))) {
+        const fullUrl = href.startsWith('http') ? href : `https://www.noon.com${href}`;
+        if (!productUrls.includes(fullUrl) && fullUrl.includes('/p/')) {
+          productUrls.push(fullUrl);
+        }
+      }
+    });
+
+    const hasNextPage = productUrls.length > 0 && page < 50;
+
+    return {
+      productUrls,
+      hasNextPage,
+      nextPageUrl: hasNextPage ? `${seed.url}?page=${page + 1}` : undefined,
+    };
   }
 
   async scrapeProduct(url: string): Promise<RawScrapedProduct | null> {
@@ -90,8 +89,8 @@ export class NoonAdapter extends BaseAdapter {
 
     // Parse spec tables
     $('tr').each((_, el) => {
-      const keyTd = $(el).find('td[class*="_specName_"], td:nth-child(1)');
-      const valTd = $(el).find('td[class*="_specValue_"], td:nth-child(2)');
+      const keyTd = $(el).find('td[class*="_specName_"], td:nth-child(1), .specKey');
+      const valTd = $(el).find('td[class*="_specValue_"], td:nth-child(2), .specValue');
       if (keyTd.length && valTd.length) {
         const k = keyTd.text().trim();
         const v = valTd.text().trim();
@@ -99,10 +98,8 @@ export class NoonAdapter extends BaseAdapter {
       }
     });
 
-    // Parse overview description
     const overviewDesc = $('div[class*="_overviewDesc_"] p, div[class*="_overviewDescriptionWrapper_"]').text().replace(/\s+/g, ' ').trim();
 
-    // Extract from __NEXT_DATA__
     const nextDataScript = $('#__NEXT_DATA__').html();
     if (nextDataScript) {
       try {
@@ -140,7 +137,6 @@ export class NoonAdapter extends BaseAdapter {
       }
     }
 
-    // DOM fallback
     const title = $('h1').text().trim() || $('meta[property="og:title"]').attr('content') || '';
     if (!title) return null;
 

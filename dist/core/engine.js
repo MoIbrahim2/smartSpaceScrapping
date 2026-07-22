@@ -19,7 +19,7 @@ class ScraperEngine {
     httpClient;
     checkpoint;
     constructor(options = {}) {
-        this.httpClient = new http_js_1.HttpClient(options.delayMs ?? 500, options.maxRetries ?? 0, options.timeoutMs ?? 6000);
+        this.httpClient = new http_js_1.HttpClient(options.delayMs ?? 300, options.maxRetries ?? 0, options.timeoutMs ?? 15000);
         this.checkpoint = new checkpoint_js_1.CheckpointManager(options.checkpointFile || '.checkpoint.json');
         // Register standard adapters
         this.registerAdapter(new amazon_js_1.AmazonAdapter(this.httpClient));
@@ -28,26 +28,44 @@ class ScraperEngine {
         this.registerAdapter(new ikea_js_1.IkeaAdapter(this.httpClient));
     }
     registerAdapter(adapter) {
-        this.adapters.set(adapter.name.toLowerCase(), adapter);
-        this.adapters.set(adapter.name, adapter);
+        const key = adapter.name.toLowerCase();
+        this.adapters.set(key, adapter);
+        // Also register aliases (e.g., 'amazon', 'noon', 'jumia', 'ikea')
+        if (key.includes('amazon'))
+            this.adapters.set('amazon', adapter);
+        if (key.includes('noon'))
+            this.adapters.set('noon', adapter);
+        if (key.includes('jumia'))
+            this.adapters.set('jumia', adapter);
+        if (key.includes('ikea'))
+            this.adapters.set('ikea', adapter);
     }
     getAvailableAdapters() {
         return Array.from(new Set(Array.from(this.adapters.values()).map((a) => a.name)));
     }
     async run(options = {}) {
-        const targetAdapterNames = options.adapters && options.adapters.length > 0
-            ? options.adapters
-            : this.getAvailableAdapters();
-        const limitPerCategory = options.limitPerCategory || 10;
-        const outputFile = options.outputFile || 'products_catalog.json';
-        logger_js_1.logger.info(`Starting ScraperEngine for adapters: ${targetAdapterNames.join(', ')}`);
-        const scrapedProducts = options.resume ? [...this.checkpoint.getSavedProducts()] : [];
-        for (const name of targetAdapterNames) {
-            const adapter = this.adapters.get(name.toLowerCase()) || this.adapters.get(name);
-            if (!adapter) {
-                logger_js_1.logger.error(`Adapter not found: ${name}`);
-                continue;
+        const requestedAdapters = options.adapters && options.adapters.length > 0 ? options.adapters : ['all'];
+        let targetAdapterInstances = [];
+        if (requestedAdapters.includes('all')) {
+            targetAdapterInstances = Array.from(new Set(Array.from(this.adapters.values())));
+        }
+        else {
+            for (const req of requestedAdapters) {
+                const reqLower = req.toLowerCase().trim();
+                for (const [name, inst] of this.adapters.entries()) {
+                    if (name.includes(reqLower) || reqLower.includes(name)) {
+                        if (!targetAdapterInstances.includes(inst)) {
+                            targetAdapterInstances.push(inst);
+                        }
+                    }
+                }
             }
+        }
+        const limitPerCategory = options.limitPerCategory || 500;
+        const outputFile = options.outputFile || 'products_catalog.json';
+        logger_js_1.logger.info(`Starting ScraperEngine for adapters: ${targetAdapterInstances.map((a) => a.name).join(', ')}`);
+        const scrapedProducts = options.resume ? [...this.checkpoint.getSavedProducts()] : [];
+        for (const adapter of targetAdapterInstances) {
             logger_js_1.logger.info(`=== Executing Scraper Adapter: ${adapter.name} ===`);
             try {
                 const seeds = await adapter.getCategorySeeds();

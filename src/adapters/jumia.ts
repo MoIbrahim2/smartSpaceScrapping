@@ -17,9 +17,7 @@ export class JumiaAdapter extends BaseAdapter {
       { name: 'Home Decor', url: `${this.baseUrl}/ar/home-decor/`, targetRoom: 'Decor' },
       { name: 'Bedding & Bedroom', url: `${this.baseUrl}/ar/bedding/`, targetRoom: 'Bedroom' },
       { name: 'Lighting & Lamps', url: `${this.baseUrl}/ar/home-lighting/`, targetRoom: 'Decor' },
-      { name: 'Storage & Organization', url: `${this.baseUrl}/ar/home-storage-organization/`, targetRoom: 'Office' },
       { name: 'Outdoor & Garden', url: `${this.baseUrl}/ar/patio-lawn-garden/`, targetRoom: 'Balcony' },
-      { name: 'Wall Art & Mirrors', url: `${this.baseUrl}/ar/wall-art-decor/`, targetRoom: 'Decor' },
     ];
   }
 
