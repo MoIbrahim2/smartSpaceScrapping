@@ -1,0 +1,18 @@
+{
+  "solid_wood": ["solid wood", "beech wood", "oak wood", "pine wood", "ash wood", "خشب طبيعي", "خشب زان", "خشب ارو", "خشب سويد"],
+  "engineered_wood": ["mdf", "particle board", "plywood", "engineered wood", "veneer", "ميلامين", "ام دي اف", "خشب حبيبي", "حبيبي"],
+  "wood": ["wood", "wooden", "خشب", "خشبي"],
+  "steel": ["steel", "stainless steel", "حديد صلب", "ستانلس"],
+  "metal": ["metal", "iron", "brass", "aluminum", "معدن", "معدني", "حديد"],
+  "glass": ["glass", "tempered glass", "زجاج", "زجاجي", "بايركس"],
+  "plastic": ["plastic", "acrylic", "polypropylene", "بلاستيك", "اكريليك"],
+  "fabric": ["fabric", "linen", "cotton", "upholstered", "قماش", "كتان", "قطن"],
+  "velvet": ["velvet", "قطيفة"],
+  "leather": ["leather", "faux leather", "pu leather", "جلد", "جلد صناعي"],
+  "faux_leather": ["faux leather", "pu leather", "synthetic leather", "جلد صناعي"],
+  "marble": ["marble", "رخام", "رخامي"],
+  "stone": ["stone", "granite", "slate", "حجر", "جرانيت"],
+  "ceramic": ["ceramic", "porcelain", "سيراميك", "بورسلين"],
+  "concrete": ["concrete", "cement", "خرسانة", "أسمنت"],
+  "rattan": ["rattan", "wicker", "راتان", "خيزران"]
+}

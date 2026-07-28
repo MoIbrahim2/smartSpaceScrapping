@@ -1,0 +1,621 @@
+{
+  "summary": {
+    "totalProducts": 3961,
+    "rootFormat": "JSON Array",
+    "marketplaceDistribution": {
+      "Amazon Egypt": 124,
+      "Noon Egypt": 3837
+    },
+    "missingDataStats": {
+      "missingPrice": 0,
+      "missingDimensions": 0,
+      "missingImages": 0,
+      "missingDescription": 0,
+      "genericOrNullBrand": 7,
+      "missingSKU": 0,
+      "duplicateUrls": 1349,
+      "duplicateExtIds": 0
+    },
+    "storageUnitBreakdown": {
+      "totalInStorageCategory": 3359,
+      "estimatedFurnitureStorageAccepted": 3,
+      "estimatedIrrelevantStorageRejected": 1941,
+      "estimatedUncertainStorageReview": 1415
+    }
+  },
+  "schema": {
+    "topLevelFields": [
+      "externalId",
+      "source",
+      "basic",
+      "classification",
+      "pricing",
+      "dimensions",
+      "images",
+      "availability",
+      "rating",
+      "ai"
+    ],
+    "fieldPresenceCount": {
+      "externalId": 3961,
+      "source": 3961,
+      "basic": 3961,
+      "classification": 3961,
+      "pricing": 3961,
+      "dimensions": 3961,
+      "images": 3961,
+      "availability": 3961,
+      "rating": 3961,
+      "ai": 3961
+    }
+  },
+  "canonicalCategoryCoverage": {
+    "Outdoor Seating": 2,
+    "Outdoor Table": 0,
+    "Planter": 1,
+    "Outdoor Lighting": 0,
+    "Outdoor Rug": 0,
+    "Swing": 4,
+    "Vanity Unit": 0,
+    "Shower Enclosure": 0,
+    "Toilet": 95,
+    "Mirror Cabinet": 0,
+    "Shelving": 2,
+    "Towel Rack": 0,
+    "Accessories Set": 4,
+    "Bathroom Lighting": 0,
+    "Bed": 200,
+    "Wardrobe": 11,
+    "Nightstand": 0,
+    "Dresser": 2,
+    "Curtains": 22,
+    "Rug": 40,
+    "Table Lamp": 15,
+    "Mirror": 35,
+    "Bedroom Armchair": 0,
+    "Dining Table": 19,
+    "Dining Chairs": 0,
+    "Buffet Sideboard": 0,
+    "Chandelier": 14,
+    "Wall Art": 10,
+    "Gaming Desk": 0,
+    "Gaming Chair": 0,
+    "TV Unit": 4,
+    "Sofa": 27,
+    "Storage Unit": 3,
+    "LED Lighting": 14,
+    "Sound System Stand": 0,
+    "Kids Bed": 3,
+    "Kids Wardrobe": 0,
+    "Study Desk": 0,
+    "Study Chair": 0,
+    "Bookshelf": 14,
+    "Wall Decor": 0,
+    "Night Light": 6,
+    "Kitchen Cabinet Set": 4,
+    "Countertop": 5,
+    "Kitchen Island": 0,
+    "Storage Rack": 10,
+    "Bar Stool": 0,
+    "Kitchen Lighting": 1,
+    "Wall Shelf": 0,
+    "Coffee Table": 1,
+    "Side Table": 10,
+    "Floor Lamp": 2,
+    "Armchair": 0,
+    "Office Desk": 23,
+    "Office Chair": 2,
+    "Filing Cabinet": 0,
+    "Desk Lamp": 0,
+    "Whiteboard": 0
+  },
+  "proposedCategoryMappings": [
+    {
+      "marketplaceCategoryPair": "Bed > Beds",
+      "marketplace": "Amazon Egypt",
+      "productCount": 200,
+      "proposedCanonicalCategory": "Bed",
+      "targetRooms": [
+        "bedroom"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Sof.fur.3 - Seagal Wooden Captonia Bed , Modern Design, 160 x 200 cm",
+        "سرير كابتونية بتصميم عصري، مقاس 160 × 200 سم، لون بيج، هيكل خشبي، رأسية أفقية مبطنة | Modern Captonian Bed",
+        "سرير كابتونية خشب من سيجال مقاس 120 × 200 سم - SOF.FUR.10 | سرير",
+        "سرير كابتونية من segal بإطار خشبي فاخر، مقاس 160 × 200 سم، تصميم عصري أنيق - SOF.FUR.22",
+        "سرير معدني اسود منخفض من كامكو دايركت مودرن اتيك/لوفت مقاس مفرد ومزدوج وكينغ. (مزدوج 4 قدم 6)"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Sofa > Seating",
+      "marketplace": "Amazon Egypt",
+      "productCount": 27,
+      "proposedCanonicalCategory": "Sofa",
+      "targetRooms": [
+        "living_room",
+        "game_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "كنبة سرير نهاري قابلة للسحب من خشب الصنوبر الصلب لغرفة النوم وغرفة المعيشة، أثاث خشبي بإطار سرير للضيوف والنوم، كنبة تتحول إلى سرير ليلي من فيداكسل، مقاس 2 × (0.90 × 2) متر، رمادي",
+        "طاولة جانبية عصرية متعددة الاستخدامات، إطار معدني أسود، سطح خشبي، تصميم على شكل C، مثالية للكنبة والسرير وغرفة المعيشة",
+        "طاولة تدليك محمولة احترافية قابلة للطي والتعديل مكونة من 3 أقسام بإطار خشبي ومسند رأس مريح للعلاج، مناسبة لصالونات التجميل وعلاج الوجه من فيزيولين (اللون: أبيض؛ المقاس: العرض 70 سم)",
+        "مكتب لابتوب خشبي كبير قابل للطي للسرير والاريكة - اطار معدني قوي، نسيج خشبي ناعم - مثالي للاستخدام في اللابتوب والواجبات المنزلية والوجبات - حامل اكواب مدمج، قاعدة جوال، فتحة قلم - خفيف الوزن ومتين",
+        "طاولة بجانب السرير أرفف تخزين جانبية بتصميم بسيط أثاث خشبي اقتصادي وعصري صغيرة رف متعدد الاستخدامات لغرفة النوم وغرفة المعيشة والأريكة"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Kids Bed > Beds",
+      "marketplace": "Amazon Egypt",
+      "productCount": 3,
+      "proposedCanonicalCategory": "Kids Bed",
+      "targetRooms": [
+        "kids_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "سرير دورين مزدوج من هاربر اند برايت ديزاينز، سرير مكون من طابقين مزدوج للأطفال، إطار سرير مع سرير سفلي قابل للتحويل، رفوف تخزين وأدراج للأطفال والكبار (رمادي)",
+        "Astronaut Night Star Projector with Remote Control and 360 Degree Adjustable Design Astronaut Galaxy Nebula Night Light for Kids Adults Kids Bedroom Party Room Toy, White",
+        "Astronaut Night Star Projector with Remote Control and 360 Degree Adjustable Design Astronaut Galaxy Nebula Night Light for Kids Adults Kids Bedroom Party Room Toy, White"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Storage Unit > Storage",
+      "marketplace": "Amazon Egypt",
+      "productCount": 3359,
+      "proposedCanonicalCategory": "NEEDS_TITLE_FILTERING (Storage Unit / Furniture vs Irrelevant)",
+      "targetRooms": [],
+      "confidence": "MEDIUM",
+      "sampleProducts": [
+        "خزانة تخزين خشبية كروك من فورني فليكس، بلوط، عرض 80 × عمق 35 × ارتفاع 90 سم",
+        "طاولة أخيرة من رامزو، مصنوعة من MDF وخشب صلب، مع درج للتخزين، باللون البني، بأبعاد 40.64 × 40.64 × 60.96 سم",
+        "Exfoliating Scrub Gloves Multicolour",
+        "Prestige Facial Tissues 500 Sheets - Pack of 6",
+        "Silence Force Stand Fan with Remote Control, 16 Inch, 3 Speeds, VG413 Black"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Office Desk > Desks",
+      "marketplace": "Amazon Egypt",
+      "productCount": 23,
+      "proposedCanonicalCategory": "Office Desk",
+      "targetRooms": [
+        "office"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "سرير ناسو K07 بتصميم مبتكر من مستويين مع مكتب في الأسفل - مقاس 31 عمق × 36 ارتفاع × 55 عرض - K07",
+        "طاولة بجانب السرير مع ادراج وطبقات من ارتيس طاولات جانبية بيضاء للتخزين مكتب ضيق صغير للادراج ومصباح تل بوي ورف خزانة لغرفة النوم وغرفة المعيشة اثاث منزلي معدن",
+        "طاولة صغيرة من خشب الشيشام مع 2 درج ورف مفتوح للتخزين لغرفة النوم وغرفة المعيشة، طاولة خشبية جانبية لأثاث غرفة الفندق والمكتب (تشطيب خشب الجوز) من جرويال",
+        "Wood Studying Desk White 90x75x40cm",
+        "مكتب دراسة أبيض، مكتب صغير الحجم للمساحات الصغيرة،  طاولة عمل من المنزل، مكتب كتابة بتصميم بسيط لغرفة النوم أو المكتب، تصميم أنيق90x40x72cm"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Side Table > Tables",
+      "marketplace": "Amazon Egypt",
+      "productCount": 10,
+      "proposedCanonicalCategory": "Side Table",
+      "targetRooms": [
+        "living_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "طاولة جانبية بجانب السرير مع درج واحد لغرفة النوم او غرفة المعيشة - خشب - لمسة نهائية ناعمة - 60 × 20 × 33 سم - اسود - قطعة واحدة",
+        "طاولة جانبية من الجرافيت ستيلا تريدنج- خزانة بسيطة بجانب السرير مع درج واحد مناسبة لأي سرير وغرفة نوم - 39 × 41 28 سم العرض الارتفاع العمق خشب رمادي",
+        "طاولة جانبية خشبية - حامل ليلي ومنظم طاولة طرفية - منظم تخزين موفر للمساحة - أثاث بجانب السرير لغرفة النوم وغرفة المعيشة والرواق، 60 × 21 × 40 سم",
+        "FendiHome Set of 3 Wooden Nesting Tables – Dark Brown Flower-Shaped Tops with Tapered Legs – Elegant Side Tables for Living Room or Bedroom Decor",
+        "FendiHome Set of 3 Round Faux Marble Nesting Tables – Modern Accent Coffee and Side Tables with White Marble Look Top and Natural Wood Legs – Elegant Living Room or Bedroom Furniture Set"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Mirror > Decor",
+      "marketplace": "Noon Egypt",
+      "productCount": 35,
+      "proposedCanonicalCategory": "Mirror",
+      "targetRooms": [
+        "bedroom"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Rechargeable LED Light Vanity Cosmetic Mirror Pink 27cm",
+        "Anti Shock Breakable frame Full length Mirror 140cm x36cm with metal stand and can be hanged on the wall Premium Curved Standing, with 1.6 cm Thick Aluminium Frame and Fixed Back Panel, Decorative Mirror for Living Room, Sleep, Dressing(gold)",
+        "Anti Shock Breakable frame Full length Mirror 150cm x46cm with metal stand and can be hanged on the wall Premium Curved Standing, with 1.6 cm Thick Aluminium Frame and Fixed Back Panel, Decorative Mirror for Living Room, Sleep, Dressing(gold)",
+        "Midea Microwave MM8P022VV Mechanical Easy Clean Cavity, 288 mm glass turntable, 25L, Solo, Black Mirror Door 25 L 800 W 6221284002083 Black Mirror Door",
+        "Anti Shock Breakable frame Full length Mirror 150cm x46cm with metal stand and can be hanged on the wall Premium  Standing Mirror, Large Wall Mirror, Full Length Mirror with 1.6 cm Thick Aluminium Frame and Fixed Back Panel, Decorative Mirror for Living Room, Sleep, Dressing(gold)"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Toilet > Bathroom Fixtures",
+      "marketplace": "Noon Egypt",
+      "productCount": 95,
+      "proposedCanonicalCategory": "Toilet",
+      "targetRooms": [
+        "bathroom"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "1 set of  Luxury silk Satin Pillowcase with zipper for Hair and Skin",
+        "Toilet Tissue 4 Ply 12 Rolls",
+        "Pillowcase Satin Black",
+        "1 set of  Luxury silk Satin Pillowcase with zipper for Hair and Skin",
+        "Toilet Rolls Deluxe Velvety Thick - 12 Roll 3 Ply"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Storage Rack > Kitchen Storage",
+      "marketplace": "Noon Egypt",
+      "productCount": 10,
+      "proposedCanonicalCategory": "Storage Rack",
+      "targetRooms": [
+        "kitchen"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "2-Tier Dish Drying Storage Rack Black 800grams",
+        "4-Layered Foldable Storage Rack With Wheels Black 34x71x124cm",
+        "2-Tier Fruit Basket Storage Rack Black 10.6 x 6.7 x 11.4inch",
+        "Double Layer Stainless Steel Dish Drying Rack with Automatic Drainage Tray – Kitchen Rack for Plates, Bowls, Cups & Cutlery, Space-Saving Design, Durable Rust-Resistant Frame, Easy to Assemble, Organizer for Kitchen Counter 42*29 Cm",
+        "3-Tier Stainless Steel Dish Drying Rack with Side Holders for Forks, Knives, and Cutting Boards – Durable Kitchen Rack for Plates, Bowls, Utensils, and Pans – 50×8×25 cm – Modern Black Finish, Rust-Resistant, Practical and Space-Saving- Black"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Rug > Rugs",
+      "marketplace": "Noon Egypt",
+      "productCount": 40,
+      "proposedCanonicalCategory": "Rug",
+      "targetRooms": [
+        "living_room",
+        "bedroom",
+        "kids_room",
+        "dining_room",
+        "office",
+        "game_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Steam Mop,10 in 1 Multi Purpose Handheld Steamer Cleaner Detachable for Vinyl, Laminate, Carpet, Tile Hard Floor Grout w/ 2 pad, 1500W High Power, Includes 10 Accessories, Adjustable Steam & Height KD2071",
+        "Padded Prayer Rug 65 x 110",
+        "Hoover SmartWash Advanced Carpet Washer, Motion Sense Technology, AutoMix System, Dual Tank, Quick Dry Performance (CDCW-SWME) 3.5 L 1200 W CDCW-SWME Charcoal Blue/Grey/Black",
+        "Astonish Carpet and Upholstery Shampoo - 750ml",
+        "Sokany 2-in-1 Stick & Handheld Vacuum Cleaner 2000W - SK-13043 - Powerful Suction, Lightweight & Portable for Carpets, Hard Floors & Car, 1 Year Warranty"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Dining Table > Dining Tables",
+      "marketplace": "Noon Egypt",
+      "productCount": 19,
+      "proposedCanonicalCategory": "Dining Table",
+      "targetRooms": [
+        "dining_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Intex Home  Das Design  Linen Rectangle Table Runner Suitable For Reciption , Living Rooms And Kitchen Tables - Elegant Design For Home Décor -  V Shape End - Set Of One Piece",
+        "white concrete  Vase Set of 2, Round Hollow Matte Donut Flower Vases, Modern Boho Pampas Grass Decorative Vase for Wedding, Living Room, Office, Entrance, Mantle, Dining Table, Shelf Decoration Vase (without flowers)",
+        "Glass Flower Vase 1 Liter Capacity 20 × 10.5 cm – Elegant Modern Decorative Vase for Fresh Flowers, Artificial Floral Arrangements and Hydroponic Plants, Thick Transparent Glass Table Centerpiece for Living Room, Dining Table, Office and Kitchen Decor, Stylish Wedding, Anniversary and Housewarming Gift - Clear",
+        "Black rough Vase Set of 2, Round Hollow Matte Donut Flower Vases, Modern Boho Pampas Grass Decorative Vase for Wedding, Living Room, Office, Entrance, Mantle, Dining Table, Shelf Decoration Vase (without flowers)",
+        "White concrete  Vase Set of 2, Round Hollow Matte Donut Flower Vases, Modern Boho Pampas Grass Decorative Vase for Wedding, Living Room, Office, Entrance, Mantle, Dining Table, Shelf Decoration Vase (without flowers)"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Shelving > Bathroom Storage",
+      "marketplace": "Noon Egypt",
+      "productCount": 2,
+      "proposedCanonicalCategory": "Shelving",
+      "targetRooms": [
+        "bathroom"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Adhesive corner bathroom shelf, no drilling required, one piece – waterproof wall organizer with drainage holes – suitable for kitchen and bathroom – ECOCO",
+        "Adhesive corner bathroom shelf, no drilling required, one piece – waterproof wall organizer with drainage holes – suitable for kitchen and bathroom – ECOCO"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Bookshelf > Storage",
+      "marketplace": "Noon Egypt",
+      "productCount": 14,
+      "proposedCanonicalCategory": "Bookshelf",
+      "targetRooms": [
+        "living_room",
+        "kids_room",
+        "office"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Bookcase and accessory Display Unit of wood 2Tier white",
+        "Bookcase and accessory Display Unit of wood 3Tier white",
+        "Cube Storage Bookcase Organizer, Wooden Shelving Unit for Home and Office, Brown Espresso, 7-Compartments, 50W x 24D x 106H cm",
+        "Bookcase and accessory Display Unit of wood 2Tier Black",
+        "Bookcase and accessory Display Unit of wood 3Tier Black"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Curtains > Window Treatments",
+      "marketplace": "Noon Egypt",
+      "productCount": 22,
+      "proposedCanonicalCategory": "Curtains",
+      "targetRooms": [
+        "living_room",
+        "bedroom",
+        "dining_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "House Luxury Blackout Curtains-Steel Grommets-Thermal Insulated Fabric-For Room Darkness - 1 Panel",
+        "House Luxury Blackout Curtains-Steel Grommets-Thermal Insulated Fabric-For Room Darkness - 1 Panel",
+        "Pro Style, Upright Garment Steamer, Curtain, 42gmin, 0.1 L 2000 W IT3480E1 Black",
+        "Zedlesius 3m x 1m Ivy Privacy Screen for Balcony | No Hole | Wind Protection for Patio, Garden, and Yard | Garden Privacy Curtain Decorative Fence Barrier",
+        "House Luxury Blackout Curtains-Steel Grommets-Thermal Insulated Fabric-For Room Darkness - 1 Panel"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "LED Lighting > Lighting",
+      "marketplace": "Noon Egypt",
+      "productCount": 14,
+      "proposedCanonicalCategory": "LED Lighting",
+      "targetRooms": [
+        "game_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Top Freezer Refrigerator, 465L Total Capacity, A+ Energy Rating, Defrost, LED Lighting, Mechanical Control, Standing Installation - RDSG550M20SEG Brushed Silver",
+        "5m LED Strip with Plug – Warm Light",
+        "Non-Waterproof Flexible LED Strip Light With Remote Control Multicolour 5meter",
+        "Kitchen Cooker Hood, 90 cm Wall-Mount, 1000 m³/h Suction Power, 3-Speed Pyramid Design, LED Lighting, Silver ( ETO PRO PLUS 90 X )",
+        "RGB Led Strip Waterproof 5Meter 300 LEDs/Roll 24 keys IR Remote 12V 6A Power Adapter"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Outdoor Seating > Outdoor Seating",
+      "marketplace": "Noon Egypt",
+      "productCount": 2,
+      "proposedCanonicalCategory": "REJECTED",
+      "targetRooms": [],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Spanish rattan chair from Al Hilal and Al Najma Al Asila, brown 6221999655239",
+        "Spanish rattan chair from Al Hilal and Al Najma Al Asila, brown 6221999655239"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Wardrobe > Storage",
+      "marketplace": "Noon Egypt",
+      "productCount": 11,
+      "proposedCanonicalCategory": "Wardrobe",
+      "targetRooms": [
+        "bedroom"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Fabric Wardrobe Organizer Grey 130x175x45cm",
+        "Large Shoe Storage Bags Dustproof and Waterproof with Transparent Window and Drawstring Closure, Foldable Portable Shoe Organizer for Travel, Daily Use, Closet Organization, Multi-Purpose for Shoes, Clothes, Cosmetics, Fitness Accessories – Pack of 5",
+        "1 Pack Frame Clothes Storage Box – Foldable Closet Organizer Bin with Reinforced Handles & Clear Window – Large Capacity Non-Woven Fabric Storage Container for Clothing, Blankets & Comforters – 30×22×19 cm",
+        "Extendable Stainless Steel Tension Rod 110–200cm No Drilling, Heavy Duty Telescopic Pressure Rod Multi-Purpose for Shower Curtain Rail, Closet Clothes Hanging, Laundry Drying, Window Curtain, Wardrobe & Doorway, Rust-Resistant, Anti-Slip, Space-Saving for Bathroom & Home Use",
+        "Pack of 3 Waterproof Foldable Closet Organizer Multicolour 60x43x35cm"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Swing > Outdoor Seating",
+      "marketplace": "Noon Egypt",
+      "productCount": 4,
+      "proposedCanonicalCategory": "Swing",
+      "targetRooms": [
+        "balcony"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "LG HERO On/Off Air Conditioner 1.5 HP, Cooling Only, Fast Cooling, Blue Fin, Auto Swing, Auto Cleaning, Timer, Auto Restart, Sleep Mode- S4-C12RZACA S4-C12RZACA White",
+        "LG HERO On/Off Air Conditioner 2.25 HP, Cooling/Heating, Fast Cooling & Heating, Blue Fin, Auto Swing, Auto Cleaning, Timer, Auto Restart, Sleep Mode 2.25 HP, S4-H18RZACA S4-H18RZACA White",
+        "LG HERO On/Off Air Conditioner 1.5 HP, Cooling Only, Fast Cooling, Blue Fin, Auto Swing, Auto Cleaning, Timer, Auto Restart, Sleep Mode- S4-C12RZACA S4-C12RZACA White",
+        "LG HERO On/Off Air Conditioner 2.25 HP, Cooling/Heating, Fast Cooling & Heating, Blue Fin, Auto Swing, Auto Cleaning, Timer, Auto Restart, Sleep Mode 2.25 HP, S4-H18RZACA S4-H18RZACA White"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Kitchen Cabinet Set > Kitchen Cabinets",
+      "marketplace": "Noon Egypt",
+      "productCount": 4,
+      "proposedCanonicalCategory": "Kitchen Cabinet Set",
+      "targetRooms": [
+        "kitchen"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Pot and Pan Lids Organizer Kitchen Organizer and Tray Holder Organizer for Dish Rack, Sink, Cutting Boards, Pots, Pans, Serving Trays, Containers Reusable in Kitchen Cabinet 5 Compartments (Black)",
+        "Pot Rack Organizer, 8 Tiers Adjustable Pots and Pans Organizer, Large Capacity Pot Lid Holders & Pan Rack for Kitchen Cabinet and Counter with 3 DIY Methods Black 40.8 x 26.4 x 10.8cm",
+        "Pot and Pan Lids Organizer Kitchen Organizer and Tray Holder Organizer for Dish Rack, Sink, Cutting Boards, Pots, Pans, Serving Trays, Containers Reusable in Kitchen Cabinet 5 Compartments (Black)",
+        "Set of 6 refrigerator storage bins, clear plastic trash cans for fridge, freezer, kitchen cabinet, and cosmetics organization, stackable bins, reusable containers, food-safe material, home organizers, multi-purpose boxes"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "TV Unit > Media Furniture",
+      "marketplace": "Noon Egypt",
+      "productCount": 4,
+      "proposedCanonicalCategory": "TV Unit",
+      "targetRooms": [
+        "living_room",
+        "game_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Stylish TV Stand – Functional Design with Contemporary Flair.",
+        "Wall Mounted TV Unit, Cabinet, with TV Stand Unit Wall Shelf for Living Room (White)",
+        "Stylish TV Stand – Functional Design with Contemporary Flair.",
+        "Wall Mounted TV Unit, Cabinet, with TV Stand Unit Wall Shelf for Living Room (White)"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Chandelier > Lighting",
+      "marketplace": "Noon Egypt",
+      "productCount": 14,
+      "proposedCanonicalCategory": "Chandelier",
+      "targetRooms": [
+        "dining_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Modern chandelier (light) suitable for all decors - 75x60 cm | Modern Chandelier | Color : Gold",
+        "Steco Turn Chandelier - 6 Branches - Black",
+        "Steco chandelier - 3 branches - Gold",
+        "Wavy modern boho chandelier RBE1084 from nagafa shop",
+        "MOKAA LED Chandelier | Modern Chandelier | Material: Aluminium | Color: Gold | Size: 28x100 cm"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Night Light > Lighting",
+      "marketplace": "Noon Egypt",
+      "productCount": 6,
+      "proposedCanonicalCategory": "Night Light",
+      "targetRooms": [
+        "kids_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Topibe® Astronaut Kids Projector with Remote Control LED Night Light Stars Lights Galaxy 360 Degree Adjustable for Game Room Home Theater White",
+        "3-iN-1Mini Humidifier, Portable Essential Oil Diffuser with Night Light, Perfect for Home, Office, Car With Premium Led Night Light (Multicolor)",
+        "Star Projector Galaxy Night Light Astronaut Starry Nebula Ceiling LED Lamp Kids Room Decor Aesthetic 360°Rotation Magnetic Head Light",
+        "Topibe® Astronaut Kids Projector with Remote Control LED Night Light Stars Lights Galaxy 360 Degree Adjustable for Game Room Home Theater White",
+        "3-iN-1Mini Humidifier, Portable Essential Oil Diffuser with Night Light, Perfect for Home, Office, Car With Premium Led Night Light (Multicolor)"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Floor Lamp > Lighting",
+      "marketplace": "Noon Egypt",
+      "productCount": 2,
+      "proposedCanonicalCategory": "REJECTED",
+      "targetRooms": [],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Modern Floor Lamp | Beech lamps | Color: Dark Wood × Beige | Size: 148x36x36 cm",
+        "Modern Floor Lamp | Beech lamps | Color: Dark Wood × Beige | Size: 148x36x36 cm"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Table Lamp > Lighting",
+      "marketplace": "Noon Egypt",
+      "productCount": 15,
+      "proposedCanonicalCategory": "Table Lamp",
+      "targetRooms": [
+        "bedroom"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Jaula Table Lamp - Black",
+        "Dana  modern table lamp from nagafa shop TB64-BN-FW",
+        "Ciambella White Table Lamp - Brown",
+        "Ciambella White Table Lamp",
+        "Rose Diamond USB Charging Table Lamp White 21 x 9 x 9cm"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Wall Art > Decor",
+      "marketplace": "Noon Egypt",
+      "productCount": 10,
+      "proposedCanonicalCategory": "Wall Art",
+      "targetRooms": [
+        "living_room",
+        "dining_room"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "home gallery beautiful-paintings-gold-leaf-art Printed canvas wall art",
+        "Unique Boho Wood Wall art - Set of 3 Panel Each 60x40",
+        "Beautiful paintings gold leaf framed wall art 120x80",
+        "Tropical Leaves Wood Wall Art - Set Of 3 Panel Each 60X40",
+        "Canvas wall art featuring a Quranic verse: “My Lord, forgive me, my parents, and whoever enters my house as a believer.”"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Countertop > Kitchen Surfaces",
+      "marketplace": "Noon Egypt",
+      "productCount": 5,
+      "proposedCanonicalCategory": "Countertop",
+      "targetRooms": [
+        "kitchen"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Kitchen Countertop Self-Adhesive Waterproof Wallpaper Black 60x200cm",
+        "Modern soap dispenser and sponge holder for the kitchen sink, 2-in-1 dish soap dispenser tray, countertop soap dispenser, sponge tray, easy to fill, durable, non-slip base -031",
+        "Countertop Meat Grinder 1600 W MG510 Silver/Grey",
+        "2 Tier Fruit Basket Baesan Large Countertop Fruit Bowl Bread Basket Vegetable Holder For Kitchen Storage Black",
+        "Modern soap dispenser and sponge holder for the kitchen sink, 2-in-1 dish soap dispenser tray, countertop soap dispenser, sponge tray, easy to fill, durable, non-slip base -031"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Accessories Set > Bathroom Accessories",
+      "marketplace": "Noon Egypt",
+      "productCount": 4,
+      "proposedCanonicalCategory": "Accessories Set",
+      "targetRooms": [
+        "bathroom"
+      ],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "U-Shop 4-Piece Polyresin Bathroom Set - Soap Dispenser, Cup, Soap Dish, Brush Holder for Bathroom Decoration, Home Gift Set",
+        "5-Piece Bathroom Accessories Set, Multicolor – Complete Bathroom Organizer with a Modern Design for Bathroom Organization",
+        "U-Shop 4-Piece Polyresin Bathroom Set - Soap Dispenser, Cup, Soap Dish, Brush Holder for Bathroom Decoration, Home Gift Set",
+        "5-Piece Bathroom Accessories Set, Multicolor – Complete Bathroom Organizer with a Modern Design for Bathroom Organization"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Office Chair > Office Seating",
+      "marketplace": "Noon Egypt",
+      "productCount": 2,
+      "proposedCanonicalCategory": "REJECTED",
+      "targetRooms": [],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Manager Medical White Office Chair- Black",
+        "Mesh office chair high back with Black wheels"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Dresser > Storage",
+      "marketplace": "Noon Egypt",
+      "productCount": 2,
+      "proposedCanonicalCategory": "REJECTED",
+      "targetRooms": [],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Multipurpose Organizer Shelf for Organizing Books, Spice Jars, and Kitchen Supplies Organizer Shelf for Kitchen, Office, and Dresser H-Shaped Wooden Organizer Shelf",
+        "Multipurpose Organizer Shelf for Organizing Books, Spice Jars, and Kitchen Supplies Organizer Shelf for Kitchen, Office, and Dresser H-Shaped Wooden Organizer Shelf"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Planter > Botanical Decor",
+      "marketplace": "Noon Egypt",
+      "productCount": 1,
+      "proposedCanonicalCategory": "REJECTED",
+      "targetRooms": [],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Handnade artificial plant pot - rose - 16*8  cm"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Coffee Table > Tables",
+      "marketplace": "Noon Egypt",
+      "productCount": 1,
+      "proposedCanonicalCategory": "REJECTED",
+      "targetRooms": [],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Modern TV and Coffee Table Living Room Home Furniture Black"
+      ]
+    },
+    {
+      "marketplaceCategoryPair": "Kitchen Lighting > Lighting",
+      "marketplace": "Noon Egypt",
+      "productCount": 1,
+      "proposedCanonicalCategory": "REJECTED",
+      "targetRooms": [],
+      "confidence": "HIGH",
+      "sampleProducts": [
+        "Kitchen Lighter Silver/Black"
+      ]
+    }
+  ]
+}

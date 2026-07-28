@@ -17,6 +17,7 @@ const COLOR_KEYWORDS: Record<ColorType, string[]> = {
   Gold: ['gold', 'golden', 'brass', 'ذهبي'],
   Silver: ['silver', 'chrome', 'فضة', 'فضي'],
   'Natural Wood': ['natural wood', 'oak', 'beech', 'teak', 'wood color', 'خشب طبيعي', 'أرو', 'اروع', 'زان'],
+  Multicolor: ['multicolor', 'multicoloured', 'multi-color', 'multi', 'ملون', 'ألوان متعددة'],
 };
 
 export function normalizeColors(text: string): ColorType[] {
@@ -25,7 +26,7 @@ export function normalizeColors(text: string): ColorType[] {
 
   for (const color of ALLOWED_COLORS) {
     const keywords = COLOR_KEYWORDS[color];
-    if (keywords.some((kw) => lowerText.includes(kw.toLowerCase()))) {
+    if (keywords && keywords.some((kw) => lowerText.includes(kw.toLowerCase()))) {
       matchedColors.add(color);
     }
   }

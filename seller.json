@@ -1,0 +1,34 @@
+[
+  {
+    "_id": { "$oid": "6a65618b557e76bb4102a095" },
+    "name": "Amazon Egypt",
+    "code": "amazon_egypt",
+    "country": "Egypt",
+    "website": "https://www.amazon.eg/",
+    "isActive": true
+  },
+  {
+    "_id": { "$oid": "6a65618b557e76bb4102a096" },
+    "name": "IKEA Egypt",
+    "code": "ikea_egypt",
+    "country": "Egypt",
+    "website": "https://www.ikea.com/eg/",
+    "isActive": true
+  },
+  {
+    "_id": { "$oid": "6a65618b557e76bb4102a097" },
+    "name": "Noon Egypt",
+    "code": "noon_egypt",
+    "country": "Egypt",
+    "website": "https://www.noon.com/egypt-en/",
+    "isActive": true
+  },
+  {
+    "_id": { "$oid": "6a65618b557e76bb4102a098" },
+    "name": "Jumia Egypt",
+    "code": "jumia_egypt",
+    "country": "Egypt",
+    "website": "https://www.jumia.com.eg/",
+    "isActive": true
+  }
+]

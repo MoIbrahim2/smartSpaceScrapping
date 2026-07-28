@@ -1,0 +1,24 @@
+{
+  "pipelineExecution": {
+    "executionTimeMs": 1401,
+    "peakMemoryMb": 46.24,
+    "throughputProductsPerSecond": 2827
+  },
+  "qualityScoringSummary": {
+    "excellent": 1606,
+    "good": 0,
+    "incomplete": 0,
+    "poor": 0
+  },
+  "issuesSummary": {
+    "reparsed_from_title": 19,
+    "height_out_of_bounds": 58,
+    "dimensions_imputed_realistic": 96,
+    "missing_materials": 353,
+    "generic_brand": 240,
+    "ambiguous_dimensions": 58,
+    "swapped_width_length": 5,
+    "short_or_missing_description": 21,
+    "package_dimensions_detected": 9
+  }
+}

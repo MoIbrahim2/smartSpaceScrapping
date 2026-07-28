@@ -1,0 +1,296 @@
+[
+  {
+    "externalId": "noon-1784730102684",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/medical-memory-foam-pillow-a-from-german-materials-40-60-cm-large-size-neck-pillow-support-spine-neck-pain-and-prevent-snoring-give-you-better-sleep/ZAE53D7FB5BA5B0503A95Z/p/?o=df2f1e54b90fab3d",
+      "scrapedAt": "2026-07-22T14:21:42.688Z",
+      "lastUpdated": "2026-07-22T14:21:42.688Z"
+    },
+    "basic": {
+      "name": "Medical Memory Foam Pillow a  From German materials-40*60 cm (Large Size) neck pillow Support Spine, Neck Pain and Prevent Snoring - Give You Better Sleep",
+      "brand": "Noon Home",
+      "description": "Medical Memory Foam Pillow a  From German materials-40*60 cm (Large Size) neck pillow Support Spine, Neck Pain and Prevent Snoring - Give You Better Sleep Color : Off WhiteSize : 60*40Primary Material: German memory foamMedical Memory Foam sleep pad with German manufacturing technology safe and hygienic with a high quality soft cotton inner cover and soft plush exterior is machine washable for easy cleaning.Medically-designed Neck and Head Medical Pillow provides a gentle comfortable sleep.The Medical Pillow relieves pressure, provides comfort and support to your neck while you sleep, preventing cartilage pain, shoulder pain and spinal pain.",
+      "sku": "noon-1784730102684"
+    },
+    "classification": {
+      "category": "Storage Unit",
+      "subcategory": "Storage",
+      "roomTypes": [
+        "Living Room",
+        "Office",
+        "Bedroom"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Fabric"
+      ],
+      "colors": [
+        "White"
+      ],
+      "tags": [
+        "Storage Unit",
+        "Modern",
+        "White"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": 40,
+      "height": 120,
+      "depth": 60,
+      "weight": 16,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Modern White Fabric storage unit by Noon Home ideal for Living Room and Office and Bedroom. Medical Memory Foam Pillow a  From German materials-40*60 cm (Large Size) neck pillow Support Spine, Neck Pain and Prevent Snoring - Give You Better Sleep. Medical Memory Foam Pillow a  From German materials-40*60 cm (Large Size) neck pillow Support Spine, Neck Pain and Prevent Snoring - Give You Better S",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "White"
+      ],
+      "roomCompatibility": [
+        "Living Room",
+        "Office",
+        "Bedroom"
+      ],
+      "keywords": [
+        "medical",
+        "memory",
+        "foam",
+        "pillow",
+        "from",
+        "german",
+        "materials4060",
+        "large",
+        "size",
+        "neck",
+        "support",
+        "spine",
+        "pain",
+        "prevent",
+        "snoring"
+      ]
+    }
+  },
+  {
+    "externalId": "noon-1784730119639",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/waffle-coverlet/Z55FA4FA96099136216C2Z/p/?o=z55fa4fa96099136216c2z-1",
+      "scrapedAt": "2026-07-22T14:21:59.641Z",
+      "lastUpdated": "2026-07-22T14:21:59.641Z"
+    },
+    "basic": {
+      "name": "Waffle Coverlet",
+      "brand": "Noon Home",
+      "description": "Waffle Coverlet Our Waffle Coverlet is crafted from pure cotton for luxurious comfort. Whether enjoyed on the bed or sofa, its lightweight material permits airflow while feeling soft and cozy. Its elegant texture enhances any setting while ensuring restful sleep thanks to its balance of weight and warmth. Designed for serenity, this coverlet encourages rest and leisure through its natural breathability and lush materials.",
+      "sku": "noon-1784730119639"
+    },
+    "classification": {
+      "category": "Storage Unit",
+      "subcategory": "Storage",
+      "roomTypes": [
+        "Living Room",
+        "Office",
+        "Bedroom"
+      ],
+      "style": [
+        "Luxury"
+      ],
+      "material": [
+        "Fabric"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Storage Unit",
+        "Luxury",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": 220,
+      "height": 120,
+      "depth": 240,
+      "weight": 16,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Luxury Beige Fabric storage unit by Noon Home ideal for Living Room and Office and Bedroom. Waffle Coverlet. Waffle Coverlet Our Waffle Coverlet is crafted from pure cotton for luxurious comfort. Whether enjoyed on the bed or sofa, its lightweight material pe",
+      "styleLabels": [
+        "Luxury"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Living Room",
+        "Office",
+        "Bedroom"
+      ],
+      "keywords": [
+        "waffle",
+        "coverlet",
+        "noon",
+        "home",
+        "our",
+        "crafted",
+        "from",
+        "pure",
+        "cotton",
+        "luxurious",
+        "comfort",
+        "whether",
+        "enjoyed",
+        "bed",
+        "sofa"
+      ]
+    }
+  },
+  {
+    "externalId": "noon-1784730197971",
+    "source": {
+      "marketplace": "Noon Egypt",
+      "country": "Egypt",
+      "productUrl": "https://www.noon.com/egypt-en/captioned-high-quality-microfiber-hotel-pillow-900-gm-50-70-cm/Z2D4867F0197C4D167E41Z/p/?o=f7b7dd7a0b925c6d",
+      "scrapedAt": "2026-07-22T14:23:17.974Z",
+      "lastUpdated": "2026-07-22T14:23:17.974Z"
+    },
+    "basic": {
+      "name": "Captioned high quality microfiber hotel pillow,900 gm 50*70 cm",
+      "brand": "Noon Home",
+      "description": "Captioned high quality microfiber hotel pillow,900 gm 50*70 cm Material : captioned Microfiber Filling Material : super soft fiber Pillow Type : bed pillow package component: 1 pillow ‎Dry Clean Only size 50*70 cm",
+      "sku": "noon-1784730197971"
+    },
+    "classification": {
+      "category": "Storage Unit",
+      "subcategory": "Storage",
+      "roomTypes": [
+        "Living Room",
+        "Office",
+        "Bedroom"
+      ],
+      "style": [
+        "Modern"
+      ],
+      "material": [
+        "Wood"
+      ],
+      "colors": [
+        "Beige"
+      ],
+      "tags": [
+        "Storage Unit",
+        "Modern",
+        "Beige"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 1800,
+      "originalPrice": 2070,
+      "discountPercentage": 13
+    },
+    "dimensions": {
+      "width": 50,
+      "height": 120,
+      "depth": 70,
+      "weight": 16,
+      "unit": "cm"
+    },
+    "images": [
+      {
+        "url": "https://f.nooncdn.com/p/placeholder.jpg",
+        "isPrimary": true
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock",
+      "deliveryAvailable": true
+    },
+    "rating": {
+      "average": 4.1,
+      "reviews": 8
+    },
+    "ai": {
+      "embeddingText": "Modern Beige Wood storage unit by Noon Home ideal for Living Room and Office and Bedroom. Captioned high quality microfiber hotel pillow,900 gm 50*70 cm. Captioned high quality microfiber hotel pillow,900 gm 50*70 cm Material : captioned Microfiber Filling Material : super soft fiber Pillow Type : bed p",
+      "styleLabels": [
+        "Modern"
+      ],
+      "dominantColors": [
+        "Beige"
+      ],
+      "roomCompatibility": [
+        "Living Room",
+        "Office",
+        "Bedroom"
+      ],
+      "keywords": [
+        "captioned",
+        "high",
+        "quality",
+        "microfiber",
+        "hotel",
+        "pillow900",
+        "5070",
+        "noon",
+        "home",
+        "material",
+        "filling",
+        "super",
+        "soft",
+        "fiber",
+        "pillow"
+      ]
+    }
+  }
+]

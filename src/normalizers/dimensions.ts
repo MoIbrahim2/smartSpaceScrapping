@@ -14,6 +14,18 @@ const CATEGORY_DEFAULT_DIMENSIONS: Record<
   string,
   { width: number; depth: number; height: number; weight: number }
 > = {
+  "Air Conditioner": { width: 90, depth: 25, height: 30, weight: 35 },
+  "TV": { width: 120, depth: 10, height: 70, weight: 15 },
+  "Refrigerator": { width: 70, depth: 70, height: 180, weight: 70 },
+  "Washing Machine": { width: 60, depth: 60, height: 85, weight: 65 },
+  "Oven / Cooktop": { width: 60, depth: 60, height: 85, weight: 40 },
+  "Microwave": { width: 50, depth: 35, height: 30, weight: 12 },
+  "Dishwasher": { width: 60, depth: 60, height: 85, weight: 45 },
+  "Range Hood": { width: 60, depth: 50, height: 40, weight: 12 },
+  "Computer Monitor": { width: 60, depth: 20, height: 45, weight: 6 },
+  "Printer": { width: 45, depth: 40, height: 25, weight: 8 },
+  "Water Heater": { width: 45, depth: 45, height: 75, weight: 20 },
+  "Outdoor Fan / Heater": { width: 45, depth: 45, height: 120, weight: 15 },
   Sofa: { width: 200, depth: 90, height: 85, weight: 45 },
   Armchair: { width: 80, depth: 85, height: 85, weight: 18 },
   'Bedroom Armchair': { width: 75, depth: 80, height: 85, weight: 16 },

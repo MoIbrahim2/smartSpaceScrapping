@@ -1,49 +1,75 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { ScraperEngine } from './core/engine.js';
+import { CategoryOrchestrator } from './core/orchestrator.js';
 import { logger } from './core/logger.js';
 
 const program = new Command();
 
 program
   .name('smartspace-scraper')
-  .description('SmartSpaceAI Modular Product Scraper CLI')
-  .version('1.0.0');
+  .description('SmartSpaceAI Category-Driven Product Scraper v2.0')
+  .version('2.0.0');
 
 program
-  .option('-a, --adapter <name>', 'Specific adapter to run (amazon, noon, jumia, ikea, or all)', 'all')
-  .option('-l, --limit <number>', 'Product limit per category seed', (val) => parseInt(val, 10), 500)
-  .option('-o, --output <path>', 'Output JSON file destination', 'products_catalog.json')
+  .option('-c, --category <name>', 'Scrape a specific canonical category (e.g., "Sofa")')
+  .option('-p, --provider <name>', 'Scrape from a specific provider only (e.g., "Amazon Egypt")')
+  .option('-t, --target-per-provider <number>', 'Override target valid products per provider', (val) => parseInt(val, 10))
+  .option('-a, --all', 'Scrape all canonical categories', false)
   .option('-r, --resume', 'Resume from previous checkpoint', false)
-  .option('-d, --delay <ms>', 'Delay between HTTP requests in ms', (val) => parseInt(val, 10), 300)
-  .option('-t, --retries <number>', 'Max retries on failed requests (0 skips immediately)', (val) => parseInt(val, 10), 0)
-  .option('--timeout <ms>', 'HTTP request timeout in ms', (val) => parseInt(val, 10), 15000)
+  .option('--list-categories', 'List all canonical categories and exit', false)
+  .option('--dry-run', 'Validate the pipeline configuration without scraping', false)
   .action(async (options) => {
     try {
-      logger.info(`Initializing SmartSpaceAI Scraper (retries=${options.retries}, timeout=${options.timeout}ms, delay=${options.delay}ms)...`);
+      const orchestrator = new CategoryOrchestrator();
 
-      const engine = new ScraperEngine({
-        delayMs: options.delay,
-        maxRetries: options.retries,
-        timeoutMs: options.timeout,
-      });
-
-      let targetAdapters: string[] = [];
-      if (options.adapter.toLowerCase() !== 'all') {
-        targetAdapters = [options.adapter];
+      // List categories mode
+      if (options.listCategories) {
+        orchestrator.listCategories();
+        process.exit(0);
       }
 
-      const catalog = await engine.run({
-        adapters: targetAdapters,
-        limitPerCategory: options.limit,
-        outputFile: options.output,
+      // Validate options
+      if (!options.category && !options.all) {
+        logger.error('Please specify --category <name> or --all. Use --list-categories to see available categories.');
+        process.exit(1);
+      }
+
+      // Dry run mode
+      if (options.dryRun) {
+        logger.info('Dry run mode — validating configuration...');
+        const categories = orchestrator.getCanonicalCategories();
+        logger.info(`✓ ${categories.length} categories loaded`);
+        if (options.category) {
+          if (!categories.includes(options.category)) {
+            logger.error(`Category "${options.category}" not found in canonical taxonomy.`);
+            process.exit(1);
+          }
+          logger.info(`✓ Category "${options.category}" found`);
+        }
+        logger.info('✓ Configuration valid. Ready to scrape.');
+        process.exit(0);
+      }
+
+      logger.info('Initializing SmartSpaceAI Category-Driven Scraper v2.0...');
+
+      const report = await orchestrator.scrapeAll({
+        category: options.category,
+        provider: options.provider,
+        targetPerProvider: options.targetPerProvider,
         resume: options.resume,
+        dryRun: options.dryRun,
       });
 
-      logger.info(`Done! Total unified products catalog size: ${catalog.length}`);
+      logger.info(`\n${'═'.repeat(60)}`);
+      logger.info(`  SCRAPING COMPLETE`);
+      logger.info(`  Categories: ${report.totalCategories}`);
+      logger.info(`  Total Valid Products: ${report.totalProducts}`);
+      logger.info(`${'═'.repeat(60)}`);
+
       process.exit(0);
     } catch (err: any) {
       logger.error(`Fatal CLI execution error: ${err.message}`);
+      if (err.stack) logger.error(err.stack);
       process.exit(1);
     }
   });

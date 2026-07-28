@@ -1,0 +1,810 @@
+{
+  "roomType": "Office",
+  "version": "1.2.0",
+  "rules": [
+    {
+      "category": "Office Desk",
+      "role": "CORE",
+      "priority": 1,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 5,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 19,
+        "minPercentage": 13,
+        "maxPercentage": 26
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 10
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 100,
+              "max": 120
+            },
+            "depth": {
+              "min": 55,
+              "max": 65
+            },
+            "height": {
+              "min": 72,
+              "max": 76
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 10,
+            "max": 16
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 120,
+              "max": 160
+            },
+            "depth": {
+              "min": 60,
+              "max": 75
+            },
+            "height": {
+              "min": 72,
+              "max": 76
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 16,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 150,
+              "max": 200
+            },
+            "depth": {
+              "min": 65,
+              "max": 80
+            },
+            "height": {
+              "min": 72,
+              "max": 76
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "FACING_DOOR_NEAR_WINDOW",
+        "minimumClearance": 70,
+        "naturalLightAccess": true,
+        "cableManagementAccess": true
+      },
+      "constraints": {
+        "standingDesk": "ALLOWED",
+        "lShapeDesk": "ALLOWED",
+        "cableManagement": "PREFERRED",
+        "maxRoomCoverage": 18
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Industrial",
+          "Scandinavian",
+          "Executive"
+        ],
+        "preferredMaterials": [
+          "Wood",
+          "MDF",
+          "Metal",
+          "Glass"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "HIGH",
+        "style": "HIGH",
+        "color": "MEDIUM"
+      }
+    },
+    {
+      "category": "Office Chair",
+      "role": "CORE",
+      "priority": 2,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 4,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 19,
+        "minPercentage": 13,
+        "maxPercentage": 26
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 60,
+              "max": 75
+            },
+            "depth": {
+              "min": 60,
+              "max": 72
+            },
+            "seatHeight": {
+              "min": 42,
+              "max": 52
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "AT_DESK",
+        "minimumClearanceBehind": 75,
+        "rollSpace": 80
+      },
+      "constraints": {
+        "ergonomic": "REQUIRED",
+        "heightAdjustable": "REQUIRED",
+        "lumbarSupport": "PREFERRED",
+        "armrests": "PREFERRED",
+        "maxTiltAngle": 135
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Ergonomic",
+          "Modern",
+          "Executive",
+          "Mesh"
+        ],
+        "preferredMaterials": [
+          "Mesh",
+          "Leather",
+          "Fabric",
+          "Faux Leather"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "LOW",
+        "style": "MEDIUM",
+        "color": "MEDIUM"
+      }
+    },
+    {
+      "category": "Air Conditioner",
+      "role": "CORE",
+      "priority": 3,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 12,
+        "minPercentage": 8,
+        "maxPercentage": 18
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 15
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 75,
+              "max": 90
+            },
+            "depth": {
+              "min": 18,
+              "max": 25
+            },
+            "height": {
+              "min": 25,
+              "max": 32
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 15,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 85,
+              "max": 110
+            },
+            "depth": {
+              "min": 20,
+              "max": 30
+            },
+            "height": {
+              "min": 28,
+              "max": 35
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredWall": "UPPER_WALL",
+        "minimumClearance": 15,
+        "avoidDirectDraftOnUser": true
+      },
+      "constraints": {
+        "wallMounted": "REQUIRED",
+        "maxRoomCoverage": 3
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal"
+        ],
+        "preferredMaterials": [
+          "Plastic",
+          "Metal"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "MEDIUM",
+        "style": "LOW",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Computer Monitor",
+      "role": "CORE",
+      "priority": 4,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 10,
+        "minPercentage": 6,
+        "maxPercentage": 15
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 50,
+              "max": 80
+            },
+            "depth": {
+              "min": 15,
+              "max": 25
+            },
+            "height": {
+              "min": 35,
+              "max": 55
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "ON_OFFICE_DESK",
+        "eyeLevelHeight": true
+      },
+      "constraints": {
+        "adjustableStand": "PREFERRED",
+        "vesaMountable": "ALLOWED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Tech"
+        ],
+        "preferredMaterials": [
+          "Plastic",
+          "Metal"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "HIGH",
+        "style": "LOW",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Bookshelf",
+      "role": "SECONDARY",
+      "priority": 5,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 3,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 11,
+        "minPercentage": 5,
+        "maxPercentage": 15
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 12
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 60,
+              "max": 100
+            },
+            "depth": {
+              "min": 25,
+              "max": 35
+            },
+            "height": {
+              "min": 150,
+              "max": 200
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 12,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 100,
+              "max": 200
+            },
+            "depth": {
+              "min": 28,
+              "max": 38
+            },
+            "height": {
+              "min": 180,
+              "max": 240
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredWall": "BEHIND_DESK_OR_SIDE_WALL",
+        "minimumClearance": 10,
+        "wallAnchoring": "RECOMMENDED"
+      },
+      "constraints": {
+        "adjustableShelves": "PREFERRED",
+        "closedStorage": "OPTIONAL",
+        "maxRoomCoverage": 10
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Industrial",
+          "Scandinavian",
+          "Classic",
+          "Executive"
+        ],
+        "preferredMaterials": [
+          "Wood",
+          "MDF",
+          "Metal",
+          "Walnut"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "MEDIUM",
+        "size": "HIGH",
+        "style": "HIGH",
+        "color": "MEDIUM"
+      }
+    },
+    {
+      "category": "Filing Cabinet",
+      "role": "SECONDARY",
+      "priority": 6,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 2,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 7,
+        "minPercentage": 3,
+        "maxPercentage": 11
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 40,
+              "max": 50
+            },
+            "depth": {
+              "min": 50,
+              "max": 62
+            },
+            "height": {
+              "min": 60,
+              "max": 130
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "UNDER_DESK_OR_BESIDE_DESK",
+        "minimumClearance": 50,
+        "drawerOpenSpace": 55
+      },
+      "constraints": {
+        "lockable": "PREFERRED",
+        "rollersForUnderDesk": "PREFERRED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Industrial",
+          "Minimal"
+        ],
+        "preferredMaterials": [
+          "Metal",
+          "Wood",
+          "MDF"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "LOW",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Rug",
+      "role": "OPTIONAL",
+      "priority": 7,
+      "defaultIncluded": false,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 2,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 7,
+        "minPercentage": 3,
+        "maxPercentage": 11
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 120,
+              "max": 160
+            },
+            "length": {
+              "min": 170,
+              "max": 220
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 14,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 160,
+              "max": 230
+            },
+            "length": {
+              "min": 230,
+              "max": 300
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "UNDER_DESK_AND_CHAIR",
+        "chairFriendlySurface": true
+      },
+      "constraints": {
+        "lowPile": "PREFERRED",
+        "chairMatAlternative": "ALLOWED",
+        "nonSlip": "REQUIRED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Scandinavian",
+          "Geometric"
+        ],
+        "preferredMaterials": [
+          "Wool",
+          "Polypropylene",
+          "Cotton"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "MEDIUM",
+        "size": "MEDIUM",
+        "style": "MEDIUM",
+        "color": "MEDIUM"
+      }
+    },
+    {
+      "category": "Desk Lamp",
+      "role": "SECONDARY",
+      "priority": 8,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 6,
+        "minPercentage": 3,
+        "maxPercentage": 9
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "baseWidth": {
+              "min": 15,
+              "max": 25
+            },
+            "height": {
+              "min": 40,
+              "max": 60
+            },
+            "armReach": {
+              "min": 30,
+              "max": 50
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "ON_DESK_OPPOSITE_TO_WRITING_HAND",
+        "avoidGlareOnScreen": true
+      },
+      "constraints": {
+        "adjustable": "PREFERRED",
+        "ledPreferred": true,
+        "dimmable": "PREFERRED",
+        "colorTemperature": "ADJUSTABLE_PREFERRED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Industrial",
+          "Minimal",
+          "Architect"
+        ],
+        "preferredMaterials": [
+          "Metal",
+          "Aluminum",
+          "Wood"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "MEDIUM",
+        "color": "MEDIUM"
+      }
+    },
+    {
+      "category": "Printer",
+      "role": "SECONDARY",
+      "priority": 9,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 5,
+        "minPercentage": 2,
+        "maxPercentage": 8
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 35,
+              "max": 50
+            },
+            "depth": {
+              "min": 30,
+              "max": 45
+            },
+            "height": {
+              "min": 15,
+              "max": 35
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "DESK_SIDE_OR_SHELF",
+        "cableAccess": true
+      },
+      "constraints": {
+        "wireless": "PREFERRED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern"
+        ],
+        "preferredMaterials": [
+          "Plastic",
+          "Metal"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "LOW",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Whiteboard",
+      "role": "OPTIONAL",
+      "priority": 10,
+      "defaultIncluded": false,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 2,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 4,
+        "minPercentage": 2,
+        "maxPercentage": 7
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 6,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 60,
+              "max": 90
+            },
+            "height": {
+              "min": 40,
+              "max": 60
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 14,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 90,
+              "max": 150
+            },
+            "height": {
+              "min": 60,
+              "max": 100
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "VISIBLE_WALL_FROM_DESK",
+        "centerHeight": 145,
+        "avoidDirectSunlight": true
+      },
+      "constraints": {
+        "magnetic": "PREFERRED",
+        "glassBoard": "ALLOWED",
+        "markerTray": "PREFERRED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Glass"
+        ],
+        "preferredMaterials": [
+          "Melamine",
+          "Glass",
+          "Porcelain Steel"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "LOW",
+        "color": "LOW"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "white": ["white", "off-white", "off white", "ivory", "أبيض", "ابيض", "عاجي"],
+  "black": ["black", "dark black", "charcoal", "أسود", "اسود"],
+  "gray": ["gray", "grey", "charcoal", "silver", "رمادي", "فضي"],
+  "brown": ["brown", "walnut", "espresso", "بني", "جوزي"],
+  "beige": ["beige", "tan", "بيج"],
+  "cream": ["cream", "creme", "ivory", "كريمی", "كريمي", "سمني"],
+  "blue": ["blue", "navy", "cyan", "teal", "أزرق", "ازرق", "كحلي"],
+  "green": ["green", "olive", "emerald", "أخضر", "اخضر", "زيتي"],
+  "red": ["red", "burgundy", "maroon", "أحمر", "احمر", "نبيتي"],
+  "yellow": ["yellow", "mustard", "أصفر", "اصفر"],
+  "orange": ["orange", "terracotta", "برتقالي"],
+  "pink": ["pink", "rose", "blush", "وردي", "بمبي"],
+  "purple": ["purple", "violet", "بنفسجي"],
+  "gold": ["gold", "golden", "brass", "ذهبي"],
+  "silver": ["silver", "chrome", "فضة", "فضي"],
+  "natural_wood": ["natural wood", "oak", "beech", "teak", "wood color", "خشب طبيعي", "أرو", "زان"],
+  "multicolor": ["multicolor", "multicoloured", "multi-color", "multi", "ملون", "ألوان متعددة"]
+}

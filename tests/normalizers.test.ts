@@ -52,13 +52,13 @@ describe('Normalizers Unit Tests', () => {
 
   it('should infer room compatibility accurately', () => {
     const livingRooms = inferRoomTypes('Coffee Table');
-    expect(livingRooms).toContain('Living Room');
+    expect(livingRooms).toContain('living_room');
 
     const bedroomRooms = inferRoomTypes('Nightstand');
-    expect(bedroomRooms).toContain('Bedroom');
+    expect(bedroomRooms).toContain('bedroom');
 
     const officeRooms = inferRoomTypes('Office Chair');
-    expect(officeRooms).toContain('Office');
+    expect(officeRooms).toContain('office');
   });
 
   it('should extract dimensions correctly from Amazon, Jumia, Noon, and IKEA exact user HTML structures', () => {

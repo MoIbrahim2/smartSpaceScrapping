@@ -1,75 +1,52 @@
 import * as cheerio from 'cheerio';
 import { BaseAdapter } from './base.js';
-import { CategorySeed, RawScrapedProduct, ScrapePageResult } from '../types/adapter.js';
-import { isFurnishingProduct } from '../normalizers/category.js';
+import { RawScrapedProduct, DiscoveryResult } from '../types/adapter.js';
 import { logger } from '../core/logger.js';
 
 export class AmazonAdapter extends BaseAdapter {
   readonly name = 'Amazon Egypt';
   readonly baseUrl = 'https://www.amazon.eg';
 
-  async getCategorySeeds(): Promise<CategorySeed[]> {
-    return [
-      { name: 'Sofas & Sectionals', url: `${this.baseUrl}/s?k=sofa+couch+sectional`, targetRoom: 'Living Room' },
-      { name: 'Armchairs & Recliners', url: `${this.baseUrl}/s?k=armchair+recliner+chair`, targetRoom: 'Living Room' },
-      { name: 'Coffee Tables', url: `${this.baseUrl}/s?k=coffee+table+center+table`, targetRoom: 'Living Room' },
-      { name: 'Side & End Tables', url: `${this.baseUrl}/s?k=side+table+end+table`, targetRoom: 'Living Room' },
-      { name: 'TV Units & Consoles', url: `${this.baseUrl}/s?k=tv+unit+tv+stand+media+console`, targetRoom: 'Living Room' },
-      { name: 'Beds & Frames', url: `${this.baseUrl}/s?k=bed+frame+wooden+bed`, targetRoom: 'Bedroom' },
-      { name: 'Mattresses & Toppers', url: `${this.baseUrl}/s?k=mattress+bed+mattress`, targetRoom: 'Bedroom' },
-      { name: 'Wardrobes & Closets', url: `${this.baseUrl}/s?k=wardrobe+closet+cabinet`, targetRoom: 'Bedroom' },
-      { name: 'Nightstands & Bedside Tables', url: `${this.baseUrl}/s?k=nightstand+bedside+table`, targetRoom: 'Bedroom' },
-      { name: 'Dressers & Vanity Tables', url: `${this.baseUrl}/s?k=dresser+vanity+table`, targetRoom: 'Bedroom' },
-      { name: 'Dining Tables', url: `${this.baseUrl}/s?k=dining+table+kitchen+table`, targetRoom: 'Dining Room' },
-      { name: 'Dining Chairs & Stools', url: `${this.baseUrl}/s?k=dining+chair+bar+stool`, targetRoom: 'Dining Room' },
-      { name: 'Office Desks & Workstations', url: `${this.baseUrl}/s?k=office+desk+computer+desk`, targetRoom: 'Office' },
-      { name: 'Office Chairs', url: `${this.baseUrl}/s?k=office+chair+executive+chair`, targetRoom: 'Office' },
-      { name: 'Bookshelves & Bookcases', url: `${this.baseUrl}/s?k=bookshelf+bookcase+display+shelf`, targetRoom: 'Office' },
-      { name: 'Storage Racks & Units', url: `${this.baseUrl}/s?k=storage+rack+shelving+unit`, targetRoom: 'Office' },
-      { name: 'Home Decor & Mirrors', url: `${this.baseUrl}/s?k=home+decor+wall+mirror`, targetRoom: 'Decor' },
-      { name: 'Lamps & Lighting', url: `${this.baseUrl}/s?k=table+lamp+floor+lamp+chandelier`, targetRoom: 'Decor' },
-      { name: 'Rugs & Carpets', url: `${this.baseUrl}/s?k=area+rug+carpet+mat`, targetRoom: 'Decor' },
-      { name: 'Outdoor & Patio Furniture', url: `${this.baseUrl}/s?k=outdoor+furniture+patio+set`, targetRoom: 'Balcony' },
-    ];
-  }
+  async discover(
+    category: string,
+    searchTerms: string[],
+    page: number,
+    currentSearchTermIndex: number
+  ): Promise<DiscoveryResult> {
+    const searchTerm = searchTerms[currentSearchTermIndex] || searchTerms[0];
+    const searchUrl = `${this.baseUrl}/s?k=${encodeURIComponent(searchTerm)}&page=${page}`;
 
-  async scrapeCategoryPage(seed: CategorySeed, page: number): Promise<ScrapePageResult> {
-    const pageUrl = `${seed.url}&page=${page}`;
-    logger.info(`[AmazonAdapter] Scraping category page ${page}: ${pageUrl}`);
-    const html = await this.httpClient.fetch(pageUrl);
+    logger.info(`    [Amazon] Discovering "${searchTerm}" page ${page}`);
+    const html = await this.httpClient.fetch(searchUrl);
 
     if (!html) {
-      return { productUrls: [], hasNextPage: false };
+      return { candidateUrls: [], hasNextPage: false, searchTermUsed: searchTerm };
     }
 
     const $ = cheerio.load(html);
-    const productUrls: string[] = [];
+    const candidateUrls: string[] = [];
 
     $('[data-component-type="s-search-result"], div.s-result-item[data-asin]').each((_, el) => {
       const asin = $(el).attr('data-asin');
-      const title = $(el).find('h2 a span, h2 span').text().trim();
-
-      if (asin && asin.length === 10 && isFurnishingProduct(title, seed.name)) {
+      if (asin && asin.length === 10) {
         const fullUrl = `${this.baseUrl}/dp/${asin}`;
-        if (!productUrls.includes(fullUrl)) {
-          productUrls.push(fullUrl);
+        if (!candidateUrls.includes(fullUrl)) {
+          candidateUrls.push(fullUrl);
         }
       }
     });
 
-    const hasNextPage = productUrls.length > 0 && page < 50;
+    const hasNextPage = candidateUrls.length > 0 && page < 20;
 
     return {
-      productUrls,
+      candidateUrls,
       hasNextPage,
-      nextPageUrl: hasNextPage ? `${seed.url}&page=${page + 1}` : undefined,
+      searchTermUsed: searchTerm,
     };
   }
 
   async scrapeProduct(url: string): Promise<RawScrapedProduct | null> {
-    logger.info(`[AmazonAdapter] Scraping product detail: ${url}`);
     const html = await this.httpClient.fetch(url);
-
     if (!html) return null;
 
     const $ = cheerio.load(html);
@@ -79,15 +56,18 @@ export class AmazonAdapter extends BaseAdapter {
     const asinMatch = url.match(/\/dp\/([A-Z0-9]{10})/);
     const externalId = asinMatch ? asinMatch[1] : `amz-${Date.now()}`;
 
+    // Price extraction — no fabrication
     const priceWhole = $('.a-price-whole').first().text().replace(/[^0-9]/g, '');
-    const currentPrice = priceWhole ? parseFloat(priceWhole) : 1500;
+    const currentPrice = priceWhole ? parseFloat(priceWhole) : null;
     const strikePrice = $('.a-text-price .a-offscreen').first().text().replace(/[^0-9.]/g, '');
     const originalPrice = strikePrice ? parseFloat(strikePrice) : currentPrice;
 
-    const brand = $('#bylineInfo').text().replace(/^Brand:\s*/i, '').replace(/^الماركة:\s*/i, '').trim() || 'Amazon Furnishings';
+    // Brand extraction
+    const brand = $('#bylineInfo').text().replace(/^Brand:\s*/i, '').replace(/^الماركة:\s*/i, '').trim() || null;
 
-    const description = $('#feature-bullets').text().replace(/\s+/g, ' ').trim() || title;
+    const description = $('#feature-bullets').text().replace(/\s+/g, ' ').trim() || null;
 
+    // Specifications
     const specifications: Record<string, string> = {};
 
     $('.po-break-word, .a-size-base.po-break-word').each((_, el) => {
@@ -111,6 +91,7 @@ export class AmazonAdapter extends BaseAdapter {
       }
     });
 
+    // Images — no placeholders
     const images: string[] = [];
     $('#imgTagWrapperId img, #landingImage, #altImages img').each((_, el) => {
       const dynImg = $(el).attr('data-a-dynamic-image');
@@ -130,6 +111,19 @@ export class AmazonAdapter extends BaseAdapter {
       }
     });
 
+    // Rating — only use real data
+    const ratingText = $('span[data-hook="rating-out-of-text"], #acrPopover .a-icon-alt').first().text();
+    const ratingMatch = ratingText.match(/([\d.]+)/);
+    const ratingAverage = ratingMatch ? parseFloat(ratingMatch[1]) : null;
+
+    const reviewsText = $('#acrCustomerReviewText').first().text();
+    const reviewsMatch = reviewsText.match(/([\d,]+)/);
+    const ratingReviews = reviewsMatch ? parseInt(reviewsMatch[1].replace(/,/g, ''), 10) : null;
+
+    // Stock
+    const availabilityText = $('#availability').text().toLowerCase();
+    const inStock = !availabilityText.includes('unavailable') && !availabilityText.includes('غير متوفر');
+
     return {
       externalId,
       marketplace: this.name,
@@ -141,11 +135,10 @@ export class AmazonAdapter extends BaseAdapter {
       currentPrice,
       originalPrice,
       currency: 'EGP',
-      images: images.length > 0 ? images : ['https://images.amazon.com/images/P/placeholder.jpg'],
-      inStock: true,
-      deliveryAvailable: true,
-      ratingAverage: 4.2,
-      ratingReviews: 35,
+      images,
+      inStock,
+      ratingAverage,
+      ratingReviews,
       specifications,
     };
   }

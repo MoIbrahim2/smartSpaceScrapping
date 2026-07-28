@@ -1,0 +1,15 @@
+{
+  "modern": ["modern", "sleek", "moderne", "مودرن", "عصري", "حديث"],
+  "minimalist": ["minimalist", "minimal", "simple", "تبسيطي", "بسيط"],
+  "scandinavian": ["scandinavian", "scandi", "nordic", "اسكندنافي", "إسكندنافي"],
+  "industrial": ["industrial", "loft", "raw metal", "صناعي"],
+  "bohemian": ["bohemian", "boho", "بوهيمي", "بوهيميان"],
+  "japandi": ["japandi", "japan", "zen", "ياباندي"],
+  "contemporary": ["contemporary", "معاصر"],
+  "luxury": ["luxury", "luxurious", "glam", "gold accent", "فاخر", "فخم", "راقي"],
+  "traditional": ["traditional", "classic arab", "تقليدي", "تراثي"],
+  "rustic": ["rustic", "farmhouse", "reclaimed wood", "ريفي"],
+  "mediterranean": ["mediterranean", "coastal", "متوسطي"],
+  "classic": ["classic", "classical", "antique", "vintage", "كلاسيك", "كلاسيكي"],
+  "transitional": ["transitional", "انتقالي"]
+}

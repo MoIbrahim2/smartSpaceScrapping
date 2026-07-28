@@ -1,0 +1,32 @@
+{
+  "weights": {
+    "canonicalCategory": 15,
+    "productName": 10,
+    "price": 15,
+    "primaryImage": 15,
+    "dimensions": 20,
+    "description": 5,
+    "materials": 5,
+    "colors": 5,
+    "brand": 5,
+    "productUrl": 5
+  },
+  "largeFurnitureCategories": [
+    "Sofa",
+    "Bed",
+    "Wardrobe",
+    "Coffee Table",
+    "TV Unit",
+    "Dining Table",
+    "Office Desk",
+    "Gaming Desk",
+    "Kitchen Island",
+    "Outdoor Table",
+    "Armchair",
+    "Kids Bed",
+    "Kids Wardrobe",
+    "Study Desk",
+    "Buffet Sideboard"
+  ],
+  "missingDimensionsPenaltyForLargeFurniture": 15
+}

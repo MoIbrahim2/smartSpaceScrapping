@@ -6,7 +6,7 @@ export function deduplicateProducts(products: UnifiedProduct[]): UnifiedProduct[
   for (const product of products) {
     // Unique key priority: SKU (if non-empty & valid), or marketplace + externalId
     let key = '';
-    const cleanSku = product.basic.sku.trim().toUpperCase();
+    const cleanSku = (product.basic.sku || '').trim().toUpperCase();
     if (cleanSku && cleanSku !== 'N/A' && cleanSku !== 'UNKNOWN' && cleanSku.length > 3) {
       key = `SKU:${cleanSku}`;
     } else {
@@ -19,7 +19,9 @@ export function deduplicateProducts(products: UnifiedProduct[]): UnifiedProduct[
       if (product.images.length > existing.images.length) {
         existing.images = product.images;
       }
-      if (product.rating.reviews > existing.rating.reviews) {
+      const pReviews = product.rating.reviews ?? 0;
+      const eReviews = existing.rating.reviews ?? 0;
+      if (pReviews > eReviews) {
         existing.rating = product.rating;
       }
       // Combine room types & tags

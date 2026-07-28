@@ -1,0 +1,776 @@
+{
+  "roomType": "Bathroom",
+  "version": "1.2.0",
+  "rules": [
+    {
+      "category": "Vanity Unit",
+      "role": "CORE",
+      "priority": 1,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 20,
+        "minPercentage": 14,
+        "maxPercentage": 28
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 5
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 45,
+              "max": 60
+            },
+            "depth": {
+              "min": 35,
+              "max": 45
+            },
+            "height": {
+              "min": 80,
+              "max": 85
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 5,
+            "max": 8
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 60,
+              "max": 90
+            },
+            "depth": {
+              "min": 40,
+              "max": 50
+            },
+            "height": {
+              "min": 80,
+              "max": 87
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 90,
+              "max": 140
+            },
+            "depth": {
+              "min": 45,
+              "max": 55
+            },
+            "height": {
+              "min": 82,
+              "max": 90
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "NEAR_PLUMBING_WALL",
+        "minimumClearance": 55,
+        "avoidBlockingDoor": true
+      },
+      "constraints": {
+        "waterproof": "REQUIRED",
+        "singleSink": "DEFAULT",
+        "doubleSink": "ALLOWED_IF_WIDTH_OVER_100",
+        "maxRoomCoverage": 15
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Contemporary",
+          "Minimal",
+          "Luxury"
+        ],
+        "preferredMaterials": [
+          "Solid Surface",
+          "Ceramic Basin",
+          "MDF Waterproof",
+          "PVC"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "HIGH",
+        "style": "HIGH",
+        "color": "HIGH"
+      }
+    },
+    {
+      "category": "Shower Enclosure",
+      "role": "CORE",
+      "priority": 2,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 20,
+        "minPercentage": 14,
+        "maxPercentage": 26
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 5
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 70,
+              "max": 80
+            },
+            "depth": {
+              "min": 70,
+              "max": 80
+            },
+            "height": {
+              "min": 185,
+              "max": 200
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 5,
+            "max": 8
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 80,
+              "max": 100
+            },
+            "depth": {
+              "min": 80,
+              "max": 100
+            },
+            "height": {
+              "min": 190,
+              "max": 210
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 100,
+              "max": 140
+            },
+            "depth": {
+              "min": 80,
+              "max": 100
+            },
+            "height": {
+              "min": 195,
+              "max": 220
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "CORNER_NEAR_DRAIN",
+        "minimumClearance": 55,
+        "doorSwingSpace": 60
+      },
+      "constraints": {
+        "glassThickness": "6MM_MINIMUM",
+        "safetyGlass": "REQUIRED",
+        "waterproofSeal": "REQUIRED",
+        "maxRoomCoverage": 25
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Frameless",
+          "Contemporary",
+          "Minimal"
+        ],
+        "preferredMaterials": [
+          "Tempered Glass",
+          "Aluminum Frame",
+          "Stainless Steel"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "HIGH",
+        "style": "MEDIUM",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Washing Machine",
+      "role": "CORE",
+      "priority": 3,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 15,
+        "minPercentage": 10,
+        "maxPercentage": 22
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 55,
+              "max": 65
+            },
+            "depth": {
+              "min": 50,
+              "max": 65
+            },
+            "height": {
+              "min": 80,
+              "max": 88
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "NEAR_WATER_AND_DRAIN",
+        "minimumClearance": 10
+      },
+      "constraints": {
+        "frontLoading": "PREFERRED",
+        "topLoading": "ALLOWED",
+        "plumbingRequired": true
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern"
+        ],
+        "preferredMaterials": [
+          "Stainless Steel",
+          "Metal",
+          "Plastic"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "MEDIUM",
+        "style": "LOW",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Toilet",
+      "role": "CORE",
+      "priority": 4,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 12,
+        "minPercentage": 8,
+        "maxPercentage": 18
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 35,
+              "max": 40
+            },
+            "depth": {
+              "min": 60,
+              "max": 75
+            },
+            "height": {
+              "min": 38,
+              "max": 42
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "NEAR_PLUMBING_HIDDEN",
+        "minimumClearanceFromWall": 15,
+        "minimumFrontClearance": 55
+      },
+      "constraints": {
+        "wallHung": "ALLOWED",
+        "floorMounted": "DEFAULT",
+        "dualFlush": "PREFERRED",
+        "maxRoomCoverage": 8
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Contemporary",
+          "Minimal"
+        ],
+        "preferredMaterials": [
+          "Ceramic",
+          "Vitreous China"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "MEDIUM",
+        "size": "LOW",
+        "style": "MEDIUM",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Water Heater",
+      "role": "SECONDARY",
+      "priority": 5,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 8,
+        "minPercentage": 4,
+        "maxPercentage": 12
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 40,
+              "max": 55
+            },
+            "depth": {
+              "min": 40,
+              "max": 55
+            },
+            "height": {
+              "min": 50,
+              "max": 85
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredWall": "UPPER_PLUMBING_WALL",
+        "minimumClearance": 15
+      },
+      "constraints": {
+        "wallMounted": "REQUIRED",
+        "electricOrGas": "ALLOWED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal"
+        ],
+        "preferredMaterials": [
+          "Metal",
+          "Enamel"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "MEDIUM",
+        "style": "LOW",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Mirror Cabinet",
+      "role": "CORE",
+      "priority": 6,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 9,
+        "minPercentage": 4,
+        "maxPercentage": 13
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 5
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 40,
+              "max": 55
+            },
+            "height": {
+              "min": 60,
+              "max": 70
+            },
+            "depth": {
+              "min": 12,
+              "max": 15
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 5,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 55,
+              "max": 100
+            },
+            "height": {
+              "min": 65,
+              "max": 80
+            },
+            "depth": {
+              "min": 12,
+              "max": 18
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "ABOVE_VANITY",
+        "centerHeight": 155,
+        "matchVanityWidth": true
+      },
+      "constraints": {
+        "ledLighting": "PREFERRED",
+        "antiSteam": "OPTIONAL",
+        "waterproofRating": "IP44"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Contemporary"
+        ],
+        "preferredMaterials": [
+          "Aluminum",
+          "Stainless Steel",
+          "MDF Waterproof"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "MEDIUM",
+        "style": "MEDIUM",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Shelving",
+      "role": "SECONDARY",
+      "priority": 7,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 6,
+        "minPercentage": 3,
+        "maxPercentage": 9
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 30,
+              "max": 60
+            },
+            "depth": {
+              "min": 12,
+              "max": 20
+            },
+            "height": {
+              "min": 60,
+              "max": 120
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "ABOVE_TOILET_OR_FREE_WALL",
+        "minimumHeightFromFloor": 120
+      },
+      "constraints": {
+        "waterproof": "REQUIRED",
+        "rustProof": "REQUIRED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Industrial"
+        ],
+        "preferredMaterials": [
+          "Stainless Steel",
+          "Aluminum",
+          "Glass",
+          "Teak"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "MEDIUM",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Towel Rack",
+      "role": "SECONDARY",
+      "priority": 8,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 4,
+        "minPercentage": 2,
+        "maxPercentage": 6
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 45,
+              "max": 75
+            },
+            "projection": {
+              "min": 8,
+              "max": 15
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "NEAR_SHOWER_EXIT",
+        "minimumHeightFromFloor": 100,
+        "reachableFromShower": true
+      },
+      "constraints": {
+        "rustProof": "REQUIRED",
+        "heated": "OPTIONAL"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Contemporary"
+        ],
+        "preferredMaterials": [
+          "Stainless Steel",
+          "Chrome",
+          "Brushed Nickel",
+          "Matte Black"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "MEDIUM",
+        "color": "MEDIUM"
+      }
+    },
+    {
+      "category": "Accessories Set",
+      "role": "OPTIONAL",
+      "priority": 9,
+      "defaultIncluded": false,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 3,
+        "minPercentage": 1,
+        "maxPercentage": 5
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "note": "Set includes soap dispenser, toothbrush holder, soap dish, tumbler"
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "ON_VANITY_OR_WALL_MOUNTED"
+      },
+      "constraints": {
+        "matchingFinish": "PREFERRED",
+        "waterproof": "REQUIRED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Luxury"
+        ],
+        "preferredMaterials": [
+          "Ceramic",
+          "Stainless Steel",
+          "Resin",
+          "Marble"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "HIGH",
+        "color": "HIGH"
+      }
+    },
+    {
+      "category": "Bathroom Lighting",
+      "role": "SECONDARY",
+      "priority": 10,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "PER_TARGET"
+      },
+      "budget": {
+        "defaultPercentage": 3,
+        "minPercentage": 1,
+        "maxPercentage": 5
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 3,
+            "max": 14
+          },
+          "recommendedDimensions": {
+            "note": "Sconces, recessed ceiling, or mirror-integrated LED"
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "FLANKING_MIRROR_OR_CEILING",
+        "avoidDirectlyAboveShower": true
+      },
+      "constraints": {
+        "waterproofRating": "IP44_MINIMUM",
+        "ledPreferred": true,
+        "dimmable": "OPTIONAL"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal",
+          "Contemporary",
+          "Luxury"
+        ],
+        "preferredMaterials": [
+          "Metal",
+          "Glass",
+          "Chrome",
+          "Brushed Nickel"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "MEDIUM",
+        "color": "MEDIUM"
+      }
+    }
+  ]
+}

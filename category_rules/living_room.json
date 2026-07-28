@@ -1,131 +1,1157 @@
 {
   "roomType": "Living Room",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "rules": [
     {
-      "category": "Sofa", "role": "CORE", "priority": 1, "defaultIncluded": true,
-      "budget": { "defaultPercentage": 35, "minPercentage": 25, "maxPercentage": 50 },
+      "category": "Sofa",
+      "role": "CORE",
+      "priority": 1,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 5,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 27,
+        "minPercentage": 18,
+        "maxPercentage": 40
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 12 }, "recommendedDimensions": { "width": { "min": 160, "max": 200 }, "depth": { "min": 80, "max": 95 } } },
-        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 180, "max": 240 }, "depth": { "min": 85, "max": 100 } } },
-        { "roomArea": { "min": 18, "max": 25 }, "recommendedDimensions": { "width": { "min": 220, "max": 280 }, "depth": { "min": 90, "max": 110 } } },
-        { "roomArea": { "min": 25, "max": 40 }, "recommendedDimensions": { "width": { "min": 260, "max": 340 }, "depth": { "min": 95, "max": 120 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 12
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 160,
+              "max": 200
+            },
+            "depth": {
+              "min": 80,
+              "max": 95
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 12,
+            "max": 18
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 180,
+              "max": 240
+            },
+            "depth": {
+              "min": 85,
+              "max": 100
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 18,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 220,
+              "max": 280
+            },
+            "depth": {
+              "min": 90,
+              "max": 110
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 25,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 260,
+              "max": 340
+            },
+            "depth": {
+              "min": 95,
+              "max": 120
+            }
+          }
+        }
       ],
-      "placement": { "preferredWall": "LONGEST_WALL", "minimumClearance": 45, "minimumWalkway": 75, "avoidBlockingDoors": true, "avoidBlockingWindows": true },
-      "constraints": { "cornerSofa": "ALLOWED", "recliner": "ALLOWED", "maxRoomCoverage": 35 },
-      "productSearch": { "preferredStyles": ["Modern","Contemporary","Scandinavian","Minimal"], "preferredMaterials": ["Fabric","Leather"] },
-      "promptInfluence": { "budget": "HIGH", "size": "HIGH", "style": "HIGH", "color": "HIGH" }
+      "placement": {
+        "preferredWall": "LONGEST_WALL",
+        "minimumClearance": 45,
+        "minimumWalkway": 75,
+        "avoidBlockingDoors": true,
+        "avoidBlockingWindows": true
+      },
+      "constraints": {
+        "cornerSofa": "ALLOWED",
+        "recliner": "ALLOWED",
+        "maxRoomCoverage": 35
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Contemporary",
+          "Scandinavian",
+          "Minimal"
+        ],
+        "preferredMaterials": [
+          "Fabric",
+          "Leather"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "HIGH",
+        "style": "HIGH",
+        "color": "HIGH"
+      }
     },
     {
-      "category": "Coffee Table", "role": "CORE", "priority": 2, "defaultIncluded": true,
-      "budget": { "defaultPercentage": 10, "minPercentage": 5, "maxPercentage": 15 },
+      "category": "Air Conditioner",
+      "role": "CORE",
+      "priority": 2,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 12,
+        "minPercentage": 8,
+        "maxPercentage": 18
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 12 }, "recommendedDimensions": { "width": { "min": 80, "max": 100 }, "depth": { "min": 50, "max": 60 } } },
-        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 100, "max": 120 }, "depth": { "min": 55, "max": 65 } } },
-        { "roomArea": { "min": 18, "max": 25 }, "recommendedDimensions": { "width": { "min": 110, "max": 140 }, "depth": { "min": 60, "max": 75 } } },
-        { "roomArea": { "min": 25, "max": 40 }, "recommendedDimensions": { "width": { "min": 120, "max": 160 }, "depth": { "min": 65, "max": 80 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 15
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 75,
+              "max": 90
+            },
+            "depth": {
+              "min": 18,
+              "max": 25
+            },
+            "height": {
+              "min": 25,
+              "max": 32
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 15,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 85,
+              "max": 110
+            },
+            "depth": {
+              "min": 20,
+              "max": 30
+            },
+            "height": {
+              "min": 28,
+              "max": 35
+            }
+          }
+        }
       ],
-      "placement": { "preferredPosition": "CENTER_OF_SEATING_AREA", "minimumClearance": 40, "distanceFromSofa": { "min": 35, "max": 50 } },
-      "constraints": { "shape": ["Rectangular","Round","Oval"], "maxRoomCoverage": 5 },
-      "productSearch": { "preferredStyles": ["Modern","Contemporary","Scandinavian","Industrial"], "preferredMaterials": ["Wood","Glass","Marble","MDF"] },
-      "promptInfluence": { "budget": "MEDIUM", "size": "MEDIUM", "style": "HIGH", "color": "HIGH" }
+      "placement": {
+        "preferredWall": "UPPER_WALL",
+        "minimumClearance": 15,
+        "minimumDistanceFromViewer": 150
+      },
+      "constraints": {
+        "wallMounted": "REQUIRED",
+        "maxRoomCoverage": 3
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Minimal"
+        ],
+        "preferredMaterials": [
+          "Plastic",
+          "Metal"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "MEDIUM",
+        "style": "LOW",
+        "color": "LOW"
+      }
     },
     {
-      "category": "TV Unit", "role": "CORE", "priority": 3, "defaultIncluded": true,
-      "budget": { "defaultPercentage": 15, "minPercentage": 10, "maxPercentage": 20 },
+      "category": "Coffee Table",
+      "role": "CORE",
+      "priority": 3,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 2,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 8,
+        "minPercentage": 4,
+        "maxPercentage": 13
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 12 }, "recommendedDimensions": { "width": { "min": 120, "max": 150 }, "depth": { "min": 35, "max": 45 }, "height": { "min": 40, "max": 55 } } },
-        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 150, "max": 180 }, "depth": { "min": 38, "max": 48 }, "height": { "min": 40, "max": 55 } } },
-        { "roomArea": { "min": 18, "max": 25 }, "recommendedDimensions": { "width": { "min": 180, "max": 220 }, "depth": { "min": 40, "max": 50 }, "height": { "min": 40, "max": 60 } } },
-        { "roomArea": { "min": 25, "max": 40 }, "recommendedDimensions": { "width": { "min": 200, "max": 280 }, "depth": { "min": 40, "max": 55 }, "height": { "min": 40, "max": 65 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 12
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 80,
+              "max": 100
+            },
+            "depth": {
+              "min": 50,
+              "max": 60
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 12,
+            "max": 18
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 100,
+              "max": 120
+            },
+            "depth": {
+              "min": 55,
+              "max": 65
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 18,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 110,
+              "max": 140
+            },
+            "depth": {
+              "min": 60,
+              "max": 75
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 25,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 120,
+              "max": 160
+            },
+            "depth": {
+              "min": 65,
+              "max": 80
+            }
+          }
+        }
       ],
-      "placement": { "preferredWall": "OPPOSITE_TO_SOFA", "minimumClearance": 30, "minimumDistanceFromViewer": 200 },
-      "constraints": { "wallMounted": "ALLOWED", "freestanding": "ALLOWED", "maxRoomCoverage": 8 },
-      "productSearch": { "preferredStyles": ["Modern","Contemporary","Minimal","Industrial"], "preferredMaterials": ["Wood","MDF","Metal"] },
-      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "HIGH", "color": "MEDIUM" }
+      "placement": {
+        "preferredPosition": "CENTER_OF_SEATING_AREA",
+        "minimumClearance": 40,
+        "distanceFromSofa": {
+          "min": 35,
+          "max": 50
+        }
+      },
+      "constraints": {
+        "shape": [
+          "Rectangular",
+          "Round",
+          "Oval"
+        ],
+        "maxRoomCoverage": 5
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Contemporary",
+          "Scandinavian",
+          "Industrial"
+        ],
+        "preferredMaterials": [
+          "Wood",
+          "Glass",
+          "Marble",
+          "MDF"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "MEDIUM",
+        "size": "MEDIUM",
+        "style": "HIGH",
+        "color": "HIGH"
+      }
     },
     {
-      "category": "Curtains", "role": "SECONDARY", "priority": 4, "defaultIncluded": true,
-      "budget": { "defaultPercentage": 8, "minPercentage": 5, "maxPercentage": 12 },
+      "category": "TV Unit",
+      "role": "CORE",
+      "priority": 4,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 11,
+        "minPercentage": 7,
+        "maxPercentage": 16
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 40 }, "recommendedDimensions": { "widthMultiplier": 1.5, "note": "Width = window width × 1.5" } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 12
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 120,
+              "max": 150
+            },
+            "depth": {
+              "min": 35,
+              "max": 45
+            },
+            "height": {
+              "min": 40,
+              "max": 55
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 12,
+            "max": 18
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 150,
+              "max": 180
+            },
+            "depth": {
+              "min": 38,
+              "max": 48
+            },
+            "height": {
+              "min": 40,
+              "max": 55
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 18,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 180,
+              "max": 220
+            },
+            "depth": {
+              "min": 40,
+              "max": 50
+            },
+            "height": {
+              "min": 40,
+              "max": 60
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 25,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 200,
+              "max": 280
+            },
+            "depth": {
+              "min": 40,
+              "max": 55
+            },
+            "height": {
+              "min": 40,
+              "max": 65
+            }
+          }
+        }
       ],
-      "placement": { "preferredPosition": "WINDOW_FRAME", "ceilingMountPreferred": true, "extendBeyondWindow": 15 },
-      "constraints": { "blackout": "OPTIONAL", "sheer": "OPTIONAL" },
-      "productSearch": { "preferredStyles": ["Modern","Classic","Minimal"], "preferredMaterials": ["Linen","Velvet","Cotton","Polyester"] },
-      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+      "placement": {
+        "preferredWall": "OPPOSITE_TO_SOFA",
+        "minimumClearance": 30,
+        "minimumDistanceFromViewer": 200
+      },
+      "constraints": {
+        "wallMounted": "ALLOWED",
+        "freestanding": "ALLOWED",
+        "maxRoomCoverage": 8
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Contemporary",
+          "Minimal",
+          "Industrial"
+        ],
+        "preferredMaterials": [
+          "Wood",
+          "MDF",
+          "Metal"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "MEDIUM",
+        "size": "HIGH",
+        "style": "HIGH",
+        "color": "MEDIUM"
+      }
     },
     {
-      "category": "Side Table", "role": "SECONDARY", "priority": 5, "defaultIncluded": true,
-      "budget": { "defaultPercentage": 5, "minPercentage": 3, "maxPercentage": 8 },
+      "category": "TV",
+      "role": "CORE",
+      "priority": 5,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 1,
+        "allowMultiple": false,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 10,
+        "minPercentage": 6,
+        "maxPercentage": 16
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 40 }, "recommendedDimensions": { "width": { "min": 40, "max": 55 }, "depth": { "min": 40, "max": 55 }, "height": { "min": 50, "max": 65 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 12
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 95,
+              "max": 115
+            },
+            "depth": {
+              "min": 8,
+              "max": 25
+            },
+            "height": {
+              "min": 55,
+              "max": 70
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 12,
+            "max": 18
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 120,
+              "max": 145
+            },
+            "depth": {
+              "min": 8,
+              "max": 30
+            },
+            "height": {
+              "min": 70,
+              "max": 85
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 18,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 145,
+              "max": 170
+            },
+            "depth": {
+              "min": 10,
+              "max": 35
+            },
+            "height": {
+              "min": 85,
+              "max": 100
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 25,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 165,
+              "max": 195
+            },
+            "depth": {
+              "min": 10,
+              "max": 40
+            },
+            "height": {
+              "min": 95,
+              "max": 115
+            }
+          }
+        }
       ],
-      "placement": { "preferredPosition": "BESIDE_SOFA", "minimumClearance": 5, "matchSofaArmHeight": true },
-      "constraints": { "maxQuantity": 2, "maxRoomCoverage": 2 },
-      "productSearch": { "preferredStyles": ["Modern","Contemporary","Scandinavian"], "preferredMaterials": ["Wood","Metal","Glass","Marble"] },
-      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "MEDIUM", "color": "MEDIUM" }
+      "placement": {
+        "preferredWall": "ON_TV_UNIT",
+        "minimumClearance": 20,
+        "minimumDistanceFromViewer": 200
+      },
+      "constraints": {
+        "wallMounted": "ALLOWED",
+        "freestanding": "ALLOWED",
+        "maxRoomCoverage": 5
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Contemporary",
+          "Minimal",
+          "Tech"
+        ],
+        "preferredMaterials": [
+          "Glass",
+          "Metal",
+          "Plastic"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "HIGH",
+        "size": "HIGH",
+        "style": "LOW",
+        "color": "LOW"
+      }
     },
     {
-      "category": "Rug", "role": "SECONDARY", "priority": 6, "defaultIncluded": true,
-      "budget": { "defaultPercentage": 8, "minPercentage": 5, "maxPercentage": 12 },
+      "category": "Curtains",
+      "role": "SECONDARY",
+      "priority": 6,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 1,
+        "sizeMode": "PER_TARGET"
+      },
+      "budget": {
+        "defaultPercentage": 6,
+        "minPercentage": 3,
+        "maxPercentage": 10
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 12 }, "recommendedDimensions": { "width": { "min": 160, "max": 200 }, "length": { "min": 230, "max": 260 } } },
-        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 200, "max": 250 }, "length": { "min": 280, "max": 300 } } },
-        { "roomArea": { "min": 18, "max": 25 }, "recommendedDimensions": { "width": { "min": 250, "max": 300 }, "length": { "min": 300, "max": 350 } } },
-        { "roomArea": { "min": 25, "max": 40 }, "recommendedDimensions": { "width": { "min": 300, "max": 400 }, "length": { "min": 350, "max": 450 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "widthMultiplier": 1.5,
+            "note": "Width = window width × 1.5"
+          }
+        }
       ],
-      "placement": { "preferredPosition": "UNDER_COFFEE_TABLE", "shouldExtendUnderSofa": true, "minimumWallGap": 30 },
-      "constraints": { "shape": ["Rectangular","Round"], "maxRoomCoverage": 60 },
-      "productSearch": { "preferredStyles": ["Modern","Bohemian","Scandinavian","Traditional"], "preferredMaterials": ["Wool","Cotton","Polypropylene","Jute"] },
-      "promptInfluence": { "budget": "MEDIUM", "size": "HIGH", "style": "HIGH", "color": "HIGH" }
+      "placement": {
+        "preferredPosition": "WINDOW_FRAME",
+        "ceilingMountPreferred": true,
+        "extendBeyondWindow": 15
+      },
+      "constraints": {
+        "blackout": "OPTIONAL",
+        "sheer": "OPTIONAL"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Classic",
+          "Minimal"
+        ],
+        "preferredMaterials": [
+          "Linen",
+          "Velvet",
+          "Cotton",
+          "Polyester"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "HIGH",
+        "color": "HIGH"
+      }
     },
     {
-      "category": "Floor Lamp", "role": "SECONDARY", "priority": 7, "defaultIncluded": true,
-      "budget": { "defaultPercentage": 5, "minPercentage": 2, "maxPercentage": 8 },
+      "category": "Side Table",
+      "role": "SECONDARY",
+      "priority": 7,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 1,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 4,
+        "minPercentage": 2,
+        "maxPercentage": 7
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 40 }, "recommendedDimensions": { "baseWidth": { "min": 25, "max": 45 }, "height": { "min": 140, "max": 180 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 40,
+              "max": 55
+            },
+            "depth": {
+              "min": 40,
+              "max": 55
+            },
+            "height": {
+              "min": 50,
+              "max": 65
+            }
+          }
+        }
       ],
-      "placement": { "preferredPosition": "CORNER_NEAR_SOFA", "minimumClearance": 30 },
-      "constraints": { "requiresPower": true, "maxQuantity": 2 },
-      "productSearch": { "preferredStyles": ["Modern","Industrial","Scandinavian","Art Deco"], "preferredMaterials": ["Metal","Wood","Fabric Shade"] },
-      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "MEDIUM", "color": "MEDIUM" }
+      "placement": {
+        "preferredPosition": "BESIDE_SOFA",
+        "minimumClearance": 5,
+        "matchSofaArmHeight": true
+      },
+      "constraints": {
+        "maxRoomCoverage": 2
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Contemporary",
+          "Scandinavian"
+        ],
+        "preferredMaterials": [
+          "Wood",
+          "Metal",
+          "Glass",
+          "Marble"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "MEDIUM",
+        "color": "MEDIUM"
+      }
     },
     {
-      "category": "Bookshelf", "role": "OPTIONAL", "priority": 8, "defaultIncluded": false,
-      "budget": { "defaultPercentage": 7, "minPercentage": 3, "maxPercentage": 12 },
+      "category": "Rug",
+      "role": "SECONDARY",
+      "priority": 8,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 2,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 6,
+        "minPercentage": 3,
+        "maxPercentage": 10
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 15 }, "recommendedDimensions": { "width": { "min": 60, "max": 90 }, "depth": { "min": 25, "max": 35 }, "height": { "min": 150, "max": 200 } } },
-        { "roomArea": { "min": 15, "max": 40 }, "recommendedDimensions": { "width": { "min": 80, "max": 160 }, "depth": { "min": 28, "max": 38 }, "height": { "min": 180, "max": 220 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 12
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 160,
+              "max": 200
+            },
+            "length": {
+              "min": 230,
+              "max": 260
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 12,
+            "max": 18
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 200,
+              "max": 250
+            },
+            "length": {
+              "min": 280,
+              "max": 300
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 18,
+            "max": 25
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 250,
+              "max": 300
+            },
+            "length": {
+              "min": 300,
+              "max": 350
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 25,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 300,
+              "max": 400
+            },
+            "length": {
+              "min": 350,
+              "max": 450
+            }
+          }
+        }
       ],
-      "placement": { "preferredWall": "ANY_FREE_WALL", "minimumClearance": 10, "wallAnchoring": "RECOMMENDED" },
-      "constraints": { "wallMounted": "ALLOWED", "freestanding": "ALLOWED", "maxRoomCoverage": 5 },
-      "productSearch": { "preferredStyles": ["Modern","Scandinavian","Industrial","Classic"], "preferredMaterials": ["Wood","MDF","Metal"] },
-      "promptInfluence": { "budget": "LOW", "size": "MEDIUM", "style": "MEDIUM", "color": "LOW" }
+      "placement": {
+        "preferredPosition": "UNDER_COFFEE_TABLE",
+        "shouldExtendUnderSofa": true,
+        "minimumWallGap": 30
+      },
+      "constraints": {
+        "shape": [
+          "Rectangular",
+          "Round"
+        ],
+        "maxRoomCoverage": 60
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Bohemian",
+          "Scandinavian",
+          "Traditional"
+        ],
+        "preferredMaterials": [
+          "Wool",
+          "Cotton",
+          "Polypropylene",
+          "Jute"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "MEDIUM",
+        "size": "HIGH",
+        "style": "HIGH",
+        "color": "HIGH"
+      }
     },
     {
-      "category": "Wall Art", "role": "OPTIONAL", "priority": 9, "defaultIncluded": false,
-      "budget": { "defaultPercentage": 3, "minPercentage": 1, "maxPercentage": 6 },
+      "category": "Floor Lamp",
+      "role": "SECONDARY",
+      "priority": 9,
+      "defaultIncluded": true,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 1,
+        "sizeMode": "STANDARD"
+      },
+      "budget": {
+        "defaultPercentage": 4,
+        "minPercentage": 2,
+        "maxPercentage": 7
+      },
       "sizeRules": [
-        { "roomArea": { "min": 8, "max": 15 }, "recommendedDimensions": { "width": { "min": 40, "max": 80 }, "height": { "min": 40, "max": 80 } } },
-        { "roomArea": { "min": 15, "max": 40 }, "recommendedDimensions": { "width": { "min": 60, "max": 120 }, "height": { "min": 50, "max": 100 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "baseWidth": {
+              "min": 25,
+              "max": 45
+            },
+            "height": {
+              "min": 140,
+              "max": 180
+            }
+          }
+        }
       ],
-      "placement": { "preferredPosition": "ABOVE_SOFA_OR_FOCAL_WALL", "centerHeight": 150 },
-      "constraints": { "maxQuantity": 5, "galleryWall": "ALLOWED" },
-      "productSearch": { "preferredStyles": ["Abstract","Modern","Minimal","Photography"], "preferredMaterials": ["Canvas","Framed Print","Metal"] },
-      "promptInfluence": { "budget": "LOW", "size": "LOW", "style": "HIGH", "color": "HIGH" }
+      "placement": {
+        "preferredPosition": "CORNER_NEAR_SOFA",
+        "minimumClearance": 30
+      },
+      "constraints": {
+        "requiresPower": true
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Industrial",
+          "Scandinavian",
+          "Art Deco"
+        ],
+        "preferredMaterials": [
+          "Metal",
+          "Wood",
+          "Fabric Shade"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "MEDIUM",
+        "color": "MEDIUM"
+      }
     },
     {
-      "category": "Armchair", "role": "OPTIONAL", "priority": 10, "defaultIncluded": false,
-      "budget": { "defaultPercentage": 4, "minPercentage": 0, "maxPercentage": 10 },
+      "category": "Bookshelf",
+      "role": "OPTIONAL",
+      "priority": 10,
+      "defaultIncluded": false,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 2,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 5,
+        "minPercentage": 2,
+        "maxPercentage": 9
+      },
       "sizeRules": [
-        { "roomArea": { "min": 12, "max": 18 }, "recommendedDimensions": { "width": { "min": 70, "max": 85 }, "depth": { "min": 75, "max": 90 } } },
-        { "roomArea": { "min": 18, "max": 40 }, "recommendedDimensions": { "width": { "min": 80, "max": 100 }, "depth": { "min": 80, "max": 95 } } }
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 15
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 60,
+              "max": 90
+            },
+            "depth": {
+              "min": 25,
+              "max": 35
+            },
+            "height": {
+              "min": 150,
+              "max": 200
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 15,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 80,
+              "max": 160
+            },
+            "depth": {
+              "min": 28,
+              "max": 38
+            },
+            "height": {
+              "min": 180,
+              "max": 220
+            }
+          }
+        }
       ],
-      "placement": { "preferredPosition": "PERPENDICULAR_TO_SOFA", "minimumClearance": 45, "minimumWalkway": 75 },
-      "constraints": { "maxQuantity": 2, "recliner": "ALLOWED", "maxRoomCoverage": 8 },
-      "productSearch": { "preferredStyles": ["Modern","Contemporary","Scandinavian","Mid-Century"], "preferredMaterials": ["Fabric","Leather","Velvet"] },
-      "promptInfluence": { "budget": "MEDIUM", "size": "MEDIUM", "style": "HIGH", "color": "HIGH" }
+      "placement": {
+        "preferredWall": "ANY_FREE_WALL",
+        "minimumClearance": 10,
+        "wallAnchoring": "RECOMMENDED"
+      },
+      "constraints": {
+        "wallMounted": "ALLOWED",
+        "freestanding": "ALLOWED",
+        "maxRoomCoverage": 5
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Scandinavian",
+          "Industrial",
+          "Classic"
+        ],
+        "preferredMaterials": [
+          "Wood",
+          "MDF",
+          "Metal"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "MEDIUM",
+        "style": "MEDIUM",
+        "color": "LOW"
+      }
+    },
+    {
+      "category": "Wall Art",
+      "role": "OPTIONAL",
+      "priority": 11,
+      "defaultIncluded": false,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 0,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 3,
+        "minPercentage": 1,
+        "maxPercentage": 5
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 8,
+            "max": 15
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 40,
+              "max": 80
+            },
+            "height": {
+              "min": 40,
+              "max": 80
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 15,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 60,
+              "max": 120
+            },
+            "height": {
+              "min": 50,
+              "max": 100
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "ABOVE_SOFA_OR_FOCAL_WALL",
+        "centerHeight": 150
+      },
+      "constraints": {
+        "galleryWall": "ALLOWED"
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Abstract",
+          "Modern",
+          "Minimal",
+          "Photography"
+        ],
+        "preferredMaterials": [
+          "Canvas",
+          "Framed Print",
+          "Metal"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "LOW",
+        "size": "LOW",
+        "style": "HIGH",
+        "color": "HIGH"
+      }
+    },
+    {
+      "category": "Armchair",
+      "role": "OPTIONAL",
+      "priority": 12,
+      "defaultIncluded": false,
+      "quantity": {
+        "default": 1,
+        "min": 1,
+        "max": 2,
+        "allowMultiple": true,
+        "budgetMode": "PER_CATEGORY",
+        "additionalItemBudgetBoost": 2,
+        "sizeMode": "ADJUST_PER_ITEM"
+      },
+      "budget": {
+        "defaultPercentage": 4,
+        "minPercentage": 1,
+        "maxPercentage": 8
+      },
+      "sizeRules": [
+        {
+          "roomArea": {
+            "min": 12,
+            "max": 18
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 70,
+              "max": 85
+            },
+            "depth": {
+              "min": 75,
+              "max": 90
+            }
+          }
+        },
+        {
+          "roomArea": {
+            "min": 18,
+            "max": 40
+          },
+          "recommendedDimensions": {
+            "width": {
+              "min": 80,
+              "max": 100
+            },
+            "depth": {
+              "min": 80,
+              "max": 95
+            }
+          }
+        }
+      ],
+      "placement": {
+        "preferredPosition": "PERPENDICULAR_TO_SOFA",
+        "minimumClearance": 45,
+        "minimumWalkway": 75
+      },
+      "constraints": {
+        "recliner": "ALLOWED",
+        "maxRoomCoverage": 8
+      },
+      "productSearch": {
+        "preferredStyles": [
+          "Modern",
+          "Contemporary",
+          "Scandinavian",
+          "Mid-Century"
+        ],
+        "preferredMaterials": [
+          "Fabric",
+          "Leather",
+          "Velvet"
+        ]
+      },
+      "promptInfluence": {
+        "budget": "MEDIUM",
+        "size": "MEDIUM",
+        "style": "HIGH",
+        "color": "HIGH"
+      }
     }
   ]
 }

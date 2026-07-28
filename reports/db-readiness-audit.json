@@ -1,0 +1,160 @@
+{
+  "totalProducts": 1606,
+  "uniqueExternalIds": 1606,
+  "auditResults": {
+    "duplicateExternalIds": 0,
+    "emptyNames": 0,
+    "invalidPrices": 0,
+    "nullWidths": 0,
+    "nullHeights": 0,
+    "nullLengths": 0,
+    "missingImages": 0,
+    "missingEmbeddingText": 0,
+    "invalidMarketplaces": 0,
+    "totalCriticalErrors": 0
+  },
+  "dbReadinessStatus": "PASSED (100% DB Ready)",
+  "sampleProduct": {
+    "externalId": "B0H6GPPQC7",
+    "source": {
+      "marketplace": "Amazon Egypt",
+      "productUrl": "https://www.amazon.eg/dp/B0H6GPPQC7",
+      "country": "Egypt",
+      "scrapedAt": "2026-07-22T13:51:37.148Z",
+      "lastUpdated": "2026-07-26T00:05:50.622Z",
+      "sellerId": "6a65618b557e76bb4102a095"
+    },
+    "basic": {
+      "name": "Sof.fur.3 - Seagal Wooden Captonia Bed , Modern Design, 160 x 200 cm",
+      "brand": "العلامة التجارية: Generic",
+      "description": "عن هذه السلعة التصميم العصري: سرير سيجال بتصميم أنيق وعصري يضفي لمسة جمالية راقية على غرفة نومك. المقاس: يأتي السرير بمقاس 160 × 200 سم، مناسب للغرف المتوسطة والكبيرة. الهيكل الخشبي: مصنوع من الخشب عالي الجودة لضمان المتانة والثبات لفترة طويلة. التنجيد الفاخر: يتميز السرير بتنجيد ناعم ومريح يمنح غرفة نومك مظهراً فخماً ودافئاً. سهولة التركيب: مصمم ليكون التركيب سهلاً وسريعاً، مع ضمان الاستقرار والصلابة عند الاستخدام. › شاهد المزيد من تفاصيل المنتج",
+      "sku": "B0H6GPPQC7"
+    },
+    "classification": {
+      "canonicalCategory": "Bed",
+      "roomTypes": [
+        "bedroom"
+      ],
+      "styles": [
+        "Modern",
+        "Luxury"
+      ],
+      "materials": [
+        "Wood"
+      ],
+      "colors": [
+        "Natural Wood"
+      ],
+      "tags": [
+        "Bed",
+        "Modern",
+        "Luxury",
+        "Natural Wood"
+      ]
+    },
+    "pricing": {
+      "currency": "EGP",
+      "currentPrice": 5490,
+      "originalPrice": 5490,
+      "discountPercentage": 0
+    },
+    "dimensions": {
+      "width": 160,
+      "height": 110,
+      "length": 200,
+      "dimensionUnit": "cm",
+      "weight": 50,
+      "weightUnit": "kg"
+    },
+    "images": [
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_US40_.jpg",
+        "isPrimary": true
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_SY355_.jpg",
+        "isPrimary": false
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_SY450_.jpg",
+        "isPrimary": false
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_SX425_.jpg",
+        "isPrimary": false
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_SX466_.jpg",
+        "isPrimary": false
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_SX522_.jpg",
+        "isPrimary": false
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_SX569_.jpg",
+        "isPrimary": false
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_.jpg",
+        "isPrimary": false
+      },
+      {
+        "url": "https://m.media-amazon.com/images/I/41DWj1bhKeL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "isPrimary": false
+      }
+    ],
+    "availability": {
+      "inStock": true,
+      "stockStatus": "In Stock"
+    },
+    "rating": {
+      "average": 4.2,
+      "reviews": 35
+    },
+    "ai": {
+      "embeddingText": "Modern/Luxury Natural Wood Wood bed by العلامة التجارية: Generic ideal for bedroom. Sof.fur.3 - Seagal Wooden Captonia Bed , Modern Design, 160 x 200 cm. عن هذه السلعة التصميم العصري: سرير سيجال بتصميم أنيق وعصري يضفي لمسة جمالية راقية على غرفة نومك. المقاس: يأتي السرير بمقاس 160 × 200 سم، مناسب للغرف ا",
+      "styleLabels": [
+        "Modern",
+        "Luxury"
+      ],
+      "dominantColors": [
+        "Natural Wood"
+      ],
+      "roomCompatibility": [
+        "bedroom"
+      ],
+      "keywords": [
+        "soffur3",
+        "seagal",
+        "wooden",
+        "captonia",
+        "bed",
+        "modern",
+        "design",
+        "160",
+        "200",
+        "العلامة",
+        "التجارية",
+        "generic",
+        "هذه",
+        "السلعة",
+        "التصميم"
+      ]
+    },
+    "processing": {
+      "status": "ACCEPTED",
+      "categoryConfidence": 0.9,
+      "qualityScore": 92,
+      "issues": [
+        "reparsed_from_title",
+        "height_out_of_bounds",
+        "dimensions_imputed_realistic",
+        "missing_materials",
+        "generic_brand"
+      ],
+      "normalizationVersion": "1.0"
+    },
+    "sellerId": "6a65618b557e76bb4102a095"
+  }
+}

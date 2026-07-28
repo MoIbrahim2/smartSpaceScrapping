@@ -1,11 +1,18 @@
 {
   "name": "smartspace-product-scraper",
-  "version": "1.0.0",
-  "description": "Scalable product scraping and normalization system for SmartSpaceAI",
+  "version": "2.0.0",
+  "description": "Category-driven product scraping and normalization system for SmartSpaceAI",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "scrape": "tsx src/cli.ts",
+    "scrape:all": "tsx src/cli.ts --all",
+    "scrape:resume": "tsx src/cli.ts --all --resume",
+    "scrape:category": "tsx src/cli.ts --category",
+    "scrape:list": "tsx src/cli.ts --list-categories",
+    "scrape:dry-run": "tsx src/cli.ts --all --dry-run",
+    "clean": "tsx src/clean-products.ts",
+    "validate-images": "python3 validate_image_urls.py",
     "test": "vitest run"
   },
   "keywords": [

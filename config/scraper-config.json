@@ -1,0 +1,54 @@
+{
+  "targetValidProductsPerProvider": 20,
+  "nicheTargetTotalProducts": 30,
+
+  "providers": ["Amazon Egypt", "Noon Egypt", "IKEA Egypt", "Jumia Egypt"],
+
+  "priorityCategories": [
+    "Sofa", "Coffee Table", "TV Unit", "Side Table", "Armchair",
+    "Bed", "Wardrobe", "Nightstand", "Dresser",
+    "Dining Table", "Dining Chairs",
+    "Office Desk", "Office Chair", "Bookshelf",
+    "Rug", "Curtains", "Floor Lamp", "Table Lamp", "Mirror",
+    "Bar Stool", "Gaming Chair", "Gaming Desk",
+    "Kids Bed", "Study Desk", "Study Chair",
+    "Chandelier", "Wall Art",
+    "Outdoor Seating", "Outdoor Table",
+    "Storage Unit",
+    "TV", "Air Conditioner", "Refrigerator", "Washing Machine"
+  ],
+
+  "nicheCategories": [
+    "Bedroom Armchair", "Kids Wardrobe", "Filing Cabinet", "Desk Lamp",
+    "Night Light", "Wall Decor", "Buffet Sideboard",
+    "Kitchen Cabinet Set", "Kitchen Island", "Storage Rack",
+    "Kitchen Lighting", "Wall Shelf", "LED Lighting", "Countertop",
+    "Vanity Unit", "Shower Enclosure", "Toilet", "Mirror Cabinet",
+    "Shelving", "Towel Rack", "Accessories Set", "Bathroom Lighting",
+    "Outdoor Lighting", "Outdoor Rug", "Planter", "Swing",
+    "Sound System Stand", "Whiteboard",
+    "Oven / Cooktop", "Microwave", "Dishwasher", "Range Hood",
+    "Computer Monitor", "Printer", "Water Heater", "Outdoor Fan / Heater"
+  ],
+
+  "retryLimits": {
+    "maxPagesPerSearchTerm": 10,
+    "maxConsecutiveEmptyPages": 3,
+    "maxHttpRetries": 2,
+    "maxTotalPagesPerProvider": 30
+  },
+
+  "requestDelayMs": 500,
+  "concurrency": 1,
+
+  "validation": {
+    "requirePrice": true,
+    "minPrice": 50,
+    "requireImage": true,
+    "requireProductUrl": true,
+    "minQualityScore": 30,
+    "minNameLength": 10
+  },
+
+  "checkpointSaveIntervalProducts": 5
+}

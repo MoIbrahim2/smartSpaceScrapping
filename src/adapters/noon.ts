@@ -1,87 +1,105 @@
 import * as cheerio from 'cheerio';
 import { BaseAdapter } from './base.js';
-import { CategorySeed, RawScrapedProduct, ScrapePageResult } from '../types/adapter.js';
-import { isFurnishingProduct } from '../normalizers/category.js';
+import { RawScrapedProduct, DiscoveryResult } from '../types/adapter.js';
 import { logger } from '../core/logger.js';
 
 export class NoonAdapter extends BaseAdapter {
   readonly name = 'Noon Egypt';
   readonly baseUrl = 'https://www.noon.com/egypt-en';
+  private readonly apiBaseUrl = 'https://www.noon.com/_svc/catalog/api/v3/u/search';
 
-  async getCategorySeeds(): Promise<CategorySeed[]> {
-    return [
-      { name: 'Living Room Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/living-room-furniture/`, targetRoom: 'Living Room' },
-      { name: 'Bedroom Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/bedroom-furniture/`, targetRoom: 'Bedroom' },
-      { name: 'Office Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/office-furniture/`, targetRoom: 'Office' },
-      { name: 'Dining Furniture', url: `${this.baseUrl}/home-and-kitchen/furniture/dining-furniture/`, targetRoom: 'Dining Room' },
-      { name: 'Home Decor', url: `${this.baseUrl}/home-and-kitchen/home-decor/`, targetRoom: 'Decor' },
-      { name: 'Patio & Outdoor', url: `${this.baseUrl}/home-and-kitchen/patio-lawn-and-garden/`, targetRoom: 'Balcony' },
-      { name: 'Storage & Organisation', url: `${this.baseUrl}/home-and-kitchen/storage-and-organisation/`, targetRoom: 'Office' },
-      { name: 'Bedding', url: `${this.baseUrl}/home-and-kitchen/bedding-16171/`, targetRoom: 'Bedroom' },
-      { name: 'Home Lighting', url: `${this.baseUrl}/home-and-kitchen/home-lighting/`, targetRoom: 'Decor' },
-      { name: 'Bath', url: `${this.baseUrl}/home-and-kitchen/bath-16182/`, targetRoom: 'Bathroom' },
-    ];
-  }
+  async discover(
+    category: string,
+    searchTerms: string[],
+    page: number,
+    currentSearchTermIndex: number
+  ): Promise<DiscoveryResult> {
+    const searchTerm = searchTerms[currentSearchTermIndex] || searchTerms[0];
 
-  async scrapeCategoryPage(seed: CategorySeed, page: number): Promise<ScrapePageResult> {
-    const pageUrl = `${seed.url}?page=${page}`;
-    logger.info(`[NoonAdapter] Scraping category page ${page}: ${pageUrl}`);
-    const html = await this.httpClient.fetch(pageUrl);
+    // Use Noon's catalog API for reliable discovery
+    const apiUrl = `${this.apiBaseUrl}?q=${encodeURIComponent(searchTerm)}&page=${page}&limit=40&sort%5Bby%5D=relevance&sort%5Bdir%5D=desc&f%5Bcountry%5D=eg&locale=en`;
 
-    if (!html) {
-      return { productUrls: [], hasNextPage: false };
-    }
+    logger.info(`    [Noon] Discovering "${searchTerm}" page ${page} (API)`);
 
-    const $ = cheerio.load(html);
-    const productUrls: string[] = [];
+    const candidateUrls: string[] = [];
+    let hasNextPage = false;
 
-    // 1. Parse Next.js embedded hydration state script
-    const nextDataScript = $('#__NEXT_DATA__').html();
-    if (nextDataScript) {
-      try {
-        const jsonData = JSON.parse(nextDataScript);
-        const grid = jsonData?.props?.pageProps?.catalog?.grid || jsonData?.props?.pageProps?.initialData?.catalog?.grid || [];
-        for (const item of grid) {
-          const itemUrl = item.url;
-          const name = item.name || item.name_en || '';
-          if (itemUrl && isFurnishingProduct(name, seed.name)) {
-            const fullUrl = itemUrl.startsWith('http')
-              ? itemUrl
-              : `https://www.noon.com/egypt-en/${itemUrl.replace(/^\//, '')}`;
-            if (!productUrls.includes(fullUrl)) {
-              productUrls.push(fullUrl);
+    try {
+      const response = await this.httpClient.fetch(apiUrl);
+      if (response) {
+        const data = typeof response === 'string' ? JSON.parse(response) : response;
+        const hits = data?.hits || data?.results || [];
+
+        for (const hit of hits) {
+          const sku = hit.sku || hit.product_sku || hit.id;
+          if (sku) {
+            const productUrl = `https://www.noon.com/egypt-en/p/${sku}`;
+            if (!candidateUrls.includes(productUrl)) {
+              candidateUrls.push(productUrl);
             }
           }
         }
-      } catch (e) {
-        logger.debug('[NoonAdapter] Failed parsing __NEXT_DATA__ JSON');
+
+        const totalPages = data?.nbPages || data?.total_pages || 0;
+        hasNextPage = candidateUrls.length > 0 && page < totalPages && page < 20;
+      }
+    } catch (apiError: any) {
+      logger.info(`    [Noon] API failed (${apiError.message}). Falling back to HTML search.`);
+
+      // Fallback: HTML search page
+      const searchUrl = `${this.baseUrl}/search/?q=${encodeURIComponent(searchTerm)}&page=${page}`;
+      const html = await this.httpClient.fetch(searchUrl);
+
+      if (html) {
+        const $ = cheerio.load(html);
+
+        // Try __NEXT_DATA__
+        const nextDataScript = $('#__NEXT_DATA__').html();
+        if (nextDataScript) {
+          try {
+            const jsonData = JSON.parse(nextDataScript);
+            const grid = jsonData?.props?.pageProps?.catalog?.grid ||
+                         jsonData?.props?.pageProps?.initialData?.catalog?.grid || [];
+            for (const item of grid) {
+              const itemUrl = item.url;
+              if (itemUrl) {
+                const fullUrl = itemUrl.startsWith('http')
+                  ? itemUrl
+                  : `https://www.noon.com/egypt-en/${itemUrl.replace(/^\//, '')}`;
+                if (!candidateUrls.includes(fullUrl) && fullUrl.includes('/p/')) {
+                  candidateUrls.push(fullUrl);
+                }
+              }
+            }
+          } catch (e) {
+            logger.debug('[Noon] Failed parsing __NEXT_DATA__ JSON');
+          }
+        }
+
+        // DOM fallback
+        $('a[href*="/p/"]').each((_, el) => {
+          const href = $(el).attr('href');
+          if (href && href.includes('/p/')) {
+            const fullUrl = href.startsWith('http') ? href : `https://www.noon.com${href}`;
+            if (!candidateUrls.includes(fullUrl)) {
+              candidateUrls.push(fullUrl);
+            }
+          }
+        });
+
+        hasNextPage = candidateUrls.length > 0 && page < 20;
       }
     }
 
-    // 2. DOM fallback links selector
-    $('a[href*="/p/"], a[href*="/N"]').each((_, el) => {
-      const href = $(el).attr('href');
-      if (href && (href.includes('/p/') || href.includes('/N'))) {
-        const fullUrl = href.startsWith('http') ? href : `https://www.noon.com${href}`;
-        if (!productUrls.includes(fullUrl) && fullUrl.includes('/p/')) {
-          productUrls.push(fullUrl);
-        }
-      }
-    });
-
-    const hasNextPage = productUrls.length > 0 && page < 50;
-
     return {
-      productUrls,
+      candidateUrls,
       hasNextPage,
-      nextPageUrl: hasNextPage ? `${seed.url}?page=${page + 1}` : undefined,
+      searchTermUsed: searchTerm,
     };
   }
 
   async scrapeProduct(url: string): Promise<RawScrapedProduct | null> {
-    logger.info(`[NoonAdapter] Scraping product detail: ${url}`);
     const html = await this.httpClient.fetch(url);
-
     if (!html) return null;
 
     const $ = cheerio.load(html);
@@ -98,8 +116,10 @@ export class NoonAdapter extends BaseAdapter {
       }
     });
 
-    const overviewDesc = $('div[class*="_overviewDesc_"] p, div[class*="_overviewDescriptionWrapper_"]').text().replace(/\s+/g, ' ').trim();
+    const overviewDesc = $('div[class*="_overviewDesc_"] p, div[class*="_overviewDescriptionWrapper_"]')
+      .text().replace(/\s+/g, ' ').trim();
 
+    // Try __NEXT_DATA__ for structured product data
     const nextDataScript = $('#__NEXT_DATA__').html();
     if (nextDataScript) {
       try {
@@ -110,57 +130,77 @@ export class NoonAdapter extends BaseAdapter {
             skuData.specifications.forEach((s: any) => {
               if (s.name && s.value) specifications[s.name] = s.value;
             });
-          } else if (typeof skuData.specifications === 'object') {
+          } else if (typeof skuData.specifications === 'object' && skuData.specifications) {
             Object.assign(specifications, skuData.specifications);
           }
+
+          const price = skuData.price ? parseFloat(skuData.price) : null;
+          const wasPrice = skuData.was_price ? parseFloat(skuData.was_price) : price;
+
+          // Images — only use real URLs
+          const images: string[] = [];
+          if (skuData.images && Array.isArray(skuData.images)) {
+            for (const img of skuData.images) {
+              const imgUrl = typeof img === 'string'
+                ? (img.startsWith('http') ? img : `https://f.nooncdn.com/p/${img}`)
+                : null;
+              if (imgUrl && !imgUrl.includes('placeholder')) {
+                images.push(imgUrl);
+              }
+            }
+          }
+
+          const productName = skuData.name || '';
+          if (!productName) return null;
 
           return {
             externalId: skuData.sku || `noon-${Date.now()}`,
             marketplace: this.name,
             productUrl: url,
-            name: skuData.name || 'Noon Furniture Product',
-            brand: skuData.brand || 'Noon Home',
-            description: (skuData.description || '') + ' ' + overviewDesc,
+            name: productName,
+            brand: skuData.brand || null,
+            description: ((skuData.description || '') + ' ' + overviewDesc).trim() || null,
             sku: skuData.sku || '',
-            currentPrice: skuData.price || 2000,
-            originalPrice: skuData.was_price || skuData.price || 2000,
+            currentPrice: price,
+            originalPrice: wasPrice,
             currency: 'EGP',
-            images: skuData.images ? skuData.images.map((i: any) => (i.startsWith('http') ? i : `https://f.nooncdn.com/p/${i}`)) : ['https://f.nooncdn.com/placeholder.jpg'],
-            inStock: skuData.is_in_stock ?? true,
-            ratingAverage: skuData.rating?.average || 4.5,
-            ratingReviews: skuData.rating?.count || 12,
+            images,
+            inStock: skuData.is_in_stock ?? null,
+            ratingAverage: skuData.rating?.average ?? null,
+            ratingReviews: skuData.rating?.count ?? null,
             specifications,
           };
         }
       } catch (e) {
-        logger.debug('[NoonAdapter] Failed parsing __NEXT_DATA__ product details');
+        logger.debug('[Noon] Failed parsing __NEXT_DATA__ product details');
       }
     }
 
+    // DOM fallback
     const title = $('h1').text().trim() || $('meta[property="og:title"]').attr('content') || '';
     if (!title) return null;
 
-    const skuMatch = url.match(/\/N([0-9A-Za-z]+)A\//) || url.match(/\/p\/([^/?]+)/);
+    const skuMatch = url.match(/\/p\/([^/?]+)/);
     const externalId = skuMatch ? skuMatch[1] : `noon-${Date.now()}`;
 
-    const priceText = $('.priceNow').text().replace(/[^0-9.]/g, '');
-    const currentPrice = priceText ? parseFloat(priceText) : 1800;
+    const priceText = $('.priceNow, [class*="price"]').first().text().replace(/[^0-9.]/g, '');
+    const currentPrice = priceText ? parseFloat(priceText) : null;
 
     return {
       externalId,
       marketplace: this.name,
       productUrl: url,
       name: title,
-      brand: 'Noon Home',
-      description: title + ' ' + overviewDesc,
+      brand: null,
+      description: (title + ' ' + overviewDesc).trim(),
       sku: externalId,
       currentPrice,
-      originalPrice: currentPrice * 1.15,
+      originalPrice: currentPrice,
       currency: 'EGP',
-      images: ['https://f.nooncdn.com/p/placeholder.jpg'],
-      inStock: true,
-      ratingAverage: 4.1,
-      ratingReviews: 8,
+      images: [],
+      inStock: null,
+      ratingAverage: null,
+      ratingReviews: null,
       specifications,
     };
   }

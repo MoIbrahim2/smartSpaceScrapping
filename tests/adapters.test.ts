@@ -30,8 +30,8 @@ describe('Adapters Transformation & Schema Validation Tests', () => {
     expect(unified.source.marketplace).toBe('Amazon Egypt');
     expect(unified.source.country).toBe('Egypt');
     expect(unified.basic.name).toBe('Modern 3-Seater Fabric Sofa - Grey');
-    expect(unified.classification.category).toBe('Sofa');
-    expect(unified.classification.roomTypes).toContain('Living Room');
+    expect(unified.classification.canonicalCategory).toBe('Sofa');
+    expect(unified.classification.roomTypes).toContain('living_room');
     expect(unified.pricing.currentPrice).toBe(7500);
     expect(unified.pricing.discountPercentage).toBe(17); // (9000-7500)/9000 = 16.66% -> 17%
     expect(unified.images[0].isPrimary).toBe(true);
@@ -55,7 +55,7 @@ describe('Adapters Transformation & Schema Validation Tests', () => {
     });
 
     expect(unified.source.marketplace).toBe('IKEA Egypt');
-    expect(unified.classification.category).toBe('Coffee Table');
+    expect(unified.classification.canonicalCategory).toBe('Coffee Table');
     expect(unified.classification.colors).toContain('Black');
     expect(unified.pricing.currency).toBe('EGP');
   });

@@ -19,13 +19,14 @@ const COLOR_KEYWORDS = {
     Gold: ['gold', 'golden', 'brass', 'ذهبي'],
     Silver: ['silver', 'chrome', 'فضة', 'فضي'],
     'Natural Wood': ['natural wood', 'oak', 'beech', 'teak', 'wood color', 'خشب طبيعي', 'أرو', 'اروع', 'زان'],
+    Multicolor: ['multicolor', 'multicoloured', 'multi-color', 'multi', 'ملون', 'ألوان متعددة'],
 };
 function normalizeColors(text) {
     const lowerText = text.toLowerCase();
     const matchedColors = new Set();
     for (const color of schema_js_1.ALLOWED_COLORS) {
         const keywords = COLOR_KEYWORDS[color];
-        if (keywords.some((kw) => lowerText.includes(kw.toLowerCase()))) {
+        if (keywords && keywords.some((kw) => lowerText.includes(kw.toLowerCase()))) {
             matchedColors.add(color);
         }
     }

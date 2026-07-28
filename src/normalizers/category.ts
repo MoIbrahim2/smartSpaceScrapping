@@ -20,6 +20,55 @@ const CATEGORY_MAP: Array<{
   keywords: string[];
   mapping: CategoryMapping;
 }> = [
+  // Appliances & Electronics (12 New Categories)
+  {
+    keywords: ['air conditioner', 'ac unit', 'split ac', 'تكييف', 'مكيف', 'تكييف سبليت'],
+    mapping: { category: 'Air Conditioner', subcategory: 'Appliances', defaultRoom: 'Living Room' },
+  },
+  {
+    keywords: ['smart tv', 'led tv', 'oled tv', 'television', 'تلفزيون', 'شاشة سمارت'],
+    mapping: { category: 'TV', subcategory: 'Electronics', defaultRoom: 'Living Room' },
+  },
+  {
+    keywords: ['refrigerator', 'fridge', 'freezer', 'ثلاجة', 'ديب فريزر'],
+    mapping: { category: 'Refrigerator', subcategory: 'Appliances', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['washing machine', 'washer', 'غسالة ملابس', 'غسالة'],
+    mapping: { category: 'Washing Machine', subcategory: 'Appliances', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['built in oven', 'cooktop', 'stove', 'gas cooker', 'فرن', 'بوتاجاز', 'مسطح'],
+    mapping: { category: 'Oven / Cooktop', subcategory: 'Appliances', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['microwave', 'microwave oven', 'مايكروويف', 'ميكروويف'],
+    mapping: { category: 'Microwave', subcategory: 'Appliances', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['dishwasher', 'غسالة اطباق', 'غسالة صحون'],
+    mapping: { category: 'Dishwasher', subcategory: 'Appliances', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['range hood', 'cooker hood', 'extractor hood', 'شفاط مطبخ', 'شفاط بوتاجاز'],
+    mapping: { category: 'Range Hood', subcategory: 'Appliances', defaultRoom: 'Kitchen' },
+  },
+  {
+    keywords: ['computer monitor', 'gaming monitor', 'شاشة كمبيوتر'],
+    mapping: { category: 'Computer Monitor', subcategory: 'Electronics', defaultRoom: 'Office' },
+  },
+  {
+    keywords: ['printer', 'laser printer', 'inkjet printer', 'طابعة'],
+    mapping: { category: 'Printer', subcategory: 'Electronics', defaultRoom: 'Office' },
+  },
+  {
+    keywords: ['water heater', 'geyser', 'سخان مياه', 'سخان كهرباء', 'سخان غاز'],
+    mapping: { category: 'Water Heater', subcategory: 'Appliances', defaultRoom: 'Bathroom' },
+  },
+  {
+    keywords: ['outdoor fan', 'patio heater', 'outdoor heater', 'مروحة حدائق', 'دفاية حدائق'],
+    mapping: { category: 'Outdoor Fan / Heater', subcategory: 'Outdoor Appliances', defaultRoom: 'Balcony' },
+  },
   // Specific Chair Types (Evaluated first to prevent 'desk' overlap on 'office chair')
   {
     keywords: ['gaming chair', 'racing chair', 'كرسي جيمنج', 'كرسي ألعاب'],

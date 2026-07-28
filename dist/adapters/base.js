@@ -67,11 +67,10 @@ class BaseAdapter {
                 sku: raw.sku || raw.externalId,
             },
             classification: {
-                category: categoryMapping.category,
-                subcategory: categoryMapping.subcategory,
+                canonicalCategory: categoryMapping.category,
                 roomTypes: roomTypes,
-                style: styles,
-                material: materials,
+                styles: styles,
+                materials: materials,
                 colors: colors,
                 tags: [categoryMapping.category, ...styles, ...colors],
             },
@@ -84,21 +83,28 @@ class BaseAdapter {
             dimensions: {
                 width: finalWidth,
                 height: finalHeight,
-                depth: finalDepth,
+                length: finalDepth,
+                dimensionUnit: 'cm',
                 weight: finalWeight,
-                unit: 'cm',
+                weightUnit: 'kg',
             },
             images: formattedImages,
             availability: {
                 inStock: raw.inStock ?? true,
                 stockStatus: raw.stockStatus || (raw.inStock === false ? 'Out of Stock' : 'In Stock'),
-                deliveryAvailable: raw.deliveryAvailable ?? true,
             },
             rating: {
                 average: Math.min(5, Math.max(0, raw.ratingAverage || 0)),
                 reviews: Math.max(0, raw.ratingReviews || 0),
             },
             ai: aiData,
+            processing: {
+                status: 'ACCEPTED',
+                categoryConfidence: 0.9,
+                qualityScore: 70,
+                issues: [],
+                normalizationVersion: '1.0'
+            }
         };
         // Validate schema
         const result = schema_js_1.UnifiedProductSchema.safeParse(candidate);

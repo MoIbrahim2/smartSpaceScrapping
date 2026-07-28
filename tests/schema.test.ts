@@ -19,11 +19,10 @@ describe('UnifiedProductSchema Validation', () => {
         sku: '12345678',
       },
       classification: {
-        category: 'Sofa',
-        subcategory: 'Living Room Seating',
-        roomTypes: ['Living Room'],
-        style: ['Modern'],
-        material: ['Fabric', 'Wood'],
+        canonicalCategory: 'Sofa',
+        roomTypes: ['living_room'],
+        styles: ['Modern'],
+        materials: ['Fabric', 'Wood'],
         colors: ['Gray'],
         tags: ['Sofa', 'Modern', 'Gray'],
       },
@@ -36,9 +35,10 @@ describe('UnifiedProductSchema Validation', () => {
       dimensions: {
         width: 180,
         height: 85,
-        depth: 88,
+        length: 88,
+        dimensionUnit: 'cm',
         weight: 35,
-        unit: 'cm',
+        weightUnit: 'kg',
       },
       images: [
         { url: 'https://www.ikea.com/img1.jpg', isPrimary: true },
@@ -47,7 +47,6 @@ describe('UnifiedProductSchema Validation', () => {
       availability: {
         inStock: true,
         stockStatus: 'In Stock',
-        deliveryAvailable: true,
       },
       rating: {
         average: 4.5,
@@ -57,9 +56,16 @@ describe('UnifiedProductSchema Validation', () => {
         embeddingText: 'Modern Gray Fabric sofa by IKEA ideal for Living Room.',
         styleLabels: ['Modern'],
         dominantColors: ['Gray'],
-        roomCompatibility: ['Living Room'],
+        roomCompatibility: ['living_room'],
         keywords: ['sofa', 'modern', 'gray', 'ikea'],
       },
+      processing: {
+        status: 'ACCEPTED',
+        categoryConfidence: 0.95,
+        qualityScore: 85,
+        issues: [],
+        normalizationVersion: '1.0'
+      }
     };
 
     const parsed = UnifiedProductSchema.safeParse(validProduct);

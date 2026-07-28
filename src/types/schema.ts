@@ -35,6 +35,7 @@ export const ALLOWED_COLORS = [
   'Gold',
   'Silver',
   'Natural Wood',
+  'Multicolor',
 ] as const;
 
 export type ColorType = (typeof ALLOWED_COLORS)[number];
@@ -50,21 +51,26 @@ export const ALLOWED_MATERIALS = [
   'Fabric',
   'Velvet',
   'Leather',
+  'Faux Leather',
   'Marble',
   'Stone',
   'Ceramic',
   'Concrete',
+  'Rattan',
 ] as const;
 
 export type MaterialType = (typeof ALLOWED_MATERIALS)[number];
 
 export const ALLOWED_ROOM_TYPES = [
-  'Living Room',
-  'Bedroom',
-  'Kitchen',
-  'Bathroom',
-  'Office',
-  'Decor',
+  'living_room',
+  'bedroom',
+  'kids_room',
+  'dining_room',
+  'kitchen',
+  'bathroom',
+  'office',
+  'game_room',
+  'balcony',
 ] as const;
 
 export type RoomType = (typeof ALLOWED_ROOM_TYPES)[number];
@@ -75,69 +81,76 @@ export const ProductImageSchema = z.object({
 });
 
 export const UnifiedProductSchema = z.object({
-  _id: z.string().optional(),
-
   externalId: z.string(),
+  sellerId: z.string().optional(),
 
   source: z.object({
     marketplace: z.string(),
-    country: z.literal('Egypt'),
+    sellerId: z.string().optional(),
     productUrl: z.string(),
+    country: z.literal('Egypt'),
     scrapedAt: z.string(),
     lastUpdated: z.string(),
   }),
 
   basic: z.object({
     name: z.string(),
-    brand: z.string(),
-    description: z.string(),
-    sku: z.string(),
+    brand: z.string().nullable(),
+    description: z.string().nullable(),
+    sku: z.string().nullable(),
   }),
 
   classification: z.object({
-    category: z.string(),
-    subcategory: z.string(),
+    canonicalCategory: z.string(),
     roomTypes: z.array(z.string()),
-    style: z.array(z.string()),
-    material: z.array(z.string()),
+    styles: z.array(z.string()),
+    materials: z.array(z.string()),
     colors: z.array(z.string()),
     tags: z.array(z.string()),
   }),
 
   pricing: z.object({
     currency: z.literal('EGP'),
-    currentPrice: z.number().nonnegative(),
-    originalPrice: z.number().nonnegative(),
-    discountPercentage: z.number().min(0).max(100),
+    currentPrice: z.number().nullable(),
+    originalPrice: z.number().nullable(),
+    discountPercentage: z.number().nullable(),
   }),
 
   dimensions: z.object({
     width: z.number().nullable(),
     height: z.number().nullable(),
-    depth: z.number().nullable(),
+    length: z.number().nullable(),
+    dimensionUnit: z.literal('cm'),
     weight: z.number().nullable(),
-    unit: z.literal('cm'),
+    weightUnit: z.literal('kg'),
   }),
 
   images: z.array(ProductImageSchema),
 
   availability: z.object({
-    inStock: z.boolean(),
-    stockStatus: z.string(),
-    deliveryAvailable: z.boolean(),
+    inStock: z.boolean().nullable(),
+    stockStatus: z.string().nullable(),
   }),
 
   rating: z.object({
-    average: z.number().min(0).max(5),
-    reviews: z.number().min(0),
+    average: z.number().nullable(),
+    reviews: z.number().nullable(),
   }),
 
   ai: z.object({
-    embeddingText: z.string(),
+    embeddingText: z.string().nullable(),
     styleLabels: z.array(z.string()),
     dominantColors: z.array(z.string()),
     roomCompatibility: z.array(z.string()),
     keywords: z.array(z.string()),
+  }),
+
+  processing: z.object({
+    status: z.enum(['ACCEPTED', 'REVIEW', 'REJECTED']),
+    categoryConfidence: z.number(),
+    qualityScore: z.number(),
+    issues: z.array(z.string()),
+    normalizationVersion: z.string(),
   }),
 });
 

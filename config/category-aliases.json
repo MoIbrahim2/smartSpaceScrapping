@@ -1,0 +1,2519 @@
+{
+  "Sofa": {
+    "aliases": [
+      "sofa",
+      "couch",
+      "loveseat",
+      "sectional",
+      "recliner",
+      "three seater",
+      "two seater",
+      "2-seater",
+      "3-seater",
+      "كنبة",
+      "انتريه",
+      "صالون",
+      "اريكة",
+      "أريكة",
+      "ركنة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "sofa",
+        "living room sofa",
+        "3 seater sofa",
+        "couch",
+        "sectional sofa",
+        "كنبة"
+      ],
+      "Noon Egypt": [
+        "sofa",
+        "living room sofa",
+        "couch",
+        "كنبة",
+        "انتريه"
+      ],
+      "IKEA Egypt": [
+        "sofa",
+        "sofas",
+        "3-seat sofa"
+      ],
+      "Jumia Egypt": [
+        "sofa",
+        "couch",
+        "living room sofa",
+        "كنبة",
+        "انتريه"
+      ]
+    },
+    "rejectionKeywords": [
+      "cushion cover",
+      "sofa cover",
+      "sofa leg",
+      "replacement",
+      "throw pillow",
+      "غطاء كنبة",
+      "وسادة",
+      "قماش كنبة"
+    ]
+  },
+  "Coffee Table": {
+    "aliases": [
+      "coffee table",
+      "center table",
+      "centre table",
+      "ترابيزة قهوة",
+      "طاولة قهوة",
+      "طاولة وسط",
+      "ترابيزة انترية"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "coffee table",
+        "center table",
+        "living room table",
+        "طاولة قهوة"
+      ],
+      "Noon Egypt": [
+        "coffee table",
+        "center table",
+        "طاولة قهوة",
+        "ترابيزة وسط"
+      ],
+      "IKEA Egypt": [
+        "coffee table",
+        "coffee tables"
+      ],
+      "Jumia Egypt": [
+        "coffee table",
+        "center table",
+        "طاولة قهوة"
+      ]
+    },
+    "rejectionKeywords": [
+      "table cloth",
+      "table cover",
+      "table mat",
+      "coaster",
+      "مفرش"
+    ]
+  },
+  "TV Unit": {
+    "aliases": [
+      "tv unit",
+      "tv stand",
+      "tv cabinet",
+      "media console",
+      "entertainment center",
+      "طاولة تلفزيون",
+      "وحدة تلفزيون",
+      "طاولة شاشة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "tv stand",
+        "tv unit",
+        "media console",
+        "tv cabinet",
+        "طاولة تلفزيون"
+      ],
+      "Noon Egypt": [
+        "tv stand",
+        "tv unit",
+        "طاولة تلفزيون",
+        "وحدة تلفزيون"
+      ],
+      "IKEA Egypt": [
+        "tv bench",
+        "tv unit",
+        "media furniture"
+      ],
+      "Jumia Egypt": [
+        "tv stand",
+        "tv unit",
+        "طاولة تلفزيون"
+      ]
+    },
+    "rejectionKeywords": [
+      "tv screen",
+      "television",
+      "remote",
+      "wall mount bracket",
+      "حامل شاشة"
+    ]
+  },
+  "Side Table": {
+    "aliases": [
+      "side table",
+      "end table",
+      "accent table",
+      "night table",
+      "corner table",
+      "طاولة جانبية",
+      "ترابيزة جانبية"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "side table",
+        "end table",
+        "accent table",
+        "طاولة جانبية"
+      ],
+      "Noon Egypt": [
+        "side table",
+        "end table",
+        "طاولة جانبية"
+      ],
+      "IKEA Egypt": [
+        "side table",
+        "side tables"
+      ],
+      "Jumia Egypt": [
+        "side table",
+        "end table",
+        "طاولة جانبية"
+      ]
+    },
+    "rejectionKeywords": [
+      "table lamp",
+      "table cloth"
+    ]
+  },
+  "Armchair": {
+    "aliases": [
+      "armchair",
+      "accent chair",
+      "lounge chair",
+      "recliner chair",
+      "فوتيه",
+      "كرسي انتريه",
+      "كرسي استرخاء"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "armchair",
+        "accent chair",
+        "lounge chair",
+        "فوتيه",
+        "كرسي استرخاء"
+      ],
+      "Noon Egypt": [
+        "armchair",
+        "accent chair",
+        "فوتيه",
+        "كرسي انتريه"
+      ],
+      "IKEA Egypt": [
+        "armchair",
+        "armchairs"
+      ],
+      "Jumia Egypt": [
+        "armchair",
+        "accent chair",
+        "فوتيه"
+      ]
+    },
+    "rejectionKeywords": [
+      "chair cover",
+      "cushion",
+      "arm rest pad",
+      "غطاء كرسي"
+    ]
+  },
+  "Bed": {
+    "aliases": [
+      "bed",
+      "headboard",
+      "bed frame",
+      "double bed",
+      "queen bed",
+      "king bed",
+      "سرير",
+      "سرير نوم",
+      "ظهر سرير"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "bed frame",
+        "wooden bed",
+        "king bed",
+        "queen bed",
+        "سرير"
+      ],
+      "Noon Egypt": [
+        "bed",
+        "bed frame",
+        "سرير",
+        "سرير نوم"
+      ],
+      "IKEA Egypt": [
+        "bed",
+        "bed frame",
+        "beds"
+      ],
+      "Jumia Egypt": [
+        "bed",
+        "bed frame",
+        "سرير",
+        "سرير خشب"
+      ]
+    },
+    "rejectionKeywords": [
+      "bed sheet",
+      "bed cover",
+      "pillow",
+      "mattress protector",
+      "bed skirt",
+      "مفرش سرير",
+      "ملاية"
+    ]
+  },
+  "Wardrobe": {
+    "aliases": [
+      "wardrobe",
+      "closet",
+      "armoire",
+      "sliding wardrobe",
+      "دولاب",
+      "خزانة ملابس"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "wardrobe",
+        "closet",
+        "armoire",
+        "دولاب ملابس",
+        "خزانة ملابس"
+      ],
+      "Noon Egypt": [
+        "wardrobe",
+        "closet",
+        "دولاب",
+        "خزانة ملابس"
+      ],
+      "IKEA Egypt": [
+        "wardrobe",
+        "wardrobes"
+      ],
+      "Jumia Egypt": [
+        "wardrobe",
+        "closet",
+        "دولاب"
+      ]
+    },
+    "rejectionKeywords": [
+      "wardrobe organizer",
+      "hanger",
+      "shelf divider",
+      "drawer organizer",
+      "منظم دولاب"
+    ]
+  },
+  "Nightstand": {
+    "aliases": [
+      "nightstand",
+      "bedside table",
+      "bedside cabinet",
+      "كومودينو",
+      "كومود",
+      "طاولة سرير"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "nightstand",
+        "bedside table",
+        "كومودينو"
+      ],
+      "Noon Egypt": [
+        "nightstand",
+        "bedside table",
+        "كومودينو",
+        "طاولة سرير"
+      ],
+      "IKEA Egypt": [
+        "bedside table",
+        "nightstand"
+      ],
+      "Jumia Egypt": [
+        "nightstand",
+        "bedside table",
+        "كومودينو"
+      ]
+    },
+    "rejectionKeywords": [
+      "lamp",
+      "clock",
+      "مصباح"
+    ]
+  },
+  "Dresser": {
+    "aliases": [
+      "dresser",
+      "vanity dresser",
+      "chest of drawers",
+      "mirror dresser",
+      "تسريحة",
+      "شفونيرة",
+      "وحدة ادراج"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "dresser",
+        "chest of drawers",
+        "vanity table",
+        "تسريحة"
+      ],
+      "Noon Egypt": [
+        "dresser",
+        "chest of drawers",
+        "تسريحة",
+        "شفونيرة"
+      ],
+      "IKEA Egypt": [
+        "chest of drawers",
+        "dresser"
+      ],
+      "Jumia Egypt": [
+        "dresser",
+        "chest of drawers",
+        "تسريحة"
+      ]
+    },
+    "rejectionKeywords": [
+      "drawer organizer",
+      "drawer divider",
+      "منظم ادراج"
+    ]
+  },
+  "Dining Table": {
+    "aliases": [
+      "dining table",
+      "kitchen table",
+      "dinner table",
+      "ترابيزة سفرة",
+      "طاولة طعام",
+      "سفرة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "dining table",
+        "kitchen table",
+        "طاولة طعام",
+        "سفرة"
+      ],
+      "Noon Egypt": [
+        "dining table",
+        "سفرة",
+        "طاولة طعام"
+      ],
+      "IKEA Egypt": [
+        "dining table",
+        "dining tables"
+      ],
+      "Jumia Egypt": [
+        "dining table",
+        "سفرة",
+        "طاولة طعام"
+      ]
+    },
+    "rejectionKeywords": [
+      "table cloth",
+      "place mat",
+      "مفرش سفرة",
+      "table runner"
+    ]
+  },
+  "Dining Chairs": {
+    "aliases": [
+      "dining chair",
+      "kitchen chair",
+      "side chair",
+      "كرسي سفرة",
+      "كرسي طعام"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "dining chair",
+        "kitchen chair",
+        "كرسي سفرة"
+      ],
+      "Noon Egypt": [
+        "dining chair",
+        "كرسي سفرة",
+        "كرسي طعام"
+      ],
+      "IKEA Egypt": [
+        "dining chair",
+        "chair"
+      ],
+      "Jumia Egypt": [
+        "dining chair",
+        "كرسي سفرة"
+      ]
+    },
+    "rejectionKeywords": [
+      "chair cushion",
+      "chair pad",
+      "chair cover",
+      "وسادة كرسي"
+    ]
+  },
+  "Office Desk": {
+    "aliases": [
+      "office desk",
+      "writing desk",
+      "computer desk",
+      "executive desk",
+      "workstation",
+      "مكتب",
+      "طاولة مكتب",
+      "مكتب عمل"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "office desk",
+        "computer desk",
+        "writing desk",
+        "مكتب",
+        "مكتب كمبيوتر"
+      ],
+      "Noon Egypt": [
+        "office desk",
+        "computer desk",
+        "مكتب",
+        "مكتب عمل"
+      ],
+      "IKEA Egypt": [
+        "desk",
+        "desks",
+        "computer desk"
+      ],
+      "Jumia Egypt": [
+        "office desk",
+        "computer desk",
+        "مكتب"
+      ]
+    },
+    "rejectionKeywords": [
+      "desk pad",
+      "desk mat",
+      "desk organizer",
+      "keyboard tray",
+      "monitor stand",
+      "حامل شاشة"
+    ]
+  },
+  "Office Chair": {
+    "aliases": [
+      "office chair",
+      "desk chair",
+      "executive chair",
+      "ergonomic chair",
+      "كرسي مكتب",
+      "كرسي عمل"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "office chair",
+        "desk chair",
+        "executive chair",
+        "ergonomic chair",
+        "كرسي مكتب"
+      ],
+      "Noon Egypt": [
+        "office chair",
+        "desk chair",
+        "كرسي مكتب"
+      ],
+      "IKEA Egypt": [
+        "office chair",
+        "desk chair"
+      ],
+      "Jumia Egypt": [
+        "office chair",
+        "desk chair",
+        "كرسي مكتب"
+      ]
+    },
+    "rejectionKeywords": [
+      "chair mat",
+      "chair cover",
+      "lumbar pillow",
+      "arm rest",
+      "caster wheels",
+      "عجل كرسي"
+    ]
+  },
+  "Bookshelf": {
+    "aliases": [
+      "bookshelf",
+      "bookcase",
+      "book shelf",
+      "book rack",
+      "مكتبة",
+      "مكتبة كتب",
+      "خزانة كتب"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "bookshelf",
+        "bookcase",
+        "display shelf",
+        "مكتبة"
+      ],
+      "Noon Egypt": [
+        "bookshelf",
+        "bookcase",
+        "مكتبة",
+        "خزانة كتب"
+      ],
+      "IKEA Egypt": [
+        "bookcase",
+        "shelving unit",
+        "bookshelf"
+      ],
+      "Jumia Egypt": [
+        "bookshelf",
+        "bookcase",
+        "مكتبة"
+      ]
+    },
+    "rejectionKeywords": [
+      "book end",
+      "bookend",
+      "book stand",
+      "حامل كتب"
+    ]
+  },
+  "Rug": {
+    "aliases": [
+      "rug",
+      "carpet",
+      "area rug",
+      "runner rug",
+      "indoor rug",
+      "سجادة",
+      "سجاد",
+      "مشاية"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "area rug",
+        "carpet",
+        "living room rug",
+        "سجادة",
+        "سجاد"
+      ],
+      "Noon Egypt": [
+        "rug",
+        "carpet",
+        "سجادة",
+        "سجاد"
+      ],
+      "IKEA Egypt": [
+        "rug",
+        "rugs",
+        "carpet"
+      ],
+      "Jumia Egypt": [
+        "rug",
+        "carpet",
+        "سجادة",
+        "سجاد"
+      ]
+    },
+    "rejectionKeywords": [
+      "rug pad",
+      "anti slip",
+      "rug gripper",
+      "carpet tape",
+      "cleaning"
+    ]
+  },
+  "Curtains": {
+    "aliases": [
+      "curtain",
+      "curtains",
+      "drapes",
+      "drape",
+      "window curtains",
+      "ستارة",
+      "ستائر"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "curtains",
+        "window curtains",
+        "blackout curtains",
+        "ستائر"
+      ],
+      "Noon Egypt": [
+        "curtains",
+        "ستائر",
+        "ستارة"
+      ],
+      "IKEA Egypt": [
+        "curtains",
+        "curtain"
+      ],
+      "Jumia Egypt": [
+        "curtains",
+        "ستائر",
+        "ستارة"
+      ]
+    },
+    "rejectionKeywords": [
+      "curtain rod",
+      "curtain ring",
+      "curtain hook",
+      "curtain tie",
+      "عمود ستارة",
+      "حلقات ستارة"
+    ]
+  },
+  "Floor Lamp": {
+    "aliases": [
+      "floor lamp",
+      "standing lamp",
+      "مصباح أرضي",
+      "اباجورة ارضية"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "floor lamp",
+        "standing lamp",
+        "مصباح أرضي"
+      ],
+      "Noon Egypt": [
+        "floor lamp",
+        "standing lamp",
+        "مصباح أرضي"
+      ],
+      "IKEA Egypt": [
+        "floor lamp",
+        "floor lamps"
+      ],
+      "Jumia Egypt": [
+        "floor lamp",
+        "standing lamp",
+        "مصباح أرضي"
+      ]
+    },
+    "rejectionKeywords": [
+      "light bulb",
+      "lamp shade",
+      "لمبة"
+    ]
+  },
+  "Table Lamp": {
+    "aliases": [
+      "table lamp",
+      "bedside lamp",
+      "nightstand lamp",
+      "مصباح طاولة",
+      "اباجورة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "table lamp",
+        "bedside lamp",
+        "اباجورة"
+      ],
+      "Noon Egypt": [
+        "table lamp",
+        "bedside lamp",
+        "اباجورة",
+        "مصباح طاولة"
+      ],
+      "IKEA Egypt": [
+        "table lamp",
+        "table lamps"
+      ],
+      "Jumia Egypt": [
+        "table lamp",
+        "bedside lamp",
+        "اباجورة"
+      ]
+    },
+    "rejectionKeywords": [
+      "light bulb",
+      "lamp shade",
+      "لمبة"
+    ]
+  },
+  "Mirror": {
+    "aliases": [
+      "mirror",
+      "wall mirror",
+      "full length mirror",
+      "standing mirror",
+      "مرآة",
+      "مراية"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "wall mirror",
+        "full length mirror",
+        "decorative mirror",
+        "مراية"
+      ],
+      "Noon Egypt": [
+        "mirror",
+        "wall mirror",
+        "مراية",
+        "مرآة"
+      ],
+      "IKEA Egypt": [
+        "mirror",
+        "mirrors"
+      ],
+      "Jumia Egypt": [
+        "mirror",
+        "wall mirror",
+        "مراية"
+      ]
+    },
+    "rejectionKeywords": [
+      "mirror sticker",
+      "mirror film",
+      "compact mirror",
+      "makeup mirror",
+      "مراية ميكاب"
+    ]
+  },
+  "Bar Stool": {
+    "aliases": [
+      "bar stool",
+      "counter stool",
+      "bar chair",
+      "كرسي بار",
+      "كرسي كاونتر"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "bar stool",
+        "counter stool",
+        "كرسي بار"
+      ],
+      "Noon Egypt": [
+        "bar stool",
+        "counter stool",
+        "كرسي بار"
+      ],
+      "IKEA Egypt": [
+        "bar stool",
+        "bar stools"
+      ],
+      "Jumia Egypt": [
+        "bar stool",
+        "كرسي بار"
+      ]
+    },
+    "rejectionKeywords": [
+      "stool cover",
+      "bar mat"
+    ]
+  },
+  "Gaming Chair": {
+    "aliases": [
+      "gaming chair",
+      "gamer chair",
+      "racing chair",
+      "كرسي جيمنج",
+      "كرسي ألعاب"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "gaming chair",
+        "gamer chair",
+        "racing chair",
+        "كرسي جيمنج"
+      ],
+      "Noon Egypt": [
+        "gaming chair",
+        "كرسي جيمنج",
+        "كرسي ألعاب"
+      ],
+      "IKEA Egypt": [
+        "gaming chair"
+      ],
+      "Jumia Egypt": [
+        "gaming chair",
+        "كرسي جيمنج"
+      ]
+    },
+    "rejectionKeywords": [
+      "chair mat",
+      "headrest pillow",
+      "lumbar cushion"
+    ]
+  },
+  "Gaming Desk": {
+    "aliases": [
+      "gaming desk",
+      "gamer desk",
+      "طاولة جيمنج",
+      "مكتب جيمنج"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "gaming desk",
+        "gamer desk",
+        "مكتب جيمنج"
+      ],
+      "Noon Egypt": [
+        "gaming desk",
+        "مكتب جيمنج"
+      ],
+      "IKEA Egypt": [
+        "gaming desk"
+      ],
+      "Jumia Egypt": [
+        "gaming desk",
+        "مكتب جيمنج"
+      ]
+    },
+    "rejectionKeywords": [
+      "desk pad",
+      "mouse pad",
+      "desk mat"
+    ]
+  },
+  "Kids Bed": {
+    "aliases": [
+      "kids bed",
+      "child bed",
+      "bunk bed",
+      "toddler bed",
+      "سرير اطفال",
+      "سرير دورين"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "kids bed",
+        "bunk bed",
+        "toddler bed",
+        "سرير اطفال"
+      ],
+      "Noon Egypt": [
+        "kids bed",
+        "bunk bed",
+        "سرير اطفال"
+      ],
+      "IKEA Egypt": [
+        "children bed",
+        "kids bed",
+        "bunk bed"
+      ],
+      "Jumia Egypt": [
+        "kids bed",
+        "bunk bed",
+        "سرير اطفال"
+      ]
+    },
+    "rejectionKeywords": [
+      "bed sheet",
+      "bed cover",
+      "pillow",
+      "ملاية",
+      "مفرش"
+    ]
+  },
+  "Study Desk": {
+    "aliases": [
+      "study desk",
+      "kids desk",
+      "student desk",
+      "مكتب مذاكرة",
+      "مكتب اطفال"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "study desk",
+        "kids desk",
+        "student desk",
+        "مكتب مذاكرة"
+      ],
+      "Noon Egypt": [
+        "study desk",
+        "kids desk",
+        "مكتب مذاكرة"
+      ],
+      "IKEA Egypt": [
+        "children desk",
+        "study desk"
+      ],
+      "Jumia Egypt": [
+        "study desk",
+        "kids desk",
+        "مكتب مذاكرة"
+      ]
+    },
+    "rejectionKeywords": [
+      "desk lamp",
+      "desk organizer",
+      "desk pad"
+    ]
+  },
+  "Study Chair": {
+    "aliases": [
+      "study chair",
+      "kids chair",
+      "كرسي مذاكرة",
+      "كرسي دراسة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "study chair",
+        "kids chair",
+        "كرسي مذاكرة"
+      ],
+      "Noon Egypt": [
+        "study chair",
+        "kids chair",
+        "كرسي مذاكرة"
+      ],
+      "IKEA Egypt": [
+        "children chair",
+        "desk chair"
+      ],
+      "Jumia Egypt": [
+        "study chair",
+        "kids chair",
+        "كرسي مذاكرة"
+      ]
+    },
+    "rejectionKeywords": [
+      "chair cushion",
+      "chair cover"
+    ]
+  },
+  "Chandelier": {
+    "aliases": [
+      "chandelier",
+      "pendant light",
+      "hanging lamp",
+      "نجفة",
+      "ثريا"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "chandelier",
+        "pendant light",
+        "hanging lamp",
+        "نجفة"
+      ],
+      "Noon Egypt": [
+        "chandelier",
+        "pendant light",
+        "نجفة",
+        "ثريا"
+      ],
+      "IKEA Egypt": [
+        "pendant lamp",
+        "chandelier"
+      ],
+      "Jumia Egypt": [
+        "chandelier",
+        "pendant light",
+        "نجفة"
+      ]
+    },
+    "rejectionKeywords": [
+      "light bulb",
+      "لمبة",
+      "chain",
+      "canopy"
+    ]
+  },
+  "Wall Art": {
+    "aliases": [
+      "wall art",
+      "painting",
+      "canvas",
+      "poster",
+      "لوحة",
+      "تابلوه",
+      "لوحات جدارية"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "wall art",
+        "canvas painting",
+        "wall painting",
+        "لوحة جدارية"
+      ],
+      "Noon Egypt": [
+        "wall art",
+        "canvas",
+        "لوحة",
+        "تابلوه"
+      ],
+      "IKEA Egypt": [
+        "picture",
+        "art",
+        "frame"
+      ],
+      "Jumia Egypt": [
+        "wall art",
+        "canvas painting",
+        "لوحة"
+      ]
+    },
+    "rejectionKeywords": [
+      "nail",
+      "hook",
+      "adhesive strip",
+      "hanging wire"
+    ]
+  },
+  "Outdoor Seating": {
+    "aliases": [
+      "outdoor seating",
+      "outdoor chair",
+      "patio chair",
+      "rattan chair",
+      "garden set",
+      "كرسي حدائق",
+      "كرسي راتان",
+      "طقم حدائق"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "outdoor chair",
+        "patio furniture",
+        "garden chair",
+        "rattan chair",
+        "كرسي حدائق"
+      ],
+      "Noon Egypt": [
+        "outdoor chair",
+        "patio chair",
+        "garden furniture",
+        "كرسي حدائق"
+      ],
+      "IKEA Egypt": [
+        "outdoor chair",
+        "garden furniture"
+      ],
+      "Jumia Egypt": [
+        "outdoor chair",
+        "garden chair",
+        "كرسي حدائق"
+      ]
+    },
+    "rejectionKeywords": [
+      "cushion cover",
+      "umbrella",
+      "parasol cover"
+    ]
+  },
+  "Outdoor Table": {
+    "aliases": [
+      "outdoor table",
+      "patio table",
+      "balcony table",
+      "garden table",
+      "طاولة حدائق",
+      "طاولة راتان"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "outdoor table",
+        "patio table",
+        "garden table",
+        "طاولة حدائق"
+      ],
+      "Noon Egypt": [
+        "outdoor table",
+        "patio table",
+        "طاولة حدائق"
+      ],
+      "IKEA Egypt": [
+        "outdoor table",
+        "garden table"
+      ],
+      "Jumia Egypt": [
+        "outdoor table",
+        "garden table",
+        "طاولة حدائق"
+      ]
+    },
+    "rejectionKeywords": [
+      "table cover",
+      "table cloth"
+    ]
+  },
+  "Storage Unit": {
+    "aliases": [
+      "storage unit",
+      "storage cabinet",
+      "وحدة تخزين",
+      "منظم"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "storage cabinet",
+        "storage unit",
+        "shelving unit",
+        "وحدة تخزين"
+      ],
+      "Noon Egypt": [
+        "storage cabinet",
+        "storage unit",
+        "وحدة تخزين"
+      ],
+      "IKEA Egypt": [
+        "storage",
+        "shelving unit",
+        "cabinet"
+      ],
+      "Jumia Egypt": [
+        "storage cabinet",
+        "storage unit",
+        "وحدة تخزين"
+      ]
+    },
+    "rejectionKeywords": [
+      "plastic container",
+      "storage box",
+      "organizer bin",
+      "basket",
+      "bag",
+      "صندوق",
+      "سلة"
+    ]
+  },
+  "Bedroom Armchair": {
+    "aliases": [
+      "bedroom armchair",
+      "bedroom chair",
+      "reading chair",
+      "كرسي غرفة نوم"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "reading chair",
+        "bedroom chair",
+        "accent chair bedroom"
+      ],
+      "Noon Egypt": [
+        "reading chair",
+        "bedroom chair",
+        "كرسي غرفة نوم"
+      ],
+      "IKEA Egypt": [
+        "armchair"
+      ],
+      "Jumia Egypt": [
+        "reading chair",
+        "bedroom chair"
+      ]
+    },
+    "rejectionKeywords": [
+      "chair cover",
+      "cushion"
+    ]
+  },
+  "Kids Wardrobe": {
+    "aliases": [
+      "kids wardrobe",
+      "child wardrobe",
+      "دولاب اطفال"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "kids wardrobe",
+        "children wardrobe",
+        "دولاب اطفال"
+      ],
+      "Noon Egypt": [
+        "kids wardrobe",
+        "دولاب اطفال"
+      ],
+      "IKEA Egypt": [
+        "children wardrobe"
+      ],
+      "Jumia Egypt": [
+        "kids wardrobe",
+        "دولاب اطفال"
+      ]
+    },
+    "rejectionKeywords": [
+      "organizer",
+      "hanger"
+    ]
+  },
+  "Filing Cabinet": {
+    "aliases": [
+      "filing cabinet",
+      "file cabinet",
+      "خزانة ملفات",
+      "وحدة أدراج مكتب"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "filing cabinet",
+        "file cabinet",
+        "خزانة ملفات"
+      ],
+      "Noon Egypt": [
+        "filing cabinet",
+        "خزانة ملفات"
+      ],
+      "IKEA Egypt": [
+        "filing cabinet",
+        "drawer unit"
+      ],
+      "Jumia Egypt": [
+        "filing cabinet",
+        "خزانة ملفات"
+      ]
+    },
+    "rejectionKeywords": [
+      "file folder",
+      "ملف"
+    ]
+  },
+  "Desk Lamp": {
+    "aliases": [
+      "desk lamp",
+      "study lamp",
+      "reading lamp",
+      "أباجورة مكتب",
+      "مصباح مكتب"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "desk lamp",
+        "study lamp",
+        "LED desk lamp",
+        "أباجورة مكتب"
+      ],
+      "Noon Egypt": [
+        "desk lamp",
+        "study lamp",
+        "مصباح مكتب"
+      ],
+      "IKEA Egypt": [
+        "work lamp",
+        "desk lamp"
+      ],
+      "Jumia Egypt": [
+        "desk lamp",
+        "study lamp",
+        "أباجورة مكتب"
+      ]
+    },
+    "rejectionKeywords": [
+      "light bulb",
+      "لمبة"
+    ]
+  },
+  "Night Light": {
+    "aliases": [
+      "night light",
+      "سهارية",
+      "مصباح ليلي"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "night light",
+        "kids night light",
+        "سهارية"
+      ],
+      "Noon Egypt": [
+        "night light",
+        "سهارية",
+        "مصباح ليلي"
+      ],
+      "IKEA Egypt": [
+        "night light"
+      ],
+      "Jumia Egypt": [
+        "night light",
+        "سهارية"
+      ]
+    },
+    "rejectionKeywords": [
+      "light bulb",
+      "battery"
+    ]
+  },
+  "Wall Decor": {
+    "aliases": [
+      "wall decor",
+      "ديكور حائط"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "wall decor",
+        "wall decoration",
+        "ديكور حائط"
+      ],
+      "Noon Egypt": [
+        "wall decor",
+        "ديكور حائط"
+      ],
+      "IKEA Egypt": [
+        "decoration",
+        "wall decor"
+      ],
+      "Jumia Egypt": [
+        "wall decor",
+        "ديكور حائط"
+      ]
+    },
+    "rejectionKeywords": [
+      "sticker",
+      "wallpaper",
+      "tape",
+      "nail"
+    ]
+  },
+  "Buffet Sideboard": {
+    "aliases": [
+      "buffet",
+      "sideboard",
+      "credenza",
+      "بوفيه",
+      "نيش"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "buffet",
+        "sideboard",
+        "credenza",
+        "بوفيه",
+        "نيش"
+      ],
+      "Noon Egypt": [
+        "buffet",
+        "sideboard",
+        "بوفيه",
+        "نيش"
+      ],
+      "IKEA Egypt": [
+        "sideboard",
+        "buffet"
+      ],
+      "Jumia Egypt": [
+        "buffet",
+        "sideboard",
+        "بوفيه"
+      ]
+    },
+    "rejectionKeywords": [
+      "plate",
+      "serving tray"
+    ]
+  },
+  "Kitchen Cabinet Set": {
+    "aliases": [
+      "kitchen cabinet",
+      "kitchen set",
+      "kitchen cabinets",
+      "مطابخ",
+      "وحدة مطبخ",
+      "دولاب مطبخ"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "kitchen cabinet",
+        "kitchen storage cabinet",
+        "دولاب مطبخ"
+      ],
+      "Noon Egypt": [
+        "kitchen cabinet",
+        "مطابخ",
+        "وحدة مطبخ"
+      ],
+      "IKEA Egypt": [
+        "kitchen cabinet",
+        "kitchen"
+      ],
+      "Jumia Egypt": [
+        "kitchen cabinet",
+        "مطابخ"
+      ]
+    },
+    "rejectionKeywords": [
+      "spice jar",
+      "container",
+      "plate rack"
+    ]
+  },
+  "Kitchen Island": {
+    "aliases": [
+      "kitchen island",
+      "جزيرة مطبخ"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "kitchen island",
+        "kitchen cart",
+        "جزيرة مطبخ"
+      ],
+      "Noon Egypt": [
+        "kitchen island",
+        "جزيرة مطبخ"
+      ],
+      "IKEA Egypt": [
+        "kitchen island",
+        "kitchen cart"
+      ],
+      "Jumia Egypt": [
+        "kitchen island",
+        "جزيرة مطبخ"
+      ]
+    },
+    "rejectionKeywords": []
+  },
+  "Storage Rack": {
+    "aliases": [
+      "storage rack",
+      "kitchen rack",
+      "spice rack",
+      "utility rack",
+      "منظم مطبخ",
+      "صفاية"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "storage rack",
+        "kitchen rack",
+        "metal shelf rack",
+        "منظم مطبخ"
+      ],
+      "Noon Egypt": [
+        "storage rack",
+        "kitchen rack",
+        "منظم مطبخ"
+      ],
+      "IKEA Egypt": [
+        "shelving unit",
+        "storage rack"
+      ],
+      "Jumia Egypt": [
+        "storage rack",
+        "kitchen rack",
+        "منظم مطبخ"
+      ]
+    },
+    "rejectionKeywords": [
+      "plastic container",
+      "bag",
+      "صندوق"
+    ]
+  },
+  "Kitchen Lighting": {
+    "aliases": [
+      "kitchen lighting",
+      "kitchen light",
+      "إضاءة مطبخ"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "kitchen light",
+        "under cabinet light",
+        "kitchen pendant",
+        "إضاءة مطبخ"
+      ],
+      "Noon Egypt": [
+        "kitchen light",
+        "إضاءة مطبخ"
+      ],
+      "IKEA Egypt": [
+        "kitchen lighting"
+      ],
+      "Jumia Egypt": [
+        "kitchen light",
+        "إضاءة مطبخ"
+      ]
+    },
+    "rejectionKeywords": [
+      "light bulb",
+      "لمبة"
+    ]
+  },
+  "Wall Shelf": {
+    "aliases": [
+      "wall shelf",
+      "floating shelf",
+      "hanging shelf",
+      "رف جداري"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "wall shelf",
+        "floating shelf",
+        "رف جداري"
+      ],
+      "Noon Egypt": [
+        "wall shelf",
+        "floating shelf",
+        "رف جداري"
+      ],
+      "IKEA Egypt": [
+        "wall shelf",
+        "shelf"
+      ],
+      "Jumia Egypt": [
+        "wall shelf",
+        "floating shelf",
+        "رف جداري"
+      ]
+    },
+    "rejectionKeywords": [
+      "shelf bracket",
+      "shelf support",
+      "حامل رف"
+    ]
+  },
+  "LED Lighting": {
+    "aliases": [
+      "led lighting",
+      "led strip",
+      "rgb light",
+      "ambient led",
+      "شريط ليد"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "led strip",
+        "led light strip",
+        "RGB light",
+        "شريط ليد"
+      ],
+      "Noon Egypt": [
+        "led strip",
+        "rgb light",
+        "شريط ليد"
+      ],
+      "IKEA Egypt": [
+        "led strip",
+        "led lighting"
+      ],
+      "Jumia Egypt": [
+        "led strip",
+        "rgb light",
+        "شريط ليد"
+      ]
+    },
+    "rejectionKeywords": [
+      "led bulb",
+      "connector",
+      "adapter"
+    ]
+  },
+  "Countertop": {
+    "aliases": [
+      "countertop",
+      "kitchen top",
+      "رخامة مطبخ",
+      "قرصة مطبخ"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "countertop",
+        "kitchen countertop",
+        "رخامة مطبخ"
+      ],
+      "Noon Egypt": [
+        "countertop",
+        "رخامة مطبخ"
+      ],
+      "IKEA Egypt": [
+        "worktop",
+        "countertop"
+      ],
+      "Jumia Egypt": [
+        "countertop",
+        "رخامة مطبخ"
+      ]
+    },
+    "rejectionKeywords": [
+      "countertop organizer",
+      "countertop rack"
+    ]
+  },
+  "Vanity Unit": {
+    "aliases": [
+      "vanity unit",
+      "bathroom vanity",
+      "sink cabinet",
+      "وحدة حوض",
+      "كابينة حوض",
+      "حوض حمام"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "bathroom vanity",
+        "vanity cabinet",
+        "وحدة حوض حمام"
+      ],
+      "Noon Egypt": [
+        "vanity unit",
+        "bathroom vanity",
+        "وحدة حوض"
+      ],
+      "IKEA Egypt": [
+        "bathroom vanity",
+        "wash-stand"
+      ],
+      "Jumia Egypt": [
+        "bathroom vanity",
+        "vanity unit",
+        "وحدة حوض"
+      ]
+    },
+    "rejectionKeywords": [
+      "faucet",
+      "tap",
+      "حنفية"
+    ]
+  },
+  "Shower Enclosure": {
+    "aliases": [
+      "shower enclosure",
+      "shower door",
+      "shower cabin",
+      "كابينة شاور",
+      "كابينة دش"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "shower enclosure",
+        "shower cabin",
+        "كابينة شاور"
+      ],
+      "Noon Egypt": [
+        "shower enclosure",
+        "shower cabin",
+        "كابينة شاور"
+      ],
+      "IKEA Egypt": [
+        "shower"
+      ],
+      "Jumia Egypt": [
+        "shower enclosure",
+        "shower cabin",
+        "كابينة شاور"
+      ]
+    },
+    "rejectionKeywords": [
+      "shower head",
+      "shower curtain",
+      "shower hose"
+    ]
+  },
+  "Toilet": {
+    "aliases": [
+      "toilet",
+      "water closet",
+      "wc",
+      "قاعدة حمام",
+      "تواليت"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "toilet",
+        "water closet",
+        "قاعدة حمام"
+      ],
+      "Noon Egypt": [
+        "toilet",
+        "قاعدة حمام",
+        "تواليت"
+      ],
+      "IKEA Egypt": [
+        "toilet"
+      ],
+      "Jumia Egypt": [
+        "toilet",
+        "قاعدة حمام"
+      ]
+    },
+    "rejectionKeywords": [
+      "toilet paper",
+      "toilet brush",
+      "toilet seat cover",
+      "منظف حمام"
+    ]
+  },
+  "Mirror Cabinet": {
+    "aliases": [
+      "mirror cabinet",
+      "bathroom mirror cabinet",
+      "خزانة مراية",
+      "مراية حمام"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "mirror cabinet",
+        "bathroom mirror cabinet",
+        "خزانة مراية"
+      ],
+      "Noon Egypt": [
+        "mirror cabinet",
+        "خزانة مراية"
+      ],
+      "IKEA Egypt": [
+        "mirror cabinet",
+        "bathroom cabinet"
+      ],
+      "Jumia Egypt": [
+        "mirror cabinet",
+        "خزانة مراية"
+      ]
+    },
+    "rejectionKeywords": []
+  },
+  "Shelving": {
+    "aliases": [
+      "shelving",
+      "bathroom shelf",
+      "shower shelf",
+      "ارفف حمام",
+      "رفوف حمام"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "bathroom shelf",
+        "shower shelf",
+        "bathroom shelving",
+        "رف حمام"
+      ],
+      "Noon Egypt": [
+        "bathroom shelf",
+        "رف حمام",
+        "ارفف حمام"
+      ],
+      "IKEA Egypt": [
+        "bathroom shelf"
+      ],
+      "Jumia Egypt": [
+        "bathroom shelf",
+        "رف حمام"
+      ]
+    },
+    "rejectionKeywords": [
+      "shelf bracket"
+    ]
+  },
+  "Towel Rack": {
+    "aliases": [
+      "towel rack",
+      "towel rail",
+      "towel bar",
+      "فواطة",
+      "حامل فوط"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "towel rack",
+        "towel bar",
+        "towel holder",
+        "حامل فوط"
+      ],
+      "Noon Egypt": [
+        "towel rack",
+        "towel bar",
+        "حامل فوط"
+      ],
+      "IKEA Egypt": [
+        "towel rack",
+        "towel rail"
+      ],
+      "Jumia Egypt": [
+        "towel rack",
+        "حامل فوط"
+      ]
+    },
+    "rejectionKeywords": [
+      "towel",
+      "فوطة"
+    ]
+  },
+  "Accessories Set": {
+    "aliases": [
+      "accessories set",
+      "bathroom accessories",
+      "soap dispenser",
+      "طقم حمام",
+      "صبانة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "bathroom accessories set",
+        "soap dispenser set",
+        "طقم حمام"
+      ],
+      "Noon Egypt": [
+        "bathroom accessories",
+        "طقم حمام"
+      ],
+      "IKEA Egypt": [
+        "bathroom accessories"
+      ],
+      "Jumia Egypt": [
+        "bathroom accessories set",
+        "طقم حمام"
+      ]
+    },
+    "rejectionKeywords": [
+      "cleaning",
+      "منظف"
+    ]
+  },
+  "Bathroom Lighting": {
+    "aliases": [
+      "bathroom lighting",
+      "bathroom light",
+      "إضاءة حمام"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "bathroom light",
+        "vanity light",
+        "mirror light",
+        "إضاءة حمام"
+      ],
+      "Noon Egypt": [
+        "bathroom light",
+        "إضاءة حمام"
+      ],
+      "IKEA Egypt": [
+        "bathroom lighting"
+      ],
+      "Jumia Egypt": [
+        "bathroom light",
+        "إضاءة حمام"
+      ]
+    },
+    "rejectionKeywords": [
+      "light bulb",
+      "لمبة"
+    ]
+  },
+  "Outdoor Lighting": {
+    "aliases": [
+      "outdoor lighting",
+      "string light",
+      "solar light",
+      "إضاءة حدائق",
+      "حبل اضاءة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "outdoor light",
+        "solar garden light",
+        "string lights",
+        "إضاءة حدائق"
+      ],
+      "Noon Egypt": [
+        "outdoor light",
+        "solar light",
+        "إضاءة حدائق"
+      ],
+      "IKEA Egypt": [
+        "outdoor lighting"
+      ],
+      "Jumia Egypt": [
+        "outdoor light",
+        "solar light",
+        "إضاءة حدائق"
+      ]
+    },
+    "rejectionKeywords": [
+      "light bulb",
+      "battery"
+    ]
+  },
+  "Outdoor Rug": {
+    "aliases": [
+      "outdoor rug",
+      "patio rug",
+      "balcony rug",
+      "سجاد حدائق"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "outdoor rug",
+        "patio rug",
+        "سجاد حدائق"
+      ],
+      "Noon Egypt": [
+        "outdoor rug",
+        "patio rug",
+        "سجاد حدائق"
+      ],
+      "IKEA Egypt": [
+        "outdoor rug"
+      ],
+      "Jumia Egypt": [
+        "outdoor rug",
+        "سجاد حدائق"
+      ]
+    },
+    "rejectionKeywords": [
+      "rug pad",
+      "anti slip"
+    ]
+  },
+  "Planter": {
+    "aliases": [
+      "planter",
+      "flower pot",
+      "plant pot",
+      "garden pot",
+      "اصيص زرع",
+      "نبات"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "planter",
+        "flower pot",
+        "plant pot",
+        "اصيص زرع"
+      ],
+      "Noon Egypt": [
+        "planter",
+        "flower pot",
+        "اصيص زرع"
+      ],
+      "IKEA Egypt": [
+        "plant pot",
+        "planter"
+      ],
+      "Jumia Egypt": [
+        "planter",
+        "flower pot",
+        "اصيص زرع"
+      ]
+    },
+    "rejectionKeywords": [
+      "seeds",
+      "soil",
+      "fertilizer",
+      "بذور",
+      "سماد"
+    ]
+  },
+  "Swing": {
+    "aliases": [
+      "swing",
+      "egg chair",
+      "hanging chair",
+      "مرجيحة",
+      "أرجوحة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "hanging chair",
+        "egg chair",
+        "swing chair",
+        "مرجيحة"
+      ],
+      "Noon Egypt": [
+        "swing chair",
+        "hanging chair",
+        "مرجيحة"
+      ],
+      "IKEA Egypt": [
+        "hanging chair"
+      ],
+      "Jumia Egypt": [
+        "swing chair",
+        "hanging chair",
+        "مرجيحة"
+      ]
+    },
+    "rejectionKeywords": [
+      "cushion",
+      "rope"
+    ]
+  },
+  "Sound System Stand": {
+    "aliases": [
+      "sound system stand",
+      "speaker stand",
+      "حامل سماعات"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "speaker stand",
+        "sound system stand",
+        "حامل سماعات"
+      ],
+      "Noon Egypt": [
+        "speaker stand",
+        "حامل سماعات"
+      ],
+      "IKEA Egypt": [
+        "speaker stand"
+      ],
+      "Jumia Egypt": [
+        "speaker stand",
+        "حامل سماعات"
+      ]
+    },
+    "rejectionKeywords": [
+      "speaker",
+      "bluetooth",
+      "سماعة"
+    ]
+  },
+  "Whiteboard": {
+    "aliases": [
+      "whiteboard",
+      "marker board",
+      "dry erase board",
+      "سبورة",
+      "سبورة بيضاء"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "whiteboard",
+        "dry erase board",
+        "سبورة"
+      ],
+      "Noon Egypt": [
+        "whiteboard",
+        "سبورة"
+      ],
+      "IKEA Egypt": [
+        "whiteboard"
+      ],
+      "Jumia Egypt": [
+        "whiteboard",
+        "سبورة"
+      ]
+    },
+    "rejectionKeywords": [
+      "marker",
+      "eraser",
+      "قلم سبورة"
+    ]
+  },
+  "Air Conditioner": {
+    "aliases": [
+      "air conditioner",
+      "ac unit",
+      "split ac",
+      "تكييف",
+      "مكيف",
+      "تكييف سبليت"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "air conditioner",
+        "split ac",
+        "تكييف"
+      ],
+      "Noon Egypt": [
+        "air conditioner",
+        "split ac",
+        "تكييف"
+      ],
+      "IKEA Egypt": [
+        "air conditioner"
+      ],
+      "Jumia Egypt": [
+        "air conditioner",
+        "تكييف"
+      ]
+    },
+    "rejectionKeywords": [
+      "remote control",
+      "ac cover",
+      "ac bracket",
+      "ريموت",
+      "غطاء تكييف"
+    ]
+  },
+  "TV": {
+    "aliases": [
+      "television",
+      "tv",
+      "smart tv",
+      "led tv",
+      "oled tv",
+      "تلفزيون",
+      "شاشة",
+      "تلفزيون سمارت"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "smart tv",
+        "led tv",
+        "تلفزيون",
+        "شاشة سمارت"
+      ],
+      "Noon Egypt": [
+        "smart tv",
+        "tv",
+        "تلفزيون",
+        "شاشة"
+      ],
+      "IKEA Egypt": [
+        "tv"
+      ],
+      "Jumia Egypt": [
+        "smart tv",
+        "tv",
+        "تلفزيون"
+      ]
+    },
+    "rejectionKeywords": [
+      "tv unit",
+      "tv stand",
+      "tv table",
+      "wall mount bracket",
+      "remote control",
+      "حامل شاشة",
+      "طاولة تلفزيون"
+    ]
+  },
+  "Refrigerator": {
+    "aliases": [
+      "refrigerator",
+      "fridge",
+      "freezer",
+      "ثلاجة",
+      "ديب فريزر"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "refrigerator",
+        "fridge",
+        "ثلاجة"
+      ],
+      "Noon Egypt": [
+        "refrigerator",
+        "fridge",
+        "ثلاجة"
+      ],
+      "IKEA Egypt": [
+        "fridge",
+        "refrigerator"
+      ],
+      "Jumia Egypt": [
+        "refrigerator",
+        "fridge",
+        "ثلاجة"
+      ]
+    },
+    "rejectionKeywords": [
+      "fridge magnet",
+      "fridge organizer",
+      "منظم ثلاجة",
+      "مغناطيس"
+    ]
+  },
+  "Washing Machine": {
+    "aliases": [
+      "washing machine",
+      "washer",
+      "washer dryer",
+      "غسالة",
+      "غسالة ملابس"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "washing machine",
+        "washer",
+        "غسالة ملابس"
+      ],
+      "Noon Egypt": [
+        "washing machine",
+        "غسالة"
+      ],
+      "IKEA Egypt": [
+        "washing machine"
+      ],
+      "Jumia Egypt": [
+        "washing machine",
+        "غسالة"
+      ]
+    },
+    "rejectionKeywords": [
+      "washing machine cover",
+      "washing powder",
+      "detergent",
+      "مسحوق غسيل",
+      "غطاء غسالة"
+    ]
+  },
+  "Oven / Cooktop": {
+    "aliases": [
+      "oven",
+      "cooktop",
+      "stove",
+      "gas cooker",
+      "built-in oven",
+      "فرن",
+      "بوتاجاز",
+      "مسطح"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "built in oven",
+        "gas cooker",
+        "cooktop",
+        "فرن",
+        "بوتاجاز"
+      ],
+      "Noon Egypt": [
+        "built in oven",
+        "cooker",
+        "فرن",
+        "بوتاجاز"
+      ],
+      "IKEA Egypt": [
+        "oven",
+        "hob"
+      ],
+      "Jumia Egypt": [
+        "built in oven",
+        "cooker",
+        "فرن"
+      ]
+    },
+    "rejectionKeywords": [
+      "oven mitt",
+      "baking tray",
+      "gloves",
+      "صينية"
+    ]
+  },
+  "Microwave": {
+    "aliases": [
+      "microwave",
+      "microwave oven",
+      "مايكروويف",
+      "ميكروويف"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "microwave oven",
+        "microwave",
+        "ميكروويف"
+      ],
+      "Noon Egypt": [
+        "microwave",
+        "ميكروويف"
+      ],
+      "IKEA Egypt": [
+        "microwave oven",
+        "microwave"
+      ],
+      "Jumia Egypt": [
+        "microwave",
+        "ميكروويف"
+      ]
+    },
+    "rejectionKeywords": [
+      "microwave cover",
+      "microwave rack",
+      "غطاء ميكروويف"
+    ]
+  },
+  "Dishwasher": {
+    "aliases": [
+      "dishwasher",
+      "غسالة اطباق",
+      "غسالة صحون"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "dishwasher",
+        "غسالة اطباق"
+      ],
+      "Noon Egypt": [
+        "dishwasher",
+        "غسالة اطباق"
+      ],
+      "IKEA Egypt": [
+        "dishwasher"
+      ],
+      "Jumia Egypt": [
+        "dishwasher",
+        "غسالة اطباق"
+      ]
+    },
+    "rejectionKeywords": [
+      "dishwasher tablets",
+      "detergent",
+      "صابون غسالة اطباق"
+    ]
+  },
+  "Range Hood": {
+    "aliases": [
+      "range hood",
+      "cooker hood",
+      "extractor hood",
+      "شفاط مطبخ",
+      "شفاط بوتاجاز"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "range hood",
+        "cooker hood",
+        "شفاط مطبخ"
+      ],
+      "Noon Egypt": [
+        "range hood",
+        "cooker hood",
+        "شفاط مطبخ"
+      ],
+      "IKEA Egypt": [
+        "extractor hood",
+        "range hood"
+      ],
+      "Jumia Egypt": [
+        "range hood",
+        "شفاط مطبخ"
+      ]
+    },
+    "rejectionKeywords": [
+      "hood filter",
+      "فلتر شفاط"
+    ]
+  },
+  "Computer Monitor": {
+    "aliases": [
+      "computer monitor",
+      "monitor",
+      "display screen",
+      "شاشة كمبيوتر",
+      "شاشة عرض"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "computer monitor",
+        "gaming monitor",
+        "شاشة كمبيوتر"
+      ],
+      "Noon Egypt": [
+        "computer monitor",
+        "monitor",
+        "شاشة كمبيوتر"
+      ],
+      "IKEA Egypt": [
+        "monitor arm",
+        "monitor stand"
+      ],
+      "Jumia Egypt": [
+        "computer monitor",
+        "شاشة كمبيوتر"
+      ]
+    },
+    "rejectionKeywords": [
+      "monitor stand",
+      "monitor arm",
+      "screen protector",
+      "حامل شاشة"
+    ]
+  },
+  "Printer": {
+    "aliases": [
+      "printer",
+      "copier",
+      "طابعة",
+      "ماكينة طباعة"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "printer",
+        "laser printer",
+        "inkjet printer",
+        "طابعة"
+      ],
+      "Noon Egypt": [
+        "printer",
+        "طابعة"
+      ],
+      "IKEA Egypt": [
+        "printer"
+      ],
+      "Jumia Egypt": [
+        "printer",
+        "طابعة"
+      ]
+    },
+    "rejectionKeywords": [
+      "ink cartridge",
+      "printer paper",
+      "toner",
+      "حبر طابعة",
+      "ورق طباعة"
+    ]
+  },
+  "Water Heater": {
+    "aliases": [
+      "water heater",
+      "boiler",
+      "geyser",
+      "سخان مياه",
+      "سخان كهرباء",
+      "سخان غاز"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "water heater",
+        "electric water heater",
+        "سخان مياه"
+      ],
+      "Noon Egypt": [
+        "water heater",
+        "سخان مياه"
+      ],
+      "IKEA Egypt": [
+        "water heater"
+      ],
+      "Jumia Egypt": [
+        "water heater",
+        "سخان مياه"
+      ]
+    },
+    "rejectionKeywords": [
+      "heater filter",
+      "element"
+    ]
+  },
+  "Outdoor Fan / Heater": {
+    "aliases": [
+      "outdoor fan",
+      "patio heater",
+      "outdoor heater",
+      "مروحة حدائق",
+      "دفاية حدائق"
+    ],
+    "searchTerms": {
+      "Amazon Egypt": [
+        "patio heater",
+        "outdoor fan",
+        "مروحة حدائق",
+        "دفاية حدائق"
+      ],
+      "Noon Egypt": [
+        "patio heater",
+        "outdoor fan",
+        "دفاية حدائق"
+      ],
+      "IKEA Egypt": [
+        "outdoor fan",
+        "patio heater"
+      ],
+      "Jumia Egypt": [
+        "outdoor fan",
+        "patio heater"
+      ]
+    },
+    "rejectionKeywords": [
+      "fan cover",
+      "heater cover"
+    ]
+  }
+}

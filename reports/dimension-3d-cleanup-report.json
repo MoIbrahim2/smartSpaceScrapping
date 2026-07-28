@@ -1,0 +1,26 @@
+{
+  "targetOutputFile": "output/products_clean_3d.json",
+  "originalInputFile": "output/products_clean.json",
+  "totalProductsProcessed": 1606,
+  "fullyComplete100Percent3D": "1606 (100.0%)",
+  "missingNullDimensionsRemaining": 0,
+  "imputationBreakdown": {
+    "imputedWidths": 63,
+    "imputedLengths": 67,
+    "imputedHeights": 73
+  },
+  "schema": {
+    "dimensionsFields": [
+      "width",
+      "height",
+      "length",
+      "dimensionUnit",
+      "weight",
+      "weightUnit"
+    ],
+    "removedFields": [
+      "depth"
+    ],
+    "allNonNull": true
+  }
+}
