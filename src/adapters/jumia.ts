@@ -6,6 +6,7 @@ import { logger } from '../core/logger.js';
 export class JumiaAdapter extends BaseAdapter {
   readonly name = 'Jumia Egypt';
   readonly baseUrl = 'https://www.jumia.com.eg';
+  private hitCache: Map<string, any> = new Map();
 
   async discover(
     category: string,
@@ -19,7 +20,16 @@ export class JumiaAdapter extends BaseAdapter {
       : `${this.baseUrl}/catalog/?q=${encodeURIComponent(searchTerm)}&page=${page}`;
 
     logger.info(`    [Jumia] Discovering "${searchTerm}" page ${page}`);
-    const html = await this.httpClient.fetch(searchUrl, { skipRobots: true });
+    const html = await this.httpClient.fetch(searchUrl, {
+      skipRobots: true,
+      timeout: 8000,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9,ar-EG;q=0.8,ar;q=0.7',
+        'Referer': 'https://www.jumia.com.eg/'
+      }
+    });
 
     if (!html) {
       return { candidateUrls: [], hasNextPage: false, searchTermUsed: searchTerm };
@@ -32,8 +42,17 @@ export class JumiaAdapter extends BaseAdapter {
       const link = $(el).find('a.core').attr('href');
       if (link) {
         const fullUrl = link.startsWith('http') ? link : `${this.baseUrl}${link}`;
-        if (!candidateUrls.includes(fullUrl)) {
-          candidateUrls.push(fullUrl);
+        const cleanUrl = fullUrl.replace('/www.jumia.com.eg/ar/', '/www.jumia.com.eg/');
+        const name = $(el).find('.name').text().trim();
+        const priceStr = $(el).find('.prc').text().replace(/[^0-9.]/g, '');
+        const price = priceStr ? parseFloat(priceStr) : null;
+        const img = $(el).find('img.img').attr('data-src') || $(el).find('img.img').attr('src');
+
+        this.hitCache.set(cleanUrl, { name, price, image: img });
+        this.hitCache.set(fullUrl, { name, price, image: img });
+
+        if (!candidateUrls.includes(cleanUrl)) {
+          candidateUrls.push(cleanUrl);
         }
       }
     });
@@ -61,7 +80,39 @@ export class JumiaAdapter extends BaseAdapter {
   }
 
   async scrapeProduct(url: string): Promise<RawScrapedProduct | null> {
-    const html = await this.httpClient.fetch(url);
+    const cleanUrl = url.replace('/www.jumia.com.eg/ar/', '/www.jumia.com.eg/');
+    const cached = this.hitCache.get(url) || this.hitCache.get(cleanUrl);
+    const html = await this.httpClient.fetch(url, {
+      skipRobots: true,
+      timeout: 5000,
+      headers: {
+        'Referer': 'https://www.jumia.com.eg/'
+      }
+    });
+
+    if (!html && cached && cached.name && cached.price && cached.price > 0) {
+      logger.info(`    [Jumia] Using catalog metadata fallback for ${url}`);
+      const skuMatch = url.match(/-([0-9a-zA-Z]+)\.html/);
+      const externalId = skuMatch ? skuMatch[1] : `jumia-${Date.now()}`;
+      return {
+        externalId,
+        marketplace: this.name,
+        productUrl: url,
+        name: cached.name,
+        brand: null,
+        description: cached.name,
+        sku: externalId,
+        currentPrice: cached.price,
+        originalPrice: cached.price,
+        currency: 'EGP',
+        images: cached.image ? [cached.image] : [],
+        inStock: true,
+        ratingAverage: null,
+        ratingReviews: null,
+        specifications: {},
+      };
+    }
+
     if (!html) return null;
 
     const $ = cheerio.load(html);
