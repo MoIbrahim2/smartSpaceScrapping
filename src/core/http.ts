@@ -20,15 +20,8 @@ export class HttpClient {
     this.axiosInstance = axios.create({
       timeout: timeoutMs,
       headers: {
-        'Accept-Language': 'ar,en-US;q=0.9,en;q=0.8',
+        'Accept-Language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-        'sec-ch-ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"macOS"',
-        'sec-fetch-dest': 'document',
-        'sec-fetch-mode': 'navigate',
-        'sec-fetch-site': 'none',
-        'sec-fetch-user': '?1',
         'upgrade-insecure-requests': '1',
       },
     });
@@ -66,10 +59,19 @@ export class HttpClient {
         }
 
         const userAgent = this.getRandomUserAgent();
+        let referer = options.headers?.Referer || options.headers?.referer;
+        if (!referer) {
+          try {
+            const parsed = new URL(url);
+            referer = `${parsed.protocol}//${parsed.hostname}/`;
+          } catch (e) {}
+        }
+
         const response = await this.axiosInstance.get(url, {
           ...options,
           headers: {
             'User-Agent': userAgent,
+            ...(referer ? { 'Referer': referer } : {}),
             ...options.headers,
           },
         });

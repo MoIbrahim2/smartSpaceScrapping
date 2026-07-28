@@ -6,7 +6,7 @@ import { logger } from '../core/logger.js';
 export class IkeaAdapter extends BaseAdapter {
   readonly name = 'IKEA Egypt';
   readonly baseUrl = 'https://www.ikea.com/eg/ar';
-  private readonly searchApiUrl = 'https://sik.search.blue.cdtapps.com/eg/ar/search-result-page';
+  private hitCache: Map<string, any> = new Map();
 
   async discover(
     category: string,
@@ -35,6 +35,8 @@ export class IkeaAdapter extends BaseAdapter {
           if (product) {
             const pipUrl = product.pipUrl;
             if (pipUrl && pipUrl.startsWith('http')) {
+              this.hitCache.set(pipUrl, product);
+              if (product.itemNo) this.hitCache.set(product.itemNo, product);
               if (!candidateUrls.includes(pipUrl)) {
                 candidateUrls.push(pipUrl);
               }
@@ -56,7 +58,39 @@ export class IkeaAdapter extends BaseAdapter {
   }
 
   async scrapeProduct(url: string): Promise<RawScrapedProduct | null> {
-    const html = await this.httpClient.fetch(url);
+    const itemNoMatch = url.match(/([s]?\d{8})/i) || url.match(/-(\d{8})\/?/);
+    const itemNo = itemNoMatch ? itemNoMatch[1] : null;
+    const cached = this.hitCache.get(url) || (itemNo ? this.hitCache.get(itemNo) : null);
+
+    const html = await this.httpClient.fetch(url, { skipRobots: true });
+
+    if (!html && cached) {
+      const name = `${cached.name || ''} - ${cached.typeName || ''}`.replace(/^[\s-]+|[\s-]+$/g, '');
+      const price = cached.salesPrice?.numeral || cached.price?.numeral || null;
+      const images = cached.mainImageUrl ? [cached.mainImageUrl] : [];
+
+      if (name && price && price > 0) {
+        logger.info(`    [IKEA] Using API metadata fallback for ${url}`);
+        return {
+          externalId: cached.itemNo || `ikea-${Date.now()}`,
+          marketplace: this.name,
+          productUrl: url,
+          name,
+          brand: 'IKEA',
+          description: cached.description || name,
+          sku: cached.itemNo || '',
+          currentPrice: price,
+          originalPrice: price,
+          currency: 'EGP',
+          images,
+          inStock: true,
+          ratingAverage: cached.ratingValue ? parseFloat(cached.ratingValue) : null,
+          ratingReviews: cached.ratingCount ? parseInt(cached.ratingCount, 10) : null,
+          specifications: {},
+        };
+      }
+    }
+
     if (!html) return null;
 
     const $ = cheerio.load(html);
