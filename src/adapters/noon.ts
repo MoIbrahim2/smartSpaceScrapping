@@ -112,7 +112,42 @@ export class NoonAdapter extends BaseAdapter {
   }
 
   async scrapeProduct(url: string): Promise<RawScrapedProduct | null> {
-    const html = await this.httpClient.fetch(url);
+    const skuMatch = url.match(/\/([A-Z0-9]{10,})\/p/i) || url.match(/o=([A-Z0-9]{10,})/i);
+    const externalId = skuMatch ? skuMatch[1] : null;
+    const cachedHit = url ? this.hitCache.get(url) || (externalId ? this.hitCache.get(externalId) : null) : null;
+
+    // Use fast 5000ms timeout for Noon HTML fetch to prevent hanging on ECONNABORTED tarpits
+    const html = await this.httpClient.fetch(url, { timeout: 5000, skipRobots: true });
+
+    if (!html && cachedHit) {
+      const price = cachedHit.sale_price || cachedHit.price || null;
+      const images: string[] = [];
+      if (cachedHit.image_key) {
+        images.push(`https://f.nooncdn.com/p/${cachedHit.image_key}.jpg`);
+      }
+
+      if (cachedHit.name && price && price > 0) {
+        logger.info(`    [Noon] Using catalog API metadata fallback for ${url}`);
+        return {
+          externalId: externalId || cachedHit.sku || `noon-${Date.now()}`,
+          marketplace: this.name,
+          productUrl: url,
+          name: cachedHit.name,
+          brand: cachedHit.brand || null,
+          description: cachedHit.name,
+          sku: cachedHit.sku || externalId || '',
+          currentPrice: price,
+          originalPrice: cachedHit.price || price,
+          currency: 'EGP',
+          images,
+          inStock: true,
+          ratingAverage: cachedHit.rating ? parseFloat(cachedHit.rating) : null,
+          ratingReviews: cachedHit.rating_count ? parseInt(cachedHit.rating_count, 10) : null,
+          specifications: {},
+        };
+      }
+    }
+
     if (!html) return null;
 
     const $ = cheerio.load(html);
@@ -143,9 +178,7 @@ export class NoonAdapter extends BaseAdapter {
       } catch (e) {}
     });
 
-    const skuMatch = url.match(/\/([A-Z0-9]{10,})\/p/i) || url.match(/o=([A-Z0-9]{10,})/i);
-    const externalId = skuMatch ? skuMatch[1] : (jsonLd?.sku || `noon-${Date.now()}`);
-    const cachedHit = this.hitCache.get(url) || (externalId ? this.hitCache.get(externalId) : null);
+    const productId = externalId || (jsonLd?.sku || `noon-${Date.now()}`);
 
     if (jsonLd) {
       const priceVal = jsonLd.offers?.price || jsonLd.offers?.[0]?.price || jsonLd.offers?.lowPrice;
@@ -174,13 +207,13 @@ export class NoonAdapter extends BaseAdapter {
 
       if (jsonLd.name && price && price > 0 && images.length > 0) {
         return {
-          externalId,
+          externalId: productId,
           marketplace: this.name,
           productUrl: url,
           name: jsonLd.name,
           brand: jsonLd.brand?.name || jsonLd.brand || cachedHit?.brand || null,
           description: (jsonLd.description || overviewDesc || jsonLd.name).trim(),
-          sku: externalId,
+          sku: productId,
           currentPrice: price,
           originalPrice: price,
           currency: jsonLd.offers?.priceCurrency || 'EGP',
@@ -297,13 +330,13 @@ export class NoonAdapter extends BaseAdapter {
     const currentPrice = priceText ? parseFloat(priceText) : null;
 
     return {
-      externalId,
+      externalId: domExternalId,
       marketplace: this.name,
       productUrl: url,
       name: title,
       brand: null,
       description: (title + ' ' + overviewDesc).trim(),
-      sku: externalId,
+      sku: domExternalId,
       currentPrice,
       originalPrice: currentPrice,
       currency: 'EGP',
