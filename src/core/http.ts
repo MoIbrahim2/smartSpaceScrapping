@@ -42,11 +42,17 @@ export class HttpClient {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  public async fetch(url: string, options: AxiosRequestConfig = {}, retries: number = this.maxRetries): Promise<string | null> {
-    const isAllowed = await RobotsChecker.isAllowed(url);
-    if (!isAllowed) {
-      logger.warn(`Skipping URL disallowed by robots.txt: ${url}`);
-      return null;
+  public async fetch(
+    url: string,
+    options: AxiosRequestConfig & { skipRobots?: boolean } = {},
+    retries: number = this.maxRetries
+  ): Promise<string | null> {
+    if (!options.skipRobots) {
+      const isAllowed = await RobotsChecker.isAllowed(url);
+      if (!isAllowed) {
+        logger.warn(`Skipping URL disallowed by robots.txt: ${url}`);
+        return null;
+      }
     }
 
     // Guarantee at least 1 retry for transient 403/503 anti-bot WAF blocks

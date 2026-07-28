@@ -16,10 +16,7 @@ export class IkeaAdapter extends BaseAdapter {
   ): Promise<DiscoveryResult> {
     const searchTerm = searchTerms[currentSearchTermIndex] || searchTerms[0];
     const pageSize = 24;
-    const offset = (page - 1) * pageSize;
-
-    // Use IKEA's search API for reliable discovery
-    const apiUrl = `${this.searchApiUrl}?q=${encodeURIComponent(searchTerm)}&size=${pageSize}&types=PRODUCT&subcategories-style=tree-navigation&c=sr&v=20250101&sort=RELEVANCE&offset=${offset}`;
+    const apiUrl = `https://sik.search.blue.cdtapps.com/eg/ar/search-result-page?q=${encodeURIComponent(searchTerm)}&size=${pageSize}`;
 
     logger.info(`    [IKEA] Discovering "${searchTerm}" page ${page} (API)`);
 
@@ -27,7 +24,7 @@ export class IkeaAdapter extends BaseAdapter {
     let hasNextPage = false;
 
     try {
-      const response = await this.httpClient.fetch(apiUrl);
+      const response = await this.httpClient.fetch(apiUrl, { skipRobots: true });
       if (response) {
         const data = typeof response === 'string' ? JSON.parse(response) : response;
         const items = data?.searchResultPage?.products?.main?.items || [];
@@ -45,32 +42,10 @@ export class IkeaAdapter extends BaseAdapter {
           }
         }
 
-        hasNextPage = candidateUrls.length > 0 && (offset + pageSize) < totalHits && page < 10;
+        hasNextPage = candidateUrls.length >= pageSize && page < 10;
       }
-    } catch (apiError: any) {
-      logger.info(`    [IKEA] API failed (${apiError.message}). Falling back to HTML search.`);
-
-      // Fallback: HTML search
-      const searchUrl = `${this.baseUrl}/search/?q=${encodeURIComponent(searchTerm)}`;
-      const html = await this.httpClient.fetch(searchUrl);
-
-      if (html) {
-        const $ = cheerio.load(html);
-        const seen = new Set<string>();
-
-        $('a[href*="/p/"]').each((_, el) => {
-          const href = $(el).attr('href');
-          if (href) {
-            const fullUrl = href.startsWith('http') ? href : `https://www.ikea.com${href}`;
-            if (!seen.has(fullUrl)) {
-              seen.add(fullUrl);
-              candidateUrls.push(fullUrl);
-            }
-          }
-        });
-
-        hasNextPage = false; // HTML search doesn't paginate reliably
-      }
+    } catch (err: any) {
+      logger.warn(`    [IKEA] Discovery API error: ${err.message}`);
     }
 
     return {

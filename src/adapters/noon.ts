@@ -8,6 +8,8 @@ export class NoonAdapter extends BaseAdapter {
   readonly baseUrl = 'https://www.noon.com/egypt-en';
   private readonly apiBaseUrl = 'https://www.noon.com/_svc/catalog/api/v3/u/search';
 
+  private hitCache: Map<string, any> = new Map();
+
   async discover(
     category: string,
     searchTerms: string[],
@@ -32,8 +34,19 @@ export class NoonAdapter extends BaseAdapter {
 
         for (const hit of hits) {
           const sku = hit.sku || hit.product_sku || hit.id;
-          if (sku) {
-            const productUrl = `https://www.noon.com/egypt-en/p/${sku}`;
+          const hitUrl = hit.url || hit.product_url;
+          let productUrl: string | null = null;
+
+          if (hitUrl && sku) {
+            const cleanSlug = hitUrl.replace(/^\//, '').replace(/\/p\/?$/, '').replace(new RegExp(`/${sku}$`), '');
+            productUrl = `https://www.noon.com/egypt-en/${cleanSlug}/${sku}/p/`;
+          } else if (sku) {
+            productUrl = `https://www.noon.com/egypt-en/p/?o=${sku}`;
+          }
+
+          if (productUrl) {
+            this.hitCache.set(productUrl, hit);
+            if (sku) this.hitCache.set(sku, hit);
             if (!candidateUrls.includes(productUrl)) {
               candidateUrls.push(productUrl);
             }
@@ -119,6 +132,67 @@ export class NoonAdapter extends BaseAdapter {
     const overviewDesc = $('div[class*="_overviewDesc_"] p, div[class*="_overviewDescriptionWrapper_"]')
       .text().replace(/\s+/g, ' ').trim();
 
+    // Try Schema.org JSON-LD first (Noon standard hydration)
+    let jsonLd: any = null;
+    $('script[type="application/ld+json"]').each((_, el) => {
+      try {
+        const parsed = JSON.parse($(el).html() || '{}');
+        if (parsed['@type'] === 'Product') {
+          jsonLd = parsed;
+        }
+      } catch (e) {}
+    });
+
+    const skuMatch = url.match(/\/([A-Z0-9]{10,})\/p/i) || url.match(/o=([A-Z0-9]{10,})/i);
+    const externalId = skuMatch ? skuMatch[1] : (jsonLd?.sku || `noon-${Date.now()}`);
+    const cachedHit = this.hitCache.get(url) || (externalId ? this.hitCache.get(externalId) : null);
+
+    if (jsonLd) {
+      const priceVal = jsonLd.offers?.price || jsonLd.offers?.[0]?.price || jsonLd.offers?.lowPrice;
+      let price = priceVal ? parseFloat(priceVal) : null;
+      if (!price || price === 0) {
+        const domPrice = $('[data-qa="product-price"], .priceNow, span[class*="price"]').first().text().replace(/[^0-9.]/g, '');
+        if (domPrice) price = parseFloat(domPrice);
+      }
+      if ((!price || price === 0) && cachedHit) {
+        price = cachedHit.sale_price || cachedHit.price || null;
+      }
+
+      const rawImages = Array.isArray(jsonLd.image) ? jsonLd.image : (jsonLd.image ? [jsonLd.image] : []);
+      let images = rawImages.filter((img: string) => typeof img === 'string' && img.startsWith('http') && !img.includes('placeholder'));
+      if (images.length === 0 && cachedHit?.image_key) {
+        images = [`https://f.nooncdn.com/p/${cachedHit.image_key}.jpg`];
+      }
+
+      if (Array.isArray(jsonLd.additionalProperty)) {
+        for (const prop of jsonLd.additionalProperty) {
+          if (prop.name && prop.value !== undefined) {
+            specifications[prop.name] = String(prop.value);
+          }
+        }
+      }
+
+      if (jsonLd.name && price && price > 0 && images.length > 0) {
+        return {
+          externalId,
+          marketplace: this.name,
+          productUrl: url,
+          name: jsonLd.name,
+          brand: jsonLd.brand?.name || jsonLd.brand || cachedHit?.brand || null,
+          description: (jsonLd.description || overviewDesc || jsonLd.name).trim(),
+          sku: externalId,
+          currentPrice: price,
+          originalPrice: price,
+          currency: jsonLd.offers?.priceCurrency || 'EGP',
+          images,
+          inStock: jsonLd.offers?.availability ? jsonLd.offers.availability.includes('InStock') : true,
+          ratingAverage: jsonLd.aggregateRating?.ratingValue ? parseFloat(jsonLd.aggregateRating.ratingValue) : null,
+          ratingReviews: jsonLd.aggregateRating?.reviewCount ? parseInt(jsonLd.aggregateRating.reviewCount, 10) : null,
+          specifications,
+        };
+      }
+    }
+
     // Try __NEXT_DATA__ for structured product data
     const nextDataScript = $('#__NEXT_DATA__').html();
     if (nextDataScript) {
@@ -134,20 +208,56 @@ export class NoonAdapter extends BaseAdapter {
             Object.assign(specifications, skuData.specifications);
           }
 
-          const price = skuData.price ? parseFloat(skuData.price) : null;
+          const rawPrice = skuData.price || skuData.sale_price || skuData.offer?.price || skuData.offers?.[0]?.price;
+          let price = rawPrice ? parseFloat(rawPrice) : null;
+          if (!price && nextDataScript) {
+            const priceMatch = nextDataScript.match(/"price"\s*:\s*([0-9.]+)/i) ||
+                               nextDataScript.match(/"offer_price"\s*:\s*([0-9.]+)/i) ||
+                               nextDataScript.match(/"price_gross"\s*:\s*([0-9.]+)/i);
+            if (priceMatch) price = parseFloat(priceMatch[1]);
+          }
+          if (!price) {
+            const domPrice = $('[data-qa="product-price"], .priceNow, [class*="price"]').first().text().replace(/[^0-9.]/g, '');
+            if (domPrice) price = parseFloat(domPrice);
+          }
+
           const wasPrice = skuData.was_price ? parseFloat(skuData.was_price) : price;
 
-          // Images — only use real URLs
+          // Images — parse image keys and CDN URLs
           const images: string[] = [];
-          if (skuData.images && Array.isArray(skuData.images)) {
-            for (const img of skuData.images) {
-              const imgUrl = typeof img === 'string'
-                ? (img.startsWith('http') ? img : `https://f.nooncdn.com/p/${img}`)
-                : null;
-              if (imgUrl && !imgUrl.includes('placeholder')) {
+          const rawImgList = skuData.images || skuData.image_keys || skuData.images_keys || [];
+          if (Array.isArray(rawImgList)) {
+            for (const img of rawImgList) {
+              let imgUrl: string | null = null;
+              if (typeof img === 'string') {
+                imgUrl = img.startsWith('http') ? img : `https://f.nooncdn.com/p/${img}.jpg`;
+              } else if (img && typeof img === 'object' && img.url) {
+                imgUrl = img.url.startsWith('http') ? img.url : `https://f.nooncdn.com/p/${img.url}.jpg`;
+              }
+              if (imgUrl && !imgUrl.includes('placeholder') && !images.includes(imgUrl)) {
                 images.push(imgUrl);
               }
             }
+          }
+
+          if (images.length === 0 && nextDataScript) {
+            const imgMatches = nextDataScript.match(/([N|Z][0-9a-zA-Z_\-]+\.jpg)/g);
+            if (imgMatches) {
+              for (const m of imgMatches) {
+                const imgUrl = `https://f.nooncdn.com/p/${m}`;
+                if (!images.includes(imgUrl)) images.push(imgUrl);
+              }
+            }
+          }
+
+          // DOM Image fallback
+          if (images.length === 0) {
+            $('img[src*="nooncdn.com/p/"]').each((_, el) => {
+              const src = $(el).attr('src');
+              if (src && src.startsWith('http') && !src.includes('placeholder') && !images.includes(src)) {
+                images.push(src);
+              }
+            });
           }
 
           const productName = skuData.name || '';
@@ -180,8 +290,8 @@ export class NoonAdapter extends BaseAdapter {
     const title = $('h1').text().trim() || $('meta[property="og:title"]').attr('content') || '';
     if (!title) return null;
 
-    const skuMatch = url.match(/\/p\/([^/?]+)/);
-    const externalId = skuMatch ? skuMatch[1] : `noon-${Date.now()}`;
+    const domSkuMatch = url.match(/\/p\/([^/?]+)/);
+    const domExternalId = domSkuMatch ? domSkuMatch[1] : `noon-${Date.now()}`;
 
     const priceText = $('.priceNow, [class*="price"]').first().text().replace(/[^0-9.]/g, '');
     const currentPrice = priceText ? parseFloat(priceText) : null;

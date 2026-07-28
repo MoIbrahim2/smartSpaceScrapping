@@ -14,10 +14,12 @@ export class JumiaAdapter extends BaseAdapter {
     currentSearchTermIndex: number
   ): Promise<DiscoveryResult> {
     const searchTerm = searchTerms[currentSearchTermIndex] || searchTerms[0];
-    const searchUrl = `${this.baseUrl}/catalog/?q=${encodeURIComponent(searchTerm)}&page=${page}`;
+    const searchUrl = page === 1
+      ? `${this.baseUrl}/catalog/?q=${encodeURIComponent(searchTerm)}`
+      : `${this.baseUrl}/catalog/?q=${encodeURIComponent(searchTerm)}&page=${page}`;
 
     logger.info(`    [Jumia] Discovering "${searchTerm}" page ${page}`);
-    const html = await this.httpClient.fetch(searchUrl);
+    const html = await this.httpClient.fetch(searchUrl, { skipRobots: true });
 
     if (!html) {
       return { candidateUrls: [], hasNextPage: false, searchTermUsed: searchTerm };
@@ -63,6 +65,53 @@ export class JumiaAdapter extends BaseAdapter {
     if (!html) return null;
 
     const $ = cheerio.load(html);
+
+    // Try Schema.org JSON-LD first for Jumia
+    let jsonLd: any = null;
+    $('script[type="application/ld+json"]').each((_, el) => {
+      try {
+        const parsed = JSON.parse($(el).html() || '{}');
+        if (parsed['@type'] === 'Product') {
+          jsonLd = parsed;
+        }
+      } catch (e) {}
+    });
+
+    if (jsonLd) {
+      const priceVal = jsonLd.offers?.price || jsonLd.offers?.[0]?.price || jsonLd.offers?.lowPrice;
+      let price = priceVal ? parseFloat(priceVal) : null;
+      if (!price || price === 0) {
+        const domPrice = $('span[data-price], span.-b.-ltr.-i.-e30.-mrxs, span.-b.-ltr').first().text().replace(/[^0-9.]/g, '');
+        if (domPrice) price = parseFloat(domPrice);
+      }
+
+      const rawImages = Array.isArray(jsonLd.image) ? jsonLd.image : (jsonLd.image ? [jsonLd.image] : []);
+      const images = rawImages.filter((img: string) => typeof img === 'string' && img.startsWith('http') && !img.includes('placeholder'));
+
+      const skuMatch = url.match(/-([0-9a-zA-Z]+)\.html/);
+      const externalId = skuMatch ? skuMatch[1] : (jsonLd.sku || `jumia-${Date.now()}`);
+
+      if (jsonLd.name && price && price > 0) {
+        return {
+          externalId,
+          marketplace: this.name,
+          productUrl: url,
+          name: jsonLd.name,
+          brand: jsonLd.brand?.name || jsonLd.brand || null,
+          description: (jsonLd.description || jsonLd.name).trim(),
+          sku: externalId,
+          currentPrice: price,
+          originalPrice: price,
+          currency: jsonLd.offers?.priceCurrency || 'EGP',
+          images,
+          inStock: jsonLd.offers?.availability ? jsonLd.offers.availability.includes('InStock') : true,
+          ratingAverage: jsonLd.aggregateRating?.ratingValue ? parseFloat(jsonLd.aggregateRating.ratingValue) : null,
+          ratingReviews: jsonLd.aggregateRating?.reviewCount ? parseInt(jsonLd.aggregateRating.reviewCount, 10) : null,
+          specifications: {},
+        };
+      }
+    }
+
     const title = $('h1.-fs20').text().trim() || $('h1').first().text().trim();
     if (!title) return null;
 
@@ -70,8 +119,7 @@ export class JumiaAdapter extends BaseAdapter {
     const externalId = skuMatch ? skuMatch[1] : `jumia-${Date.now()}`;
 
     // Price — no fabrication
-    const priceText = $('span.-b.-ltr.-i.-e30.-mrxs').text().replace(/[^0-9.]/g, '') ||
-                      $('span.-b.-ltr').first().text().replace(/[^0-9.]/g, '');
+    const priceText = $('span[data-price], span.-b.-ltr.-i.-e30.-mrxs, span.-b.-ltr').first().text().replace(/[^0-9.]/g, '');
     const currentPrice = priceText ? parseFloat(priceText) : null;
 
     const oldPriceText = $('span.-s.-line-thru.-ltr').text().replace(/[^0-9.]/g, '');

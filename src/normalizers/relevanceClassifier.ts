@@ -115,12 +115,29 @@ export function classifyProduct(
   for (const keyword of REJECTION_RULES.excludedKeywords) {
     const regex = new RegExp(`\\b${keyword.toLowerCase()}\\b|${keyword.toLowerCase()}`, 'i');
     if (regex.test(combinedText)) {
+      const kLower = keyword.toLowerCase();
+
       // Specific check to avoid false rejections like "TV Unit" due to "TV"
-      if (keyword.toLowerCase() === 'tv' || keyword.toLowerCase() === 'تلفزيون' || keyword.toLowerCase() === 'شاشة') {
+      if (['tv', 'تلفزيون', 'شاشة'].includes(kLower)) {
         if (/tv unit|tv stand|tv console|وحدة تلفزيون|طاولة تلفزيون|طاولة شاشة/i.test(name.toLowerCase())) {
           continue; // Allow TV Units
         }
       }
+
+      // Allow furniture with phone holder or USB charging port
+      if (['هاتف', 'موبايل', 'phone', 'mobile', 'charger', 'charging', 'شاحن'].includes(kLower)) {
+        if (/حامل (هاتف|موبايل|جوال)|منفذ شحن|شاحن|phone holder|charging|mobile holder/i.test(combinedText)) {
+          continue;
+        }
+      }
+
+      // Allow furniture descriptions mentioning delivery/assembly service
+      if (['service', 'خدمة'].includes(kLower)) {
+        if (/توصيل|تركيب|service|guarantee|warranty/i.test(combinedText)) {
+          continue;
+        }
+      }
+
       reasons.push(`Excluded by keyword matching rule: "${keyword}"`);
       return {
         status: 'REJECTED',
@@ -136,8 +153,9 @@ export function classifyProduct(
   let matchedCategory: string | null = null;
   let maxMatchLength = 0;
 
-  for (const [canonical, aliases] of Object.entries(CATEGORY_ALIASES)) {
-    for (const alias of aliases as string[]) {
+  for (const [canonical, config] of Object.entries(CATEGORY_ALIASES)) {
+    const aliasList = Array.isArray(config) ? config : (config as any).aliases || [];
+    for (const alias of aliasList as string[]) {
       // Find matches in name or raw category
       const aliasRegex = new RegExp(`\\b${alias.toLowerCase()}\\b|${alias.toLowerCase()}`, 'i');
       if (aliasRegex.test(name) || aliasRegex.test(rawCategory)) {
