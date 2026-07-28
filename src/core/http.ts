@@ -1,6 +1,32 @@
+import fs from 'fs';
+import path from 'path';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { logger } from './logger.js';
 import { RobotsChecker } from './robots.js';
+
+function loadEnvFile(envPath: string = '.env') {
+  try {
+    const fullPath = path.resolve(process.cwd(), envPath);
+    if (fs.existsSync(fullPath)) {
+      const content = fs.readFileSync(fullPath, 'utf-8');
+      for (const line of content.split('\n')) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+        const eqIdx = trimmed.indexOf('=');
+        if (eqIdx > 0) {
+          const key = trimmed.slice(0, eqIdx).trim();
+          let value = trimmed.slice(eqIdx + 1).trim();
+          if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+            value = value.slice(1, -1);
+          }
+          if (!process.env[key]) {
+            process.env[key] = value;
+          }
+        }
+      }
+    }
+  } catch (e) {}
+}
 
 interface HeaderProfile {
   userAgent: string;
@@ -48,6 +74,7 @@ export class HttpClient {
   private cookieStore: Map<string, string[]> = new Map();
 
   constructor(delayMs: number = 300, maxRetries: number = 1, timeoutMs: number = 15000) {
+    loadEnvFile();
     this.delayMs = delayMs;
     this.maxRetries = maxRetries;
 
