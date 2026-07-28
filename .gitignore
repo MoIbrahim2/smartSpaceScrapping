@@ -2,15 +2,7 @@
 .env
 /node_modules/*
 /node_modules/.bin/*
-/node_modules/*
 src/db_mongo/*.js
-/.checkpoint.json
-/output/*.json
+
+.checkpoint.json
 /output/
-
-.checkpoint.json
-
-
-/Volumes/work/smartSpaceScrapping/.checkpoint.json
-
-.checkpoint.json

@@ -2,22 +2,65 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { logger } from './logger.js';
 import { RobotsChecker } from './robots.js';
 
-const USER_AGENTS = [
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+interface HeaderProfile {
+  userAgent: string;
+  secChUa: string;
+  secChUaPlatform: string;
+}
+
+const HEADER_PROFILES: HeaderProfile[] = [
+  {
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+    secChUa: '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
+    secChUaPlatform: '"macOS"',
+  },
+  {
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+    secChUa: '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
+    secChUaPlatform: '"Windows"',
+  },
+  {
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+    secChUa: '"Not/A)Brand";v="8", "Chromium";v="125", "Google Chrome";v="125"',
+    secChUaPlatform: '"macOS"',
+  },
 ];
+
+function parseProxyUrl(proxyUrlStr?: string): AxiosRequestConfig['proxy'] {
+  if (!proxyUrlStr) return undefined;
+  try {
+    const u = new URL(proxyUrlStr);
+    return {
+      protocol: u.protocol.replace(':', ''),
+      host: u.hostname,
+      port: u.port ? parseInt(u.port, 10) : (u.protocol === 'https:' ? 443 : 80),
+      ...(u.username ? { auth: { username: decodeURIComponent(u.username), password: decodeURIComponent(u.password) } } : {}),
+    };
+  } catch (e) {
+    return undefined;
+  }
+}
 
 export class HttpClient {
   private axiosInstance: AxiosInstance;
   private delayMs: number;
   private maxRetries: number;
+  private cookieStore: Map<string, string[]> = new Map();
 
   constructor(delayMs: number = 300, maxRetries: number = 1, timeoutMs: number = 15000) {
     this.delayMs = delayMs;
     this.maxRetries = maxRetries;
+
+    const proxyEnv = process.env.HTTP_PROXY || process.env.HTTPS_PROXY || process.env.PROXY_URL || process.env.SCRAPER_PROXY;
+    const proxyConfig = parseProxyUrl(proxyEnv);
+
+    if (proxyConfig) {
+      logger.info(`[HTTP Client] Using proxy server: ${proxyConfig.host}:${proxyConfig.port}`);
+    }
+
     this.axiosInstance = axios.create({
       timeout: timeoutMs,
+      ...(proxyConfig ? { proxy: proxyConfig } : {}),
       headers: {
         'Accept-Language': 'en-US,en;q=0.9',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
@@ -26,8 +69,37 @@ export class HttpClient {
     });
   }
 
-  private getRandomUserAgent(): string {
-    return USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+  private getRandomHeaderProfile(): HeaderProfile {
+    return HEADER_PROFILES[Math.floor(Math.random() * HEADER_PROFILES.length)];
+  }
+
+  private getDomain(urlStr: string): string {
+    try {
+      return new URL(urlStr).hostname;
+    } catch {
+      return '';
+    }
+  }
+
+  private updateCookies(domain: string, setCookieHeader?: string | string[]) {
+    if (!domain || !setCookieHeader) return;
+    const newCookies = Array.isArray(setCookieHeader) ? setCookieHeader : [setCookieHeader];
+    const existing = this.cookieStore.get(domain) || [];
+
+    for (const cookieStr of newCookies) {
+      const pair = cookieStr.split(';')[0];
+      if (pair && pair.includes('=')) {
+        const key = pair.split('=')[0].trim();
+        const filtered = existing.filter(c => !c.startsWith(`${key}=`));
+        filtered.push(pair.trim());
+        this.cookieStore.set(domain, filtered);
+      }
+    }
+  }
+
+  private getCookieHeader(domain: string): string | undefined {
+    const cookies = this.cookieStore.get(domain);
+    return cookies && cookies.length > 0 ? cookies.join('; ') : undefined;
   }
 
   private async sleep(ms: number): Promise<void> {
@@ -47,17 +119,20 @@ export class HttpClient {
       }
     }
 
-    // Guarantee at least 1 retry for transient 403/503 anti-bot WAF blocks
     const effectiveRetries = Math.max(1, retries);
     let attempt = 0;
 
     while (attempt <= effectiveRetries) {
       try {
         if (this.delayMs > 0) {
-          await this.sleep(this.delayMs + Math.floor(Math.random() * 200));
+          // Add jitter to delay (0-300ms random offset)
+          await this.sleep(this.delayMs + Math.floor(Math.random() * 300));
         }
 
-        const userAgent = this.getRandomUserAgent();
+        const profile = this.getRandomHeaderProfile();
+        const domain = this.getDomain(url);
+        const existingCookies = this.getCookieHeader(domain);
+
         let referer = options.headers?.Referer || options.headers?.referer;
         if (!referer) {
           try {
@@ -66,14 +141,29 @@ export class HttpClient {
           } catch (e) {}
         }
 
+        const mergedHeaders = {
+          'User-Agent': profile.userAgent,
+          'sec-ch-ua': profile.secChUa,
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': profile.secChUaPlatform,
+          'sec-fetch-dest': 'document',
+          'sec-fetch-mode': 'navigate',
+          'sec-fetch-site': 'same-origin',
+          'sec-fetch-user': '?1',
+          ...(existingCookies ? { 'Cookie': existingCookies } : {}),
+          ...(referer ? { 'Referer': referer } : {}),
+          ...options.headers,
+        };
+
         const response = await this.axiosInstance.get(url, {
           ...options,
-          headers: {
-            'User-Agent': userAgent,
-            ...(referer ? { 'Referer': referer } : {}),
-            ...options.headers,
-          },
+          headers: mergedHeaders,
         });
+
+        // Store session cookies returned by WAF/server
+        if (response.headers['set-cookie']) {
+          this.updateCookies(domain, response.headers['set-cookie']);
+        }
 
         return typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
       } catch (err: any) {
