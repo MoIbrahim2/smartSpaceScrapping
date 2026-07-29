@@ -11,12 +11,28 @@ export class CloudflareBypass {
       return this.cachedCookies;
     }
 
+    let rootHtmlUrl = targetUrl;
+    try {
+      const parsed = new URL(targetUrl);
+      if (parsed.hostname.includes('noon.com')) {
+        rootHtmlUrl = 'https://www.noon.com/egypt-en/';
+      } else if (parsed.hostname.includes('jumia.com')) {
+        rootHtmlUrl = 'https://www.jumia.com.eg/';
+      } else if (parsed.hostname.includes('ikea.com')) {
+        rootHtmlUrl = 'https://www.ikea.com/eg/ar/';
+      } else if (parsed.hostname.includes('amazon.')) {
+        rootHtmlUrl = 'https://www.amazon.eg/';
+      } else {
+        rootHtmlUrl = `${parsed.protocol}//${parsed.hostname}/`;
+      }
+    } catch (e) {}
+
     try {
       // Dynamic import to allow optional Playwright dependency
       const playwrightModule = 'playwright';
       const { chromium } = await import(/* ts-ignore */ playwrightModule);
 
-      logger.info(`[CF Bypass] Launching headless browser to solve Cloudflare challenge for ${targetUrl}...`);
+      logger.info(`[CF Bypass] Launching headless browser to solve Cloudflare challenge on ${rootHtmlUrl}...`);
 
       const browser = await chromium.launch({
         headless: true,
@@ -33,8 +49,8 @@ export class CloudflareBypass {
 
       const page = await context.newPage();
 
-      await page.goto(targetUrl, { waitUntil: 'networkidle', timeout: 30000 });
-      await page.waitForTimeout(4000);
+      await page.goto(rootHtmlUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.waitForTimeout(5000); // Give CF challenge JS time to resolve and set cookies
 
       const cookies = await context.cookies();
       await browser.close();
