@@ -182,8 +182,22 @@ export class HttpClient {
           ...options.headers,
         };
 
+        let requestProxy: AxiosRequestConfig['proxy'] = options.proxy;
+        if (!requestProxy) {
+          if (url.includes('noon.com') && process.env.NOON_PROXY) {
+            requestProxy = parseProxyUrl(process.env.NOON_PROXY);
+          } else if (url.includes('jumia.com') && process.env.JUMIA_PROXY) {
+            requestProxy = parseProxyUrl(process.env.JUMIA_PROXY);
+          } else if (url.includes('ikea.com') && process.env.IKEA_PROXY) {
+            requestProxy = parseProxyUrl(process.env.IKEA_PROXY);
+          } else if (url.includes('amazon.') && process.env.AMAZON_PROXY) {
+            requestProxy = parseProxyUrl(process.env.AMAZON_PROXY);
+          }
+        }
+
         const response = await this.axiosInstance.get(url, {
           ...options,
+          ...(requestProxy !== undefined ? { proxy: requestProxy } : {}),
           headers: mergedHeaders,
         });
 
