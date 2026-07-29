@@ -196,7 +196,21 @@ export class HttpClient {
       } catch (err: any) {
         attempt++;
         const status = err.response?.status;
+        const domain = this.getDomain(url);
         logger.warn(`[HTTP Fetch] Failed ${url} - Status/Error: ${status || err.code || err.message}`);
+
+        // If Cloudflare JS Challenge (403 Forbidden) is detected on cloud server, run CF bypass
+        if (status === 403 && attempt === 1) {
+          try {
+            const { CloudflareBypass } = await import('./cf-bypass.js');
+            const cfCookies = await CloudflareBypass.getSessionCookies(url);
+            if (cfCookies) {
+              this.updateCookies(domain, cfCookies.split('; '));
+            }
+          } catch (cfErr: any) {
+            logger.warn(`[HTTP Fetch] CF bypass attempt error: ${cfErr.message}`);
+          }
+        }
 
         if (attempt > effectiveRetries) {
           logger.warn(`Skipping ${url} immediately.`);

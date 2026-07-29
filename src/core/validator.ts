@@ -38,7 +38,7 @@ export class ProductValidator {
     // 2. Run the relevance classifier to determine canonical category
     const classification = classifyProduct(
       raw.name,
-      raw.rawCategory || '',
+      raw.rawCategory || targetCategory,
       raw.description || '',
       raw.specifications || {}
     );

@@ -156,12 +156,23 @@ export function classifyProduct(
   for (const [canonical, config] of Object.entries(CATEGORY_ALIASES)) {
     const aliasList = Array.isArray(config) ? config : (config as any).aliases || [];
     for (const alias of aliasList as string[]) {
-      // Find matches in name or raw category
-      const aliasRegex = new RegExp(`\\b${alias.toLowerCase()}\\b|${alias.toLowerCase()}`, 'i');
-      if (aliasRegex.test(name) || aliasRegex.test(rawCategory)) {
-        if (alias.length > maxMatchLength) {
+      const aliasLower = alias.toLowerCase();
+      // Word boundary regex vs substring regex
+      const wordBoundaryRegex = new RegExp(`\\b${aliasLower}\\b`, 'i');
+      const substringRegex = new RegExp(`${aliasLower}`, 'i');
+
+      if (wordBoundaryRegex.test(name)) {
+        // Highest priority: exact word boundary match in product title
+        const score = aliasLower.length * 10;
+        if (score > maxMatchLength || (score === maxMatchLength && canonical.toLowerCase() === rawCategory.toLowerCase())) {
           matchedCategory = canonical;
-          maxMatchLength = alias.length;
+          maxMatchLength = score;
+        }
+      } else if (substringRegex.test(name) || wordBoundaryRegex.test(rawCategory)) {
+        const score = aliasLower.length;
+        if (score > maxMatchLength || (score === maxMatchLength && canonical.toLowerCase() === rawCategory.toLowerCase())) {
+          matchedCategory = canonical;
+          maxMatchLength = score;
         }
       }
     }

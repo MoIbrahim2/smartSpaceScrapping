@@ -26,9 +26,18 @@ export class NoonAdapter extends BaseAdapter {
     const candidateUrls: string[] = [];
     let hasNextPage = false;
 
-    try {
-      const response = await this.httpClient.fetch(apiUrl);
-      if (response) {
+    let response = await this.httpClient.fetch(apiUrl, {
+      skipRobots: true,
+      headers: {
+        'x-cms': 'v2',
+        'x-mp': 'noon',
+        'x-platform': 'web',
+        'Referer': `https://www.noon.com/egypt-en/search/?q=${encodeURIComponent(searchTerm)}`
+      }
+    });
+
+    if (response) {
+      try {
         const data = typeof response === 'string' ? JSON.parse(response) : response;
         const hits = data?.hits || data?.results || [];
 
@@ -55,13 +64,16 @@ export class NoonAdapter extends BaseAdapter {
 
         const totalPages = data?.nbPages || data?.total_pages || 0;
         hasNextPage = candidateUrls.length > 0 && page < totalPages && page < 20;
+      } catch (parseErr) {
+        // Fallback below
       }
-    } catch (apiError: any) {
-      logger.info(`    [Noon] API failed (${apiError.message}). Falling back to HTML search.`);
+    }
 
-      // Fallback: HTML search page
+    // Fallback if API returned null or 0 candidate URLs: Try HTML search page
+    if (candidateUrls.length === 0) {
+      logger.info(`    [Noon] API discovery returned 0 hits for "${searchTerm}". Trying HTML search page fallback...`);
       const searchUrl = `${this.baseUrl}/search/?q=${encodeURIComponent(searchTerm)}&page=${page}`;
-      const html = await this.httpClient.fetch(searchUrl);
+      const html = await this.httpClient.fetch(searchUrl, { skipRobots: true });
 
       if (html) {
         const $ = cheerio.load(html);
@@ -73,32 +85,34 @@ export class NoonAdapter extends BaseAdapter {
             const jsonData = JSON.parse(nextDataScript);
             const grid = jsonData?.props?.pageProps?.catalog?.grid ||
                          jsonData?.props?.pageProps?.initialData?.catalog?.grid || [];
+
             for (const item of grid) {
-              const itemUrl = item.url;
-              if (itemUrl) {
-                const fullUrl = itemUrl.startsWith('http')
-                  ? itemUrl
-                  : `https://www.noon.com/egypt-en/${itemUrl.replace(/^\//, '')}`;
-                if (!candidateUrls.includes(fullUrl) && fullUrl.includes('/p/')) {
+              const sku = item.sku || item.product_sku;
+              const urlKey = item.url || item.link;
+              if (urlKey) {
+                const fullUrl = urlKey.startsWith('http') ? urlKey : `https://www.noon.com${urlKey}`;
+                this.hitCache.set(fullUrl, item);
+                if (sku) this.hitCache.set(sku, item);
+                if (!candidateUrls.includes(fullUrl)) {
                   candidateUrls.push(fullUrl);
                 }
               }
             }
-          } catch (e) {
-            logger.debug('[Noon] Failed parsing __NEXT_DATA__ JSON');
-          }
+          } catch (e) {}
         }
 
-        // DOM fallback
-        $('a[href*="/p/"]').each((_, el) => {
-          const href = $(el).attr('href');
-          if (href && href.includes('/p/')) {
-            const fullUrl = href.startsWith('http') ? href : `https://www.noon.com${href}`;
-            if (!candidateUrls.includes(fullUrl)) {
-              candidateUrls.push(fullUrl);
+        // Generic product link fallback
+        if (candidateUrls.length === 0) {
+          $('a[href*="/p/"]').each((_, el) => {
+            const href = $(el).attr('href');
+            if (href && href.includes('/p/')) {
+              const fullUrl = href.startsWith('http') ? href : `https://www.noon.com${href}`;
+              if (!candidateUrls.includes(fullUrl)) {
+                candidateUrls.push(fullUrl);
+              }
             }
-          }
-        });
+          });
+        }
 
         hasNextPage = candidateUrls.length > 0 && page < 20;
       }
